@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{micheli2001analysis}
+A.~Micheli, A.~Sperduti, A.~Starita, and A.~M. Bianucci.
+\newblock Analysis of the internal representations developed by neural networks
+  for structures applied to quantitative structure- activity relationship
+  studies of benzodiazepines.
+\newblock {\em Journal of Chemical Information and Computer Sciences},
+  41(1):202--218, 2001.
+
+\bibitem{micheli2001design}
+A.~Micheli, A.~Sperduti, A.~Starita, and A.~M. Bianucci.
+\newblock Design of new biologically active molecules by recursive neural
+  networks.
+\newblock In {\em IJCNN'01. International Joint Conference on Neural Networks.
+  Proceedings}, volume~4, pages 2732--2737. IEEE, 2001.
+
+\end{thebibliography}
