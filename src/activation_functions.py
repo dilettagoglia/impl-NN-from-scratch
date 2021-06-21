@@ -19,8 +19,8 @@ class ActivationFunction:
 
     @staticmethod
     def sigmoid_der(x):
-        f_x = ActivationFunction.sigmoid(x)
-        return f_x * (1 - f_x)
+        _f_x = ActivationFunction.sigmoid(x)
+        return _f_x * (1 - _f_x)
 
     @staticmethod
     def tanh(x):
@@ -28,8 +28,8 @@ class ActivationFunction:
 
     @staticmethod
     def tanh_der(x):
-        f_x = ActivationFunction.tanh(x)
-        return 1 - (f_x * f_x)
+        _f_x = ActivationFunction.tanh(x)
+        return 1 - (_f_x * _f_x)
 
     @staticmethod
     def relu(x):
