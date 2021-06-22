@@ -1,7 +1,8 @@
 import numpy as np
 
-# TODO use class constructor instead static methods if easier for mapping
+# TODO use class constructor instead static methods if it is easier for mapping
 # (string name of the function and pointer to the function)
+# TODO add other activation functions if needed
 
 class ActivationFunction:
 
