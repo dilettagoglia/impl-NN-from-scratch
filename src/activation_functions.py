@@ -6,6 +6,15 @@ import numpy as np
 
 class ActivationFunction:
 
+    """All functions are defined in this way:
+
+    Args:
+        x (np.ndarray): input vector
+
+    Returns:
+        np.ndarray: vector after applying activation function
+    """
+
     @staticmethod
     def identity(x):
         return x
