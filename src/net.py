@@ -1,7 +1,7 @@
 import warnings
 import json
 import numpy as np
-from tqdm import tqdm # todo: discutere se usarlo
+#from tqdm import tqdm # todo: discutere se usarlo
 from activation_functions import ActivationFunction
 from error_functions import ErrorFunction
 
@@ -95,13 +95,12 @@ class Layer:
     def backward_pass(self, upstream_delta):
         """
         Sets the layer's gradients
+        Multiply (dot product) already the delta for the current layer's weights in order to have it ready for the
+                    previous layer (that does not have access to this layer's weights) that will execute this method in the
+                    next iteration of Network.backprop()
 
         Args:
             upstream_delta: for hidden layers, delta = dot_prod(delta_next, w_next) * dOut_dNet
-
-            Multiply (dot product) already the delta for the current layer's weights in order to have it ready for the
-            previous layer (that does not have access to this layer's weights) that will execute this method in the
-            next iteration of Network.backprop()
 
         Returns:
             new_upstream_delta: delta already multiplied (dot product) by the current layer's weights
@@ -124,14 +123,13 @@ class Layer:
 
 class Network:
 
-    def __init__(self, input_dim, units_per_layer, act_functions, init_type, **kwargs):
+    def __init__(self, input_dim, units_per_layer, act_functions, **kwargs):
         """
-        Constructor
-        :param input_dim: dimension of input layer
-        :param units_per_layer: tuple of integers that indicates the number of units for each layer (input excluded)
-        :param act_functions: list of activation function names (one for each layer)
-        :param init_type: type of weights initializations (either 'fixed' or 'uniform')
-        kwargs may contain arguments for the weights initialization
+        Args:
+            input_dim: dimension of input layer
+            units_per_layer: tuple of integers that indicates the number of units for each layer (input excluded)
+            act_functions: list of activation function names (one for each layer)
+            kwargs may contain arguments for the weights initialization
         """
         if not hasattr(units_per_layer, '__iter__'): #Return whether the object has an attribute with the given name.This is done by calling getattr(obj, name) and catching AttributeError
             units_per_layer = [units_per_layer]
@@ -139,18 +137,15 @@ class Network:
         self.__check_attributes(self, input_dim=input_dim, units_per_layer=units_per_layer, act_functions=act_functions)
         self.__optimizer = None
         self.__params = { # a dictionary with all the main parameters of the network
-                            **{'input_dim': input_dim, 'units_per_layer': units_per_layer, 'act_functions': act_functions,
-                            'init_type': init_type}, **kwargs}
+                            **{'input_dim': input_dim, 'units_per_layer': units_per_layer, 'act_functions': act_functions}, **kwargs}
         self.__layers = []
         layer_inp_dim = input_dim
         for i in range(len(units_per_layer)):
             # aggiungo livello alla rete (vedi classe "Layer")
-            self.__layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i],
-                                       init_type=init_type, **kwargs))
+            self.__layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i], **kwargs))
             layer_inp_dim = units_per_layer[i]
 
-    """ Controllo gli attributi passati al costruttore"""
-    @staticmethod
+    @staticmethod #Controllo gli attributi passati al costruttore
     def __check_attributes(self, input_dim, units_per_layer, act_functions):
         if input_dim < 1 or any(n_units < 1 for n_units in units_per_layer):
             raise ValueError("The input dimension and the number of units for all layers must be positive")
@@ -190,24 +185,30 @@ class Network:
     def forward(self, inp=(2, 2, 2)):
         """
         Performs a forward pass on the whole Network
-        :param inp: net's input vector/matrix
-        :return: net's output vector/matrix
+
+        Args:
+            inp: net's input vector/matrix
+
+        Returns:
+            net's output vector/matrix
         """
         x = inp
         for layer in self.__layers:
             x = layer.forward_pass(x)
         return x
 
-    def compile(self, optimizer='sgd', loss='squared', metr='bin_class_acc', lr=0.01, momentum=0., reg_type='l2', lambd=0, **kwargs):
+    def compile(self, optimizer='sgd', loss='squared', metr='bin_class_acc', lr=0.01, momentum=0., reg_type='l2', lambd=0, **kwargs): #todo: vedere loss e metrics in file Paolo
         """
         Prepares the network by assigning an optimizer to it and setting its parameters
-        :param optimizer: ('Optimizer' object)
-        :param loss: (str) the type of loss function
-        :param metr: (str) the type of metric to track (accuracy etc)
-        :param lr: (float) learning rate value
-        :param momentum: (float) momentum parameter
-        :param lambd: (float) regularization parameter
-        :param reg_type: (string) regularization type
+
+        Args:
+            optimizer: ('Optimizer' object) #todo
+            loss: the type of loss function
+            metr: the type of metric to track (accuracy etc)
+            lr: learning rate value
+            momentum:  momentum parameter
+            lambd: regularization parameter
+            reg_type:  regularization type
         """
         if momentum > 1. or momentum < 0.:
             raise ValueError(f"momentum must be a value between 0 and 1. Got: {momentum}")
@@ -218,12 +219,14 @@ class Network:
     def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, **kwargs):
         """
         Execute the training of the network
-        :param tr_x: (numpy ndarray) input training set
-        :param tr_y: (numpy ndarray) targets for each input training pattern
-        :param val_x: (numpy ndarray) input validation set
-        :param val_y: (numpy ndarray) targets for each input validation pattern
-        :param batch_size: (integer) the size of the batch
-        :param epochs: (integer) number of epochs
+
+        Args:
+            tr_x: input training set
+            tr_y: targets for each input training pattern
+            val_x:  input validation set
+            val_y:  targets for each input validation pattern
+            batch_size: the size of the batch
+            epochs: number of epochs
         """
         # transform sets to numpy array (if they're not already)
         tr_x, tr_y = np.array(tr_x), np.array(tr_y)
@@ -240,9 +243,12 @@ class Network:
     def predict(self, inp):
         """
         Computes the outputs for a batch of patterns, useful for testing w/ a blind test set
-        :param inp: batch of input patterns
-        :return: array of net's outputs
-        :param disable_tqdm: (bool) if True disables the progress bar
+
+        Args:
+            inp: batch of input patterns
+        Returns:
+            array of net's outputs
+
         """
         inp = np.array(inp)
         inp = inp[np.newaxis, :] if len(inp.shape) < 2 else inp
@@ -255,13 +261,16 @@ class Network:
         """
         Performs an evaluation of the network based on the targets and either the pre-computed outputs ('net_outputs')
         or the input data ('inp'), on which the net will first compute the output.
-        If both 'predicted' and 'inp' are None, an AttributeError is raised
-        :param targets: the targets for the input on which the net is evaluated
-        :param metr: the metric to track for the evaluation
-        :param loss: the loss to track for the evaluation
-        :param net_outputs: the output of the net for a certain input
-        :param inp: the input on which the net has to be evaluated
-        :return: the loss and the metric
+
+        Args:
+            targets: the targets for the input on which the net is evaluated
+            metr: the metric to track for the evaluation
+            loss: the loss to track for the evaluation
+            net_outputs: the output of the net for a certain input
+            inp: the input on which the net has to be evaluated
+
+        Returns:
+            the loss and the metric
         """
         if net_outputs is None:
             if inp is None:
@@ -270,7 +279,7 @@ class Network:
         metr_scores = np.zeros(self.layers[-1].n_units)
         loss_scores = np.zeros(self.layers[-1].n_units)
         for x, y in zip(net_outputs, targets):
-            metr_scores = np.add(metr_scores, metrics[metr].func(predicted=x, target=y))
+            metr_scores = np.add(metr_scores, metrics[metr].func(predicted=x, target=y)) #todo
             loss_scores = np.add(loss_scores, losses[loss].func(predicted=x, target=y)) #todo: controllare file Paolo e modificare loss e metriche
         loss_scores = np.sum(loss_scores) / len(loss_scores)
         metr_scores = np.sum(metr_scores) / len(metr_scores)
@@ -278,13 +287,16 @@ class Network:
         metr_scores /= len(net_outputs)
         return loss_scores, metr_scores
 
-    def backprop(self, dErr_dOut, grad_net):
+    def backprop(self, dErr_dOut, grad_net): # NB: mantenuto originale
         """
         Propagates back the error to update each layer's gradient
-        :param dErr_dOut: derivatives of the error wrt the outputs
-        :param grad_net: a structure with the same topology of the neural network in question, but used to store the
-        gradients. It will be updated and returned back to the caller
-        :return: the updated grad_net
+
+        Args:
+            dErr_dOut: derivatives of the error wrt the outputs
+            grad_net: a structure with the same topology of the neural network in question, but used to store the
+                gradients. It will be updated and returned back to the caller
+        Returns:
+            the updated grad_net
         """
         curr_delta = dErr_dOut
         for layer_index in reversed(range(len(self.__layers))):
@@ -293,8 +305,8 @@ class Network:
             grad_net[layer_index]['biases'] = np.add(grad_net[layer_index]['biases'], grad_b)
         return grad_net
 
-    def get_empty_struct(self):
-        """ :return: a zeroed structure with the same topology of the NN to contain all the layers' gradients """
+    def get_empty_struct(self): # NB mantenuto originale
+        """ return a zeroed structure with the same topology of the NN to contain all the layers' gradients """
         struct = np.array([{}] * len(self.__layers))
         for layer_index in range(len(self.__layers)):
             struct[layer_index] = {'weights': [], 'biases': []}
@@ -304,7 +316,7 @@ class Network:
             struct[layer_index]['biases'] = np.zeros(shape=(len(weights_matrix[0, :])))
         return struct
 
-    def print_topology(self):
+    def print_topology(self): # utile???
         """ Prints the network's architecture and parameters """
         print("Model's topology:")
         print("Units per layer: ", self.__params['units_per_layer'])
