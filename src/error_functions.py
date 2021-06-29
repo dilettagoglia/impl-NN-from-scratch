@@ -62,4 +62,8 @@ class ErrorFunction:
         """
         return (prediction - target) / ErrorFunction.euclidean_loss(prediction, target)
 
+    # TODO implement cross-entropy and binary cross-entropy
+    # TODO implement some kind of decay for learning rate over time
+    # TODO implement metrics for printing accuracy of the model
+
 

@@ -25,11 +25,12 @@ Do it only for hyperparameters directly related to the VC-dim.
 - USe MLP with backpropagation, momentum and L2 regularization.
 - Compare our simulator with an "oracle" tool to assess its correctness (Keras, Pytorch, etc.).
 - Try to implement an efficient code for the experiments!
+- Implement some decay technique for learning rate
 
 ## PYTHON IMPLEMENTATION REMARKS
 - Use static methods for utility classes (when we don't care about the property of the object)
 - Use @property decorator to implement setter and getter methods
 -  
-    - _var -> underscore before the name variable is meant as a hint to another programmer that a variable or method starting with a single underscore is intended for internal use.
+    - _var -> is meant as a hint to another programmer that a variable or method starting with a single underscore is intended for internal use.
     It should be considered an implementation detail and subject to change without notice.
     - __var -> this is also called name mangling; the interpreter changes the name of the variable in a way that makes it harder to create collisions when the class is extended later.
