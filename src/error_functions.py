@@ -61,7 +61,7 @@ class ErrorFunction:
             np.ndarray: derivative of the euclidian error
         """
         return (prediction - target) / ErrorFunction.euclidean_loss(prediction, target)
-
+"""
     # TODO implement cross-entropy and binary cross-entropy
     @staticmethod
     def cross_entropy_error(prediction, target):
@@ -69,5 +69,5 @@ class ErrorFunction:
     @staticmethod
     def cross_entropy_error_der(prediction, target):
 
-
+"""
 

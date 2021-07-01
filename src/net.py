@@ -1,12 +1,13 @@
 import warnings
 import json
 import numpy as np
-#from tqdm import tqdm # todo: discutere se usarlo
+from tqdm import tqdm
 from activation_functions import ActivationFunction
 from error_functions import ErrorFunction
+from optimizers import *
 
 """Weights initialization"""
-
+# Instantiate the weights and biases of the network
 def _rand_init(n_weights, n_units, **kwargs):
     lower_bnd = -0.1
     upper_bnd = 0.1
@@ -35,7 +36,7 @@ class Layer:
         self.biases = _rand_init(n_weights=1, n_units=n_units, **kwargs)
         self.__inp_dim = inp_dim
         self.__n_units = n_units
-        self.__act = ActivationFunction[act]
+        self.__act = ActivationFunction.tanh
         self.__inputs = None
         self.__nets = None
         self.__outputs = None
@@ -123,7 +124,7 @@ class Layer:
 
 class Network:
 
-    def __init__(self, input_dim, units_per_layer, act_functions, **kwargs):
+    def __init__(self, input_dim, units_per_layer, act_functions, tqdm=True, **kwargs):
         """
         Args:
             input_dim: dimension of input layer
@@ -184,13 +185,28 @@ class Network:
 
     def forward(self, inp=(2, 2, 2)):
         """
-        Performs a forward pass on the whole Network
+        Performs a forward pass on the whole Network (feed forward computation)
 
         Args:
             inp: net's input vector/matrix
 
         Returns:
             net's output vector/matrix
+        """
+
+        """
+        First version: (before adding Layer class)
+        
+        a = input
+        pre_activations = []
+        activations = [a]
+        for w, b in zip(self.weights, self.biases):
+            z = np.dot(w, a) + b
+            a  = activation(z)
+            pre_activations.append(z)
+            activations.append(a)
+        return a, pre_activations, activations
+        
         """
         x = inp
         for layer in self.__layers:
@@ -214,7 +230,7 @@ class Network:
             raise ValueError(f"momentum must be a value between 0 and 1. Got: {momentum}")
         self.__params = {**self.__params, **{'loss': loss, 'metr': metr, 'lr': lr, 'momentum': momentum,
                                              'reg_type': reg_type, 'lambd': lambd}}
-        self.__optimizer = None # optimizers[optimizer](net=self, loss=loss, metr=metr, lr=lr, momentum=momentum, reg_type=reg_type, lambd=lambd)
+        self.__optimizer = optimizers[optimizer](net=self, loss=loss, metr=metr, lr=lr, momentum=momentum, reg_type=reg_type, lambd=lambd)
 
     def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, **kwargs):
         """
@@ -249,6 +265,17 @@ class Network:
         Returns:
             array of net's outputs
 
+        """
+
+        """
+        First version (before adding Layer class):
+        
+        for w, b in zip(self.weights, self.biases):
+            z = np.dot(w, a) + b
+            a = activation(z)
+        predictions = (a > 0.5).astype(int)
+        return predictions
+        
         """
         inp = np.array(inp)
         inp = inp[np.newaxis, :] if len(inp.shape) < 2 else inp
