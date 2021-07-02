@@ -62,12 +62,31 @@ class ErrorFunction:
         """
         return (prediction - target) / ErrorFunction.euclidean_loss(prediction, target)
 
-    # TODO implement cross-entropy and binary cross-entropy
     @staticmethod
-    def cross_entropy_error(prediction, target):
+    def binary_cross_entropy_error(prediction, target):
+        """Computes the binary cross-entropy/log loss between the predicted output vector and the target vector 
+
+        Args:
+            prediction (np.ndarray): multidimensional array of shape (n,m) of predictions for the n examples
+            target (np.ndarray): multidimensional array of shape (n,m) of true value for the n examples
+
+        Returns:
+            np.float64: binary cross-entropy loss
+        """
+        return np.sum(np.where(target == 0, - np.log(1. - prediction), - np.log(prediction)))
 
     @staticmethod
-    def cross_entropy_error_der(prediction, target):
+    def binary_cross_entropy_error_der(prediction, target):
+        """Computes the derivative of the binary cross-entropy
+
+        Args:
+            prediction (np.ndarray): multidimensional array of shape (n,m) of predictions for the n examples
+            target (np.ndarray): multidimensional array of shape (n,m) of true value for the n examples
+
+        Returns:
+            np.ndarray: derivative of the binary cross-entropy
+        """
+        return np.where(target == 0, 1 / (1. - prediction), - 1. / prediction)
 
 
 
