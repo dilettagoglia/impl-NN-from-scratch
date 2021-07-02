@@ -88,5 +88,3 @@ class ErrorFunction:
         """
         return np.where(target == 0, 1 / (1. - prediction), - 1. / prediction)
 
-
-
