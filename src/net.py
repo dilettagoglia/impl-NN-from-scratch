@@ -4,6 +4,7 @@ import numpy as np
 from tqdm import tqdm
 from activation_functions import ActivationFunction
 from error_functions import ErrorFunction
+from weights_initialization import *
 from optimizers import *
 
 """Weights initialization"""
@@ -32,8 +33,8 @@ class Layer:
 
     def __init__(self, inp_dim, n_units, act, **kwargs):
         """ Constructor -> see parameters in the class description """
-        self.weights = _rand_init(n_weights=inp_dim, n_units=n_units, **kwargs) # per ora abbiamo solo inizializzazione random
-        self.biases = _rand_init(n_weights=1, n_units=n_units, **kwargs)
+        self.weights = random_initialization(n_weights=inp_dim, n_units=n_units, **kwargs) # per ora abbiamo solo inizializzazione random
+        self.biases = random_initialization(n_weights=1, n_units=n_units, **kwargs)
         self.__inp_dim = inp_dim
         self.__n_units = n_units
         self.__act = ActivationFunction.tanh
