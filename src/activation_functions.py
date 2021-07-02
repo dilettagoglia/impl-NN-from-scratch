@@ -47,7 +47,7 @@ class ActivationFunction:
             return np.maximum(x, 0)
 
     @staticmethod
-    def parametric_relu(x, alpha, derivative = False):
+    def leaky_relu(x, alpha = 0.01, derivative = False):
         if derivative:
             return np.where(x >= 0, 1, alpha)
         else:
