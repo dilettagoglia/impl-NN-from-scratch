@@ -11,7 +11,7 @@ def random_initialization(n_weights, n_units, bounds=(-0.1, 0.1), **kwargs):
 
 def glorot_initialization(n_weights, n_units, **kwargs):
     # Glorot and Bengio (2010)
-    # TODO check the implementation with the paper
+    # from PyTorch documentation
     distr = np.random.uniform(-np.sqrt(6 / (n_units+n_weights)), np.sqrt(6 / (n_units+n_weights)),size=(n_weights, n_units))
     if n_weights == 1:
         return distr[0]
