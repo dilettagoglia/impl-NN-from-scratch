@@ -1,7 +1,6 @@
 import numpy as np
 
-# TODO use class constructor instead static methods if easier for mapping
-# (string name of the function and pointer to the function)
+# TODO add new static method for mapping name and function
 
 class ErrorFunction:
     """
@@ -88,3 +87,11 @@ class ErrorFunction:
         """
         return np.where(target == 0, 1 / (1. - prediction), - 1. / prediction)
 
+    @staticmethod
+    def init_error_function(name):
+        if name == "squared_error":
+            return ErrorFunction.squared_error, ErrorFunction.squared_error_der
+        elif name == "euclidian_error":
+            return ErrorFunction.euclidean_error, ErrorFunction.euclidian_error_der
+        elif name == "binary_cross_entropy":
+            return ErrorFunction.binary_cross_entropy_error, ErrorFunction.binary_cross_entropy_error_der

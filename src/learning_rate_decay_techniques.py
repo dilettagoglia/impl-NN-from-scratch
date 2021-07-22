@@ -1,7 +1,5 @@
 import math
 
-# TODO implement linear decay and exponential decay
-
 class LearningRate:
 
     @staticmethod
@@ -44,3 +42,10 @@ class LearningRate:
         """ 
         alpha = curr_step / decay_steps
         return init_lr * math.exp(-decay_rate * alpha)
+
+    @staticmethod
+    def init_decay_technique(name):
+        if name == "linear_decay":
+            return LearningRate.linear_decay
+        elif name == "exponential_decay":
+            return LearningRate.exponential_decay

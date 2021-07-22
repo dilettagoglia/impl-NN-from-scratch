@@ -1,8 +1,6 @@
 import numpy as np
 
-# TODO use class constructor instead static methods if it is easier for mapping
-# (string name of the function and pointer to the function)
-# TODO add other activation functions if needed
+# TODO add new static method for mapping name and function
 
 class ActivationFunction:
 
@@ -52,3 +50,16 @@ class ActivationFunction:
             return np.where(x >= 0, 1, alpha)
         else:
             return np.maximum(x, alpha * x)
+
+    @staticmethod
+    def init_act_function(name):
+        if name == "identity":
+            return ActivationFunction.identity
+        elif name == "sigmoid":
+            return ActivationFunction.sigmoid
+        elif name == "tanh":
+            return ActivationFunction.tanh
+        elif name == "relu":
+            return ActivationFunction.relu
+        elif name == "leaky_relu":
+            return ActivationFunction.leaky_relu
