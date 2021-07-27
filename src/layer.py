@@ -88,6 +88,13 @@ class Layer:
 
         Args:
             delta: for hidden layers, err_signal = dot_prod(delta_next, w_next) * delta_act_net
+
+            ***
+            delta_j = - delta_err_p / delta_out_j
+                    = sum_over_k(delta_k * w_kj) * f'_j(net_j)
+                    --> error signal for hidden units
+            ***
+
             Multiply (dot product) the delta for the layer's weights in order to have it ready for the
                                 next (previous) layer (that does not have access to this layer's weights) which will execute this method in the
                                 next iteration of Network.backprop()
@@ -97,26 +104,34 @@ class Layer:
             gradient_b: gradient wrt biases
         """
 
-        """
-        
-        delta_j = - delta_err_p / delta_out_j = sum_over_k(delta_k * w_kj) * f'_j(net_j) # delta_j --> error signal for hidden units
-        
-        """
-        delta_act_net = self.__act.deriv(self.__nets) # f'_j(net_j)
-        '''since out = f(net) --> delta_out = f'(net)'''
-        err_signal = np.multiply(delta, delta_act_net) # (20) | where delta for hidden layers is (19)
+        delta_act_net = self.__act.deriv(self.__nets) # derivative of the activation function w.r.t. the net
+        ''' delta_act_net corresponds to what we called f'(net) '''
 
-        # gradient_b: gradient wrt biases
+        err_signal = np.multiply(delta, delta_act_net)
+        ''' err_signal for hidden units corresponds to what we called delta_j '''
+
+        # for hidden units:
+        #   err_signal = sum_over_k(dot_prod(delta_k, w_k)) * f'(net)
+        #              = delta * f'(net)
+        #   delta = delta_Err / delta_out
+        #         = sum_over_k(dot_prod(delta_k, w_k))
+
         self.__gradient_b = -err_signal
-
-        # gradient_w: gradient wrt weights
         self.__gradient_w = np.zeros(shape=(self.__inp_dim, self.__n_units)) # inizializzato (shape: dimensione input * numero neuroni nel layer)
+
         for i in range(self.__inp_dim):
-            for j in range(self.__n_units):
+            for j in range(self.__n_units): # hidden units
                 self.__gradient_w[i][j] = -err_signal[j] * self.__inputs[i]
         # the i-th row of the weights matrix corresponds to the vector formed by the i-th weight of each layer's unit
 
-        new_delta = [np.dot(err_signal, self.weights[i]) for i in range(self.__inp_dim)] # (19) delta_k * w_k
+        new_delta = [np.dot(err_signal, self.weights[i]) for i in range(self.__inp_dim)]
+
+        ''' 
+            se delta precedente era delta_k * w_kj ora il delta corrente è delta_j * w_ji,
+            ovvero rispetto al livello successivo (precedente),
+            considerando notazione livelli nell'ordine inverso (backward): k, j, i. 
+        '''
+
         return new_delta, self.__gradient_w, self.__gradient_b
 
 

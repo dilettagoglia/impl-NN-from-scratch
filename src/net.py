@@ -215,7 +215,7 @@ class Network:
         Returns:
             the updated grad_net
         """
-        curr_delta = dErr_dOut
+        curr_delta = dErr_dOut # recall backward_pass function in Layer class, where: delta = delta_Err / delta_out
         for layer_index in reversed(range(len(self.__layers))):
             curr_delta, grad_w, grad_b = self.__layers[layer_index].backward_pass(curr_delta)
             grad_net[layer_index]['weights'] = np.add(grad_net[layer_index]['weights'], grad_w)
@@ -224,7 +224,7 @@ class Network:
 
     def get_empty_struct(self): # NB mantenuto originale
         """ return a zeroed structure with the same topology of the NN to contain all the layers' gradients """
-        struct = np.array([{}] * len(self.__layers))
+        struct = np.array([{}] * len(self.__layers)) # in each {} there is a layer
         for layer_index in range(len(self.__layers)):
             struct[layer_index] = {'weights': [], 'biases': []}
             weights_matrix = self.__layers[layer_index].weights
