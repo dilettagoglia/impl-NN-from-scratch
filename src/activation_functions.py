@@ -1,7 +1,5 @@
 import numpy as np
 
-# TODO add new static method for mapping name and function
-
 class ActivationFunction:
 
     """All functions are defined in this way:

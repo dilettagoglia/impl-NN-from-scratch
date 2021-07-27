@@ -1,4 +1,6 @@
 import numpy as np
+from activation_functions import ActivationFunction
+from weights_initialization import WeightsInitialization
 
 """Layer constructor"""
 
@@ -9,45 +11,50 @@ class Layer:
         inp_dim: layer's input dimension
         n_units: number of units
         act: name of the activation function for that layer
+        init_w_name: name of the type of weights initialization
         kwargs contains other attributes for the weights initialization
     """
 
-    def __init__(self, inp_dim, n_units, act, **kwargs):
+    def __init__(self, inp_dim, n_units, act, init_w_name, **kwargs):
         """ Constructor -> see parameters in the class description """
-        self.weights = random_initialization(n_weights=inp_dim, n_units=n_units, **kwargs) # per ora abbiamo solo inizializzazione random
-        self.biases = random_initialization(n_weights=1, n_units=n_units, **kwargs)
-        self.__inp_dim = inp_dim
-        self.__n_units = n_units
-        self.__act = ActivationFunction.tanh
-        self.__inputs = None
-        self.__nets = None
-        self.__outputs = None
-        self.__gradient_w = None
-        self.__gradient_b = None
+        # for weights init and activation function we use a dict with key (name) and value (function)
+        self.init_weights_type = {init_w_name: WeightsInitialization.init_weights_initialization(init_w_name)}
+        self.weights = self.init_weights_type[init_w_name](n_weights=inp_dim, n_units=n_units, **kwargs)
+        self.biases = self.init_weights_type[init_w_name](n_weights=1, n_units=n_units, **kwargs)
+        self._inp_dim = inp_dim
+        self._n_units = n_units
+        self._act = {act: ActivationFunction.init_act_function(act)}
+        self._inputs = None
+        self._nets = None
+        self._outputs = None
+        self._gradient_w = None
+        self._gradient_b = None
 
     @property
     def inp_dim(self):
-        return self.__inp_dim
+        return self._inp_dim
 
     @property
     def act(self):
-        return self.__act
+        # return self.__act
+        for x in self._act:
+            return x
 
     @property
     def n_units(self):
-        return self.__n_units
+        return self._n_units
 
     @property
     def inputs(self):
-        return self.__inputs
+        return self._inputs
 
     @property
     def nets(self):
-        return self.__nets
+        return self._nets
 
     @property
     def outputs(self):
-        return self.__outputs
+        return self._outputs
 
     def forward_pass(self, inp):
         """
@@ -69,11 +76,11 @@ class Layer:
             exp_scores = np.exp(z2) # softmax
 
         """
-        self.__inputs = inp # (numpy ndarray) input vector
-        self.__nets = np.matmul(inp, self.weights) #  use'numpy.dot' to perform dot product of two arrays. Buth if both are 2-D arrays it is matrix multiplication and using 'matmul' or 'a@b' is preferred.
-        self.__nets = np.add(self.__nets, self.biases)
-        self.__outputs = self.__act.func(self.__nets)
-        return self.__outputs #the vector of the current layer's outputs
+        self._inputs = inp # (numpy ndarray) input vector
+        self._nets = np.matmul(inp, self.weights) #  use'numpy.dot' to perform dot product of two arrays. Buth if both are 2-D arrays it is matrix multiplication and using 'matmul' or 'a@b' is preferred.
+        self._nets = np.add(self._nets, self.biases)
+        self._outputs = self._act.func(self._nets)
+        return self._outputs #the vector of the current layer's outputs
 
     def backward_pass(self, delta):
         """
@@ -89,6 +96,7 @@ class Layer:
             gradient_w: gradient wrt weights
             gradient_b: gradient wrt biases
         """
+
         """
         
         delta_j = - delta_err_p / delta_out_j = sum_over_k(delta_k * w_kj) * f'_j(net_j) # delta_j --> error signal for hidden units
@@ -110,3 +118,5 @@ class Layer:
 
         new_delta = [np.dot(err_signal, self.weights[i]) for i in range(self.__inp_dim)] # (19) delta_k * w_k
         return new_delta, self.__gradient_w, self.__gradient_b
+
+
