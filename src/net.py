@@ -5,6 +5,7 @@ from tqdm import tqdm
 from activation_functions import ActivationFunction
 from error_functions import ErrorFunction
 from weights_initialization import *
+from layer import Layer
 from optimizers import *
 
 
@@ -101,7 +102,7 @@ class Network:
             x = layer.forward_pass(x)
         return x
 
-    def compile(self, optimizer='sgd', loss='squared', metr='bin_class_acc', lr=0.01, momentum=0., reg_type='l2', lambd=0, **kwargs): #todo: vedere loss e metrics in file Paolo
+    def compile(self, optimizer='sgd', loss='squared_error', metr='binary_accuracy', lr=0.01, momentum=0., reg_type='l2', lambd=0, **kwargs):
         """
         Prepares the network by assigning an optimizer to it and setting its parameters
 
@@ -118,7 +119,7 @@ class Network:
             raise ValueError(f"momentum must be a value between 0 and 1. Got: {momentum}")
         self.__params = {**self.__params, **{'loss': loss, 'metr': metr, 'lr': lr, 'momentum': momentum,
                                              'reg_type': reg_type, 'lambd': lambd}}
-        self.__optimizer = optimizers[optimizer](net=self, loss=loss, metr=metr, lr=lr, momentum=momentum, reg_type=reg_type, lambd=lambd)
+        self.__optimizer = Optimizers.optimizer(net=self, loss=loss, metr=metr, lr=lr, momentum=momentum, reg_type=reg_type, lambd=lambd)
 
     def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, **kwargs):
         """
@@ -142,7 +143,8 @@ class Network:
             raise AttributeError(f"Mismatching shapes in validation set {n_val_examples} {n_targets}")
 
         self.__params = {**self.__params, 'epochs': epochs, 'batch_size': batch_size}
-        return self.__optimizer.optimize(tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, **kwargs)
+        return self.__optimizer.optimize( #todo: !!!
+            tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, **kwargs)
 
     def predict(self, inp):
         """
@@ -194,8 +196,8 @@ class Network:
         metr_scores = np.zeros(self.layers[-1].n_units)
         loss_scores = np.zeros(self.layers[-1].n_units)
         for x, y in zip(net_outputs, targets):
-            metr_scores = np.add(metr_scores, metrics[metr].func(predicted=x, target=y)) #todo
-            loss_scores = np.add(loss_scores, losses[loss].func(predicted=x, target=y)) #todo: controllare file Paolo e modificare loss e metriche
+            metr_scores = np.add(metr_scores, Metric.metr(predicted=x, target=y)) #todo controllare quali parametri in costruttore file Paolo
+            loss_scores = np.add(loss_scores, ErrorFunction.loss(predicted=x, target=y))
         loss_scores = np.sum(loss_scores) / len(loss_scores)
         metr_scores = np.sum(metr_scores) / len(metr_scores)
         loss_scores /= len(net_outputs)
