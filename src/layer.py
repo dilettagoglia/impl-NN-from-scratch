@@ -75,28 +75,38 @@ class Layer:
         self.__outputs = self.__act.func(self.__nets)
         return self.__outputs #the vector of the current layer's outputs
 
-    def backward_pass(self, upstream_delta):
+    def backward_pass(self, delta):
         """
         Sets the layer's gradients
-        Multiply (dot product) already the delta for the current layer's weights in order to have it ready for the
-                    previous layer (that does not have access to this layer's weights) that will execute this method in the
-                    next iteration of Network.backprop()
 
         Args:
-            upstream_delta: for hidden layers, delta = dot_prod(delta_next, w_next) * dOut_dNet
-
+            delta: for hidden layers, err_signal = dot_prod(delta_next, w_next) * delta_act_net
+            Multiply (dot product) the delta for the layer's weights in order to have it ready for the
+                                next (previous) layer (that does not have access to this layer's weights) which will execute this method in the
+                                next iteration of Network.backprop()
         Returns:
-            new_upstream_delta: delta already multiplied (dot product) by the current layer's weights
+            new_delta: err_signal already multiplied (dot product) by the current layer's weights
             gradient_w: gradient wrt weights
             gradient_b: gradient wrt biases
         """
-        dOut_dNet = self.__act.deriv(self.__nets)
-        delta = np.multiply(upstream_delta, dOut_dNet)
-        self.__gradient_b = -delta
-        self.__gradient_w = np.zeros(shape=(self.__inp_dim, self.__n_units))
+        """
+        
+        delta_j = - delta_err_p / delta_out_j = sum_over_k(delta_k * w_kj) * f'_j(net_j) # delta_j --> error signal for hidden units
+        
+        """
+        delta_act_net = self.__act.deriv(self.__nets) # f'_j(net_j)
+        '''since out = f(net) --> delta_out = f'(net)'''
+        err_signal = np.multiply(delta, delta_act_net) # (20) | where delta for hidden layers is (19)
+
+        # gradient_b: gradient wrt biases
+        self.__gradient_b = -err_signal
+
+        # gradient_w: gradient wrt weights
+        self.__gradient_w = np.zeros(shape=(self.__inp_dim, self.__n_units)) # inizializzato (shape: dimensione input * numero neuroni nel layer)
         for i in range(self.__inp_dim):
             for j in range(self.__n_units):
-                self.__gradient_w[i][j] = -delta[j] * self.__inputs[i]
+                self.__gradient_w[i][j] = -err_signal[j] * self.__inputs[i]
         # the i-th row of the weights matrix corresponds to the vector formed by the i-th weight of each layer's unit
-        new_upstream_delta = [np.dot(delta, self.weights[i]) for i in range(self.__inp_dim)]
-        return new_upstream_delta, self.__gradient_w, self.__gradient_b
+
+        new_delta = [np.dot(err_signal, self.weights[i]) for i in range(self.__inp_dim)] # (19) delta_k * w_k
+        return new_delta, self.__gradient_w, self.__gradient_b
