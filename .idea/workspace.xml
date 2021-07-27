@@ -132,7 +132,7 @@
       <workItem from="1625137235848" duration="5067000" />
       <workItem from="1625155767911" duration="4000" />
       <workItem from="1626278417638" duration="596000" />
-      <workItem from="1626886542354" duration="14564000" />
+      <workItem from="1626886542354" duration="17350000" />
     </task>
     <servers />
   </component>
@@ -182,7 +182,7 @@
     <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1625149585027" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/impl_NN_from_scratch$run.coverage" NAME="run Coverage Results" MODIFIED="1625152077823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/impl_NN_from_scratch$run.coverage" NAME="run Coverage Results" MODIFIED="1627410295904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/impl_NN_from_scratch$Unittests_in_test_activation_function_py.coverage" NAME="Unittests in test_activation_function.py Coverage Results" MODIFIED="1624641240300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/impl_NN_from_scratch$net.coverage" NAME="net Coverage Results" MODIFIED="1624641711249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
