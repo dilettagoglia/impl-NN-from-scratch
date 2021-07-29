@@ -17,6 +17,7 @@ class Layer:
 
     def __init__(self, inp_dim, n_units, act, init_w_name, **kwargs):
         """ Constructor -> see parameters in the class description """
+
         # for weights init and activation function we use a dict with key (name) and value (function)
         self.init_weights_type = {init_w_name: WeightsInitialization.init_weights_initialization(init_w_name)}
         self.weights = self.init_weights_type[init_w_name](n_weights=inp_dim, n_units=n_units, **kwargs)

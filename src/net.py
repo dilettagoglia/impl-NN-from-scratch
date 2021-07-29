@@ -4,16 +4,16 @@ import numpy as np
 from tqdm import tqdm
 from activation_functions import ActivationFunction
 from error_functions import ErrorFunction
-from weights_initialization import *
+from weights_initialization import WeightsInitialization
 from layer import Layer
-from optimizers import *
+#from optimizers import *
 
 
 """Neural network object"""
 
 class Network:
 
-    def __init__(self, input_dim, units_per_layer, act_functions, tqdm=True, **kwargs):
+    def __init__(self, input_dim, units_per_layer, act_functions, init_w_name, tqdm=True, **kwargs):
         """
         Args:
             input_dim: dimension of input layer
@@ -27,12 +27,12 @@ class Network:
         self.__check_attributes(self, input_dim=input_dim, units_per_layer=units_per_layer, act_functions=act_functions)
         self.__optimizer = None
         self.__params = { # a dictionary with all the main parameters of the network
-                            **{'input_dim': input_dim, 'units_per_layer': units_per_layer, 'act_functions': act_functions}, **kwargs}
+                            **{'input_dim': input_dim, 'units_per_layer': units_per_layer, 'act_functions': act_functions, 'init_w_name': init_w_name}, **kwargs}
         self.__layers = []
         layer_inp_dim = input_dim
         for i in range(len(units_per_layer)):
             # aggiungo livello alla rete (vedi classe "Layer")
-            self.__layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i], **kwargs))
+            self.__layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i], init_w_name=init_w_name, **kwargs))
             layer_inp_dim = units_per_layer[i]
 
     @staticmethod #Controllo gli attributi passati al costruttore
