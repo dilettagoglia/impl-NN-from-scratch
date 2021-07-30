@@ -23,7 +23,7 @@ class Layer:
         self.biases = WeightsInitialization.init_weights_initialization(init_w_name)(n_weights=1, n_units=n_units, **kwargs)
         self._inp_dim = inp_dim
         self._n_units = n_units
-        self._act = {act: ActivationFunction.init_act_function(act)}
+        self._act = ActivationFunction.init_act_function(act)
         self._inputs = None
         self._nets = None
         self._outputs = None
@@ -36,9 +36,7 @@ class Layer:
 
     @property
     def act(self):
-        # return self._act
-        for x in self._act.values():
-            return x
+        return self._act
 
     @property
     def n_units(self):
@@ -135,7 +133,6 @@ class Layer:
         return new_delta, self.__gradient_w, self.__gradient_b
 
     def print_details(self):
-        print("Input dimension: "+str(self._inp_dim))
-        print("Number of neurons: "+str(self._n_units))
-        for x in self._act:
-            print("Activation function: "+x)
+        print("Input dimension: {}".format(self._inp_dim))
+        print("Number of neurons: {}".format(self._n_units))
+        print("Activation function: {}".format(self._act))
