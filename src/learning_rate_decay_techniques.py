@@ -49,3 +49,5 @@ class LearningRate:
             return LearningRate.linear_decay
         elif name == "exponential_decay":
             return LearningRate.exponential_decay
+        else:
+            raise NameError(name+ " is not recognized! Check for correct names and possible decays in init_decay_technique!")

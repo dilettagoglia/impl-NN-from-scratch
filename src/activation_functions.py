@@ -61,3 +61,5 @@ class ActivationFunction:
             return ActivationFunction.relu
         elif name == "leaky_relu":
             return ActivationFunction.leaky_relu
+        else:
+            raise NameError(name+ " is not recognized! Check for correct names and possible activation functions in init_act_function!")

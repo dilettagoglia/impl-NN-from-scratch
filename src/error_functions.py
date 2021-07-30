@@ -92,3 +92,5 @@ class ErrorFunction:
             return ErrorFunction.euclidean_error, ErrorFunction.euclidian_error_der
         elif name == "binary_cross_entropy":
             return ErrorFunction.binary_cross_entropy_error, ErrorFunction.binary_cross_entropy_error_der
+        else:
+            raise NameError(name+ " is not recognized! Check for correct names and possible error functions in init_error_function!")

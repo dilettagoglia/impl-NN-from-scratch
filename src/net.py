@@ -55,11 +55,13 @@ class Network:
 
     @property
     def layers(self):
-        # TODO create a print function for showing layer's information
-        return self._layers # list of net's layers (see 'Layer' objects)
+        # list of net's layers (see 'Layer' objects)
+        for i,layer in enumerate(self._layers):
+            print("---------- LAYER {} ----------".format(i+1))
+            layer.print_details()
 
     @property
-    def optimizer_param(self):
+    def optimizer_params(self):
         return self._optimizer_params
 
     @property

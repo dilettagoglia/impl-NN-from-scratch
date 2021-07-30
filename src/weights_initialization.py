@@ -27,3 +27,5 @@ class WeightsInitialization:
             return WeightsInitialization.random_initialization
         elif name == "glorot":
             return WeightsInitialization.glorot_initialization
+        else:
+            raise NameError(name+ " is not recognized! Check for correct names and possible initializations in init_weights_initialization!")

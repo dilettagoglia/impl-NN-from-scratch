@@ -60,3 +60,5 @@ class Regularizations:
             return Regularizations.lasso_l1, Regularizations.lasso_l1_der
         elif name == "ridge_regression":
             return Regularizations.ridge_regression_l2, Regularizations.ridge_regression_l2_der
+        else:
+            raise NameError(name+ " is not recognized! Check for correct names and possible regularizations in init_regularization!")

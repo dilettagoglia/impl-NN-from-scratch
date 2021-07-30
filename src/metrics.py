@@ -20,5 +20,7 @@ class Metric:
     def init_metric(name):
         if name == 'binary_accuracy':
             return Metric.binary_accuracy
+        else:
+            raise NameError(name+ " is not recognized! Check for correct names and possible metrics in init_metric!")
 
 

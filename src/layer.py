@@ -4,8 +4,6 @@ from weights_initialization import WeightsInitialization
 
 """Layer constructor"""
 
-# TODO define a print method to show all layer details in output (inp_dim, n_units, act_function, etc.)
-
 class Layer:
     """
     Class that represent a layer of a neural network
@@ -20,10 +18,9 @@ class Layer:
     def __init__(self, inp_dim, n_units, act, init_w_name, **kwargs):
         """ Constructor -> see parameters in the class description """
 
-        # for weights init and activation function we use a dict with key (name) and value (function)
-        self.init_weights_type = {init_w_name: WeightsInitialization.init_weights_initialization(init_w_name)}
-        self.weights = self.init_weights_type[init_w_name](n_weights=inp_dim, n_units=n_units, **kwargs)
-        self.biases = self.init_weights_type[init_w_name](n_weights=1, n_units=n_units, **kwargs)
+        # for activation function we use a dict with key (name) and value (function)
+        self.weights = WeightsInitialization.init_weights_initialization(init_w_name)(n_weights=inp_dim, n_units=n_units, **kwargs)
+        self.biases = WeightsInitialization.init_weights_initialization(init_w_name)(n_weights=1, n_units=n_units, **kwargs)
         self._inp_dim = inp_dim
         self._n_units = n_units
         self._act = {act: ActivationFunction.init_act_function(act)}
@@ -137,4 +134,8 @@ class Layer:
 
         return new_delta, self.__gradient_w, self.__gradient_b
 
-
+    def print_details(self):
+        print("Input dimension: "+str(self._inp_dim))
+        print("Number of neurons: "+str(self._n_units))
+        for x in self._act:
+            print("Activation function: "+x)
