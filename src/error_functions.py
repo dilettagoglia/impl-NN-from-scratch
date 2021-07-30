@@ -1,7 +1,5 @@
 import numpy as np
 
-# TODO add new static method for mapping name and function
-
 class ErrorFunction:
     """
     Functions for the "data term" to evaluate model error.
@@ -18,7 +16,6 @@ class ErrorFunction:
         Returns:
             np.float64: squared error loss
         """
-        # TODO check if it is better to compute the mean inside the function 
         # be careful of types passed as parameters 
         return (np.dot(target - prediction, target - prediction))/2     # /2 usefull for the derivation
     
@@ -33,7 +30,7 @@ class ErrorFunction:
         Returns:
             np.ndarray: derivative of the squared error
         """
-        return (target - prediction)
+        return (prediction - target)
 
     @staticmethod
     def euclidean_error(prediction, target):

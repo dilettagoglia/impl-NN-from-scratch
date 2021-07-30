@@ -1,19 +1,17 @@
 import warnings
 import json
 import numpy as np
-from tqdm import tqdm
+# from tqdm import tqdm
 from activation_functions import ActivationFunction
 from error_functions import ErrorFunction
 from weights_initialization import *
 from layer import Layer
 from optimizers import *
 
-
-"""Neural network object"""
-
 class Network:
 
     def __init__(self, input_dim, units_per_layer, act_functions, tqdm=True, **kwargs):
+        # TODO rewrite all documentation with DocString
         """
         Args:
             input_dim: dimension of input layer
@@ -21,56 +19,61 @@ class Network:
             act_functions: list of activation function names (one for each layer)
             kwargs may contain arguments for the weights initialization
         """
-        if not hasattr(units_per_layer, '__iter__'): #Return whether the object has an attribute with the given name.This is done by calling getattr(obj, name) and catching AttributeError
+        # TODO decide whether to keep type checking or not
+        """"if not hasattr(units_per_layer, '__iter__'): #Return whether the object has an attribute with the given name.This is done by calling getattr(obj, name) and catching AttributeError
             units_per_layer = [units_per_layer]
             act_functions = [act_functions]
-        self.__check_attributes(self, input_dim=input_dim, units_per_layer=units_per_layer, act_functions=act_functions)
-        self.__optimizer = None
-        self.__params = { # a dictionary with all the main parameters of the network
+        self.__check_attributes(self, input_dim=input_dim, units_per_layer=units_per_layer, act_functions=act_functions)"""
+        self._params = { # a dictionary with all the main parameters of the network
                             **{'input_dim': input_dim, 'units_per_layer': units_per_layer, 'act_functions': act_functions}, **kwargs}
-        self.__layers = []
+        self._optimizer_params = {} # a dictionary with all hyperparameters useful for SGD
+        self._layers = []
         layer_inp_dim = input_dim
         for i in range(len(units_per_layer)):
-            # aggiungo livello alla rete (vedi classe "Layer")
-            self.__layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i], **kwargs))
+            # add layer to the network (vedi classe "Layer")
+            self._layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i], **kwargs))
+            # keep the current number of neurons of this layer as number of inputs for the next layer
             layer_inp_dim = units_per_layer[i]
 
-    @staticmethod #Controllo gli attributi passati al costruttore
+    # TODO decide whether to keep check attribute or not
+    """@staticmethod #Controllo gli attributi passati al costruttore
     def __check_attributes(self, input_dim, units_per_layer, act_functions):
         if input_dim < 1 or any(n_units < 1 for n_units in units_per_layer):
             raise ValueError("The input dimension and the number of units for all layers must be positive")
         if len(units_per_layer) != len(act_functions):
             raise AttributeError(
-                f"Mismatching lengths --> len(units_per_layer)={len(units_per_layer)}; len(act_functions)={len(act_functions)}")
+                f"Mismatching lengths --> len(units_per_layer)={len(units_per_layer)}; len(act_functions)={len(act_functions)}")"""
 
-    @property # Syntax note: the line @property is used to get the value of a private variable without using any getter methods.
+    # Syntax note: the line @property is used to get the value of a private variable without using any getter methods.
+    @property
     def input_dim(self):
-        return self.__params['input_dim']
+        return self._params['input_dim']
 
     @property
     def units_per_layer(self):
-        return self.__params['units_per_layer']
+        return self._params['units_per_layer']
 
     @property
     def layers(self):
-        return self.__layers # list of net's layers (see 'Layer' objects)
+        # TODO create a print function for showing layer's information
+        return self._layers # list of net's layers (see 'Layer' objects)
 
     @property
-    def optimizer(self):
-        return self.__optimizer
+    def optimizer_param(self):
+        return self._optimizer_params
 
     @property
     def params(self):
-        return self.__params
+        return self._params
 
     @property
     def weights(self):
-        return [layer.weights.tolist() for layer in self.__layers]
+        return [layer.weights.tolist() for layer in self._layers]
 
     @weights.setter
     def weights(self, value):
         for i in range(len(value)):
-            self.__layers[i].weights = value[i]
+            self._layers[i].weights = value[i]
 
     def forward(self, inp=(2, 2, 2)):
         """
@@ -98,7 +101,7 @@ class Network:
         
         """
         x = inp
-        for layer in self.__layers:
+        for layer in self._layers:
             x = layer.forward_pass(x)
         return x
 
@@ -117,10 +120,11 @@ class Network:
         """
         if momentum > 1. or momentum < 0.:
             raise ValueError(f"momentum must be a value between 0 and 1. Got: {momentum}")
-        self.__params = {**self.__params, **{'loss': loss, 'metr': metr, 'lr': lr, 'momentum': momentum,
+        self._params = {**self._params, **{'loss': loss, 'metr': metr, 'lr': lr, 'momentum': momentum,
                                              'reg_type': reg_type, 'lambd': lambd}}
         self.__optimizer = Optimizers.optimizer(net=self, loss=loss, metr=metr, lr=lr, momentum=momentum, reg_type=reg_type, lambd=lambd)
 
+    # TODO merge fit and optimize in optimizer class (or create another class for training)
     def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, **kwargs):
         """
         Execute the training of the network
@@ -142,7 +146,7 @@ class Network:
         if n_val_examples != n_targets: #todo: ricontrollare questo punto
             raise AttributeError(f"Mismatching shapes in validation set {n_val_examples} {n_targets}")
 
-        self.__params = {**self.__params, 'epochs': epochs, 'batch_size': batch_size}
+        self._params = {**self._params, 'epochs': epochs, 'batch_size': batch_size}
         return self.__optimizer.optimize( #todo: !!!
             tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, **kwargs)
 
@@ -216,18 +220,18 @@ class Network:
             the updated grad_net
         """
         curr_delta = dErr_dOut # recall backward_pass function in Layer class, where: delta = delta_Err / delta_out
-        for layer_index in reversed(range(len(self.__layers))):
-            curr_delta, grad_w, grad_b = self.__layers[layer_index].backward_pass(curr_delta)
+        for layer_index in reversed(range(len(self._layers))):
+            curr_delta, grad_w, grad_b = self._layers[layer_index].backward_pass(curr_delta)
             grad_net[layer_index]['weights'] = np.add(grad_net[layer_index]['weights'], grad_w)
             grad_net[layer_index]['biases'] = np.add(grad_net[layer_index]['biases'], grad_b)
         return grad_net
 
     def get_empty_struct(self): # NB mantenuto originale
         """ return a zeroed structure with the same topology of the NN to contain all the layers' gradients """
-        struct = np.array([{}] * len(self.__layers)) # in each {} there is a layer
-        for layer_index in range(len(self.__layers)):
+        struct = np.array([{}] * len(self._layers)) # in each {} there is a layer
+        for layer_index in range(len(self._layers)):
             struct[layer_index] = {'weights': [], 'biases': []}
-            weights_matrix = self.__layers[layer_index].weights
+            weights_matrix = self._layers[layer_index].weights
             weights_matrix = weights_matrix[np.newaxis, :] if len(weights_matrix.shape) < 2 else weights_matrix
             struct[layer_index]['weights'] = np.zeros(shape=weights_matrix.shape)
             struct[layer_index]['biases'] = np.zeros(shape=(len(weights_matrix[0, :])))
@@ -236,11 +240,11 @@ class Network:
     def print_topology(self): # utile???
         """ Prints the network's architecture and parameters """
         print("Model's topology:")
-        print("Units per layer: ", self.__params['units_per_layer'])
-        print("Activation functions: ", self.__params['act_functions'])
+        print("Units per layer: ", self._params['units_per_layer'])
+        print("Activation functions: ", self._params['act_functions'])
 
     def save_model(self, filename: str):
         """ Saves the model to filename """
-        data = {'model_params': self.__params, 'weights': self.weights}
+        data = {'model_params': self._params, 'weights': self.weights}
         with open(filename, 'w') as f:
             json.dump(data, f, indent='\t')
