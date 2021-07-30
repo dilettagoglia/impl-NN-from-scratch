@@ -1,17 +1,18 @@
 import warnings
 import json
 import numpy as np
-# from tqdm import tqdm
-from activation_functions import ActivationFunction
+from tqdm import tqdm
 from error_functions import ErrorFunction
-from weights_initialization import WeightsInitialization
+from metrics import Metric
 from layer import Layer
+from training import Training
 #from optimizers import *
 
 class Network:
 
+    # TODO rewrite all documentation with DocString
+
     def __init__(self, input_dim, units_per_layer, act_functions, tqdm=True, **kwargs):
-        # TODO rewrite all documentation with DocString
         """
         Args:
             input_dim: dimension of input layer
@@ -24,9 +25,10 @@ class Network:
             units_per_layer = [units_per_layer]
             act_functions = [act_functions]
         self.__check_attributes(self, input_dim=input_dim, units_per_layer=units_per_layer, act_functions=act_functions)"""
-        self._params = { # a dictionary with all the main parameters of the network
+        self._params = { # a dictionary with all the main specific parameters of the network
                             **{'input_dim': input_dim, 'units_per_layer': units_per_layer, 'act_functions': act_functions}, **kwargs}
-        self._optimizer_params = {} # a dictionary with all hyperparameters useful for SGD
+        self._training_alg = None
+        self._training_params = None # a dictionary with all useful hyperparameters to give to an optimizer
         self._layers = []
         layer_inp_dim = input_dim
         for i in range(len(units_per_layer)):
@@ -56,13 +58,11 @@ class Network:
     @property
     def layers(self):
         # list of net's layers (see 'Layer' objects)
-        for i,layer in enumerate(self._layers):
-            print("---------- LAYER {} ----------".format(i+1))
-            layer.print_details()
+        return self._layers
 
     @property
-    def optimizer_params(self):
-        return self._optimizer_params
+    def training_params(self):
+        return self._training_params
 
     @property
     def params(self):
@@ -107,12 +107,11 @@ class Network:
             x = layer.forward_pass(x)
         return x
 
-    def compile(self, optimizer='sgd', loss='squared_error', metr='binary_accuracy', lr=0.01, momentum=0., reg_type='l2', lambd=0, **kwargs):
+    def compile(self, loss='squared_error', metr='binary_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., reg_type='ridge_regression', lambd=0, **kwargs):
         """
         Prepares the network by assigning an optimizer to it and setting its parameters
 
         Args:
-            optimizer: ('Optimizer' object) #todo
             loss: the type of loss function
             metr: the type of metric to track (accuracy etc)
             lr: learning rate value
@@ -122,9 +121,14 @@ class Network:
         """
         if momentum > 1. or momentum < 0.:
             raise ValueError(f"momentum must be a value between 0 and 1. Got: {momentum}")
-        self._params = {**self._params, **{'loss': loss, 'metr': metr, 'lr': lr, 'momentum': momentum,
-                                             'reg_type': reg_type, 'lambd': lambd}}
-        self.__optimizer = Optimizers.optimizer(net=self, loss=loss, metr=metr, lr=lr, momentum=momentum, reg_type=reg_type, lambd=lambd)
+         #self._params = {**self._params, **{'loss': loss, 'metr': metr, 'lr': lr, 'momentum': momentum,
+         #                                     'reg_type': reg_type, 'lambd': lambd}}
+        self._training_params = {'loss': loss, 'metr': metr, 'lr': lr, 'lr_decay': lr_decay,
+                                  'limit_step': limit_step, 'decay_rate': decay_rate,
+                                  'decay_steps': decay_steps, 'momentum': momentum,'reg_type': reg_type, 'lambd': lambd}
+        self._training_alg = Training(net=self, loss=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
+                                     decay_rate=decay_rate, decay_steps=decay_steps,
+                                     momentum=momentum, reg_type=reg_type, lambd=lambd)
 
     # TODO merge fit and optimize in optimizer class (or create another class for training)
     def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, **kwargs):
@@ -148,8 +152,8 @@ class Network:
         if n_val_examples != n_targets: #todo: ricontrollare questo punto
             raise AttributeError(f"Mismatching shapes in validation set {n_val_examples} {n_targets}")
 
-        self._params = {**self._params, 'epochs': epochs, 'batch_size': batch_size}
-        return self.__optimizer.optimize( #todo: !!!
+        self._training_params = {**self._training_params, 'epochs': epochs, 'batch_size': batch_size}
+        return self._training_alg.gradient_descent(
             tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, **kwargs)
 
     def predict(self, inp):
@@ -202,8 +206,8 @@ class Network:
         metr_scores = np.zeros(self.layers[-1].n_units)
         loss_scores = np.zeros(self.layers[-1].n_units)
         for x, y in zip(net_outputs, targets):
-            metr_scores = np.add(metr_scores, Metric.metr(predicted=x, target=y)) #todo controllare quali parametri in costruttore file Paolo
-            loss_scores = np.add(loss_scores, ErrorFunction.loss(predicted=x, target=y))
+            metr_scores = np.add(metr_scores, Metric.init_metric(metr)(prediction=x, target=y)) #todo controllare quali parametri in costruttore file Paolo
+            loss_scores = np.add(loss_scores, ErrorFunction.init_error_function(loss)[0](prediction=x, target=y))
         loss_scores = np.sum(loss_scores) / len(loss_scores)
         metr_scores = np.sum(metr_scores) / len(metr_scores)
         loss_scores /= len(net_outputs)
@@ -241,9 +245,10 @@ class Network:
 
     def print_topology(self): # utile???
         """ Prints the network's architecture and parameters """
-        print("Model's topology:")
-        print("Units per layer: ", self._params['units_per_layer'])
-        print("Activation functions: ", self._params['act_functions'])
+        for i,layer in enumerate(self._layers):
+            print("Network's topology:")
+            print("---------- LAYER {} ----------".format(i+1))
+            layer.print_details()
 
     def save_model(self, filename: str):
         """ Saves the model to filename """

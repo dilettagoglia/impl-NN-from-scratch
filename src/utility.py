@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import metrics
 from sklearn.preprocessing import OneHotEncoder
-import scikitplot as skplt
+# import scikitplot as skplt
 import matplotlib
 matplotlib.rcParams['figure.figsize'] = (10.0, 10.0)
 from matplotlib import pyplot as plt
@@ -13,7 +13,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split # hold-out approach
 from tqdm import tqdm
-from IPython import display
+# from IPython import display
 
 """
 Read Dataset

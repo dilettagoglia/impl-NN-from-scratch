@@ -77,7 +77,7 @@ class Layer:
         self._inputs = inp # (numpy ndarray) input vector
         self._nets = np.matmul(inp, self.weights) #  use'numpy.dot' to perform dot product of two arrays. Buth if both are 2-D arrays it is matrix multiplication and using 'matmul' or 'a@b' is preferred.
         self._nets = np.add(self._nets, self.biases)
-        self._outputs = self._act.func(self._nets)
+        self._outputs = self._act(self._nets)
         return self._outputs #the vector of the current layer's outputs
 
     def backward_pass(self, delta):
@@ -102,7 +102,7 @@ class Layer:
             gradient_b: gradient wrt biases
         """
 
-        delta_act_net = self.__act.deriv(self.__nets) # derivative of the activation function w.r.t. the net
+        delta_act_net = self._act(self._nets, derivative=True) # derivative of the activation function w.r.t. the net
         ''' delta_act_net corresponds to what we called f'(net) '''
 
         err_signal = np.multiply(delta, delta_act_net)
@@ -114,15 +114,15 @@ class Layer:
         #   delta = delta_Err / delta_out
         #         = sum_over_k(dot_prod(delta_k, w_k))
 
-        self.__gradient_b = -err_signal
-        self.__gradient_w = np.zeros(shape=(self.__inp_dim, self.__n_units)) # inizializzato (shape: dimensione input * numero neuroni nel layer)
+        self._gradient_b = -err_signal
+        self._gradient_w = np.zeros(shape=(self._inp_dim, self._n_units)) # inizializzato (shape: dimensione input * numero neuroni nel layer)
 
-        for i in range(self.__inp_dim):
-            for j in range(self.__n_units): # hidden units
-                self.__gradient_w[i][j] = -err_signal[j] * self.__inputs[i]
+        for i in range(self._inp_dim):
+            for j in range(self._n_units): # hidden units
+                self._gradient_w[i][j] = -err_signal[j] * self._inputs[i]
         # the i-th row of the weights matrix corresponds to the vector formed by the i-th weight of each layer's unit
 
-        new_delta = [np.dot(err_signal, self.weights[i]) for i in range(self.__inp_dim)] # TODO check sign of error signal (test with some trials)
+        new_delta = [np.dot(err_signal, self.weights[i]) for i in range(self._inp_dim)] # TODO check sign of error signal (test with some trials)
 
         ''' 
             se delta precedente era delta_k * w_kj ora il delta corrente è delta_j * w_ji,
@@ -130,7 +130,7 @@ class Layer:
             considerando notazione livelli nell'ordine inverso (backward): k, j, i. 
         '''
 
-        return new_delta, self.__gradient_w, self.__gradient_b
+        return new_delta, self._gradient_w, self._gradient_b
 
     def print_details(self):
         print("Input dimension: {}".format(self._inp_dim))
