@@ -4,9 +4,9 @@ import numpy as np
 # from tqdm import tqdm
 from activation_functions import ActivationFunction
 from error_functions import ErrorFunction
-from weights_initialization import *
+from weights_initialization import WeightsInitialization
 from layer import Layer
-from optimizers import *
+#from optimizers import *
 
 class Network:
 
