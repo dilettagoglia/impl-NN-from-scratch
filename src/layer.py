@@ -122,7 +122,7 @@ class Layer:
                 self._gradient_w[i][j] = -err_signal[j] * self._inputs[i]
         # the i-th row of the weights matrix corresponds to the vector formed by the i-th weight of each layer's unit
 
-        new_delta = [np.dot(err_signal, self.weights[i]) for i in range(self._inp_dim)] # TODO check sign of error signal (test with some trials)
+        new_delta = [np.dot(err_signal, self.weights[i]) for i in range(self._inp_dim)]
 
         ''' 
             se delta precedente era delta_k * w_kj ora il delta corrente è delta_j * w_ji,
