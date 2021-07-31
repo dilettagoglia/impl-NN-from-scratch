@@ -2,6 +2,7 @@ from net import Network
 from utility import *
 from sklearn.model_selection import train_test_split
 
+
 if __name__ == '__main__':
     # MONKS DEMO
 
@@ -25,7 +26,7 @@ if __name__ == '__main__':
 
     model.compile(loss='squared_error', metr='binary_accuracy', lr=0.3, momentum=0.8)
     # # training (check the method definition for more info about all the possible parameters)
-    tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y, batch_size=1,
+    tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y, batch_size='full',
                                                     epochs=500)
     # # plot the learning curves
     plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation')

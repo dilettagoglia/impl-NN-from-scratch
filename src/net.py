@@ -21,10 +21,10 @@ class Network:
             kwargs may contain arguments for the weights initialization
         """
         # TODO decide whether to keep type checking or not
-        """"if not hasattr(units_per_layer, '__iter__'): #Return whether the object has an attribute with the given name.This is done by calling getattr(obj, name) and catching AttributeError
+        if not hasattr(units_per_layer, '__iter__'): #Return whether the object has an attribute with the given name.This is done by calling getattr(obj, name) and catching AttributeError
             units_per_layer = [units_per_layer]
             act_functions = [act_functions]
-        self.__check_attributes(self, input_dim=input_dim, units_per_layer=units_per_layer, act_functions=act_functions)"""
+        self.__check_attributes(self, input_dim=input_dim, units_per_layer=units_per_layer, act_functions=act_functions)
         self._params = { # a dictionary with all the main specific parameters of the network
                             **{'input_dim': input_dim, 'units_per_layer': units_per_layer, 'act_functions': act_functions}, **kwargs}
         self._training_alg = None
@@ -38,13 +38,13 @@ class Network:
             layer_inp_dim = units_per_layer[i]
 
     # TODO decide whether to keep check attribute or not
-    """@staticmethod #Controllo gli attributi passati al costruttore
+    @staticmethod #Controllo gli attributi passati al costruttore
     def __check_attributes(self, input_dim, units_per_layer, act_functions):
         if input_dim < 1 or any(n_units < 1 for n_units in units_per_layer):
             raise ValueError("The input dimension and the number of units for all layers must be positive")
         if len(units_per_layer) != len(act_functions):
             raise AttributeError(
-                f"Mismatching lengths --> len(units_per_layer)={len(units_per_layer)}; len(act_functions)={len(act_functions)}")"""
+                f"Mismatching lengths --> len(units_per_layer)={len(units_per_layer)}; len(act_functions)={len(act_functions)}")
 
     # Syntax note: the line @property is used to get the value of a private variable without using any getter methods.
     @property
@@ -151,7 +151,8 @@ class Network:
         n_targets = val_y.shape[0]      # takes the dimension of validation target vector
         if n_val_examples != n_targets: #todo: ricontrollare questo punto
             raise AttributeError(f"Mismatching shapes in validation set {n_val_examples} {n_targets}")
-
+        if batch_size == 'full':
+            batch_size = len(tr_x)
         self._training_params = {**self._training_params, 'epochs': epochs, 'batch_size': batch_size}
         return self._training_alg.gradient_descent(
             tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, **kwargs)
