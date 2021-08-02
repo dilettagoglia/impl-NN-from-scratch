@@ -87,10 +87,10 @@ class ErrorFunction:
     @staticmethod
     def init_error_function(name):
         if name == "squared_error":
-            return ErrorFunction.squared_error, ErrorFunction.squared_error_der
+            return ErrorFunction.squared_error, ErrorFunction.squared_error_der, name
         elif name == "euclidian_error":
-            return ErrorFunction.euclidean_error, ErrorFunction.euclidian_error_der
+            return ErrorFunction.euclidean_error, ErrorFunction.euclidian_error_der, name
         elif name == "binary_cross_entropy":
-            return ErrorFunction.binary_cross_entropy_error, ErrorFunction.binary_cross_entropy_error_der
+            return ErrorFunction.binary_cross_entropy_error, ErrorFunction.binary_cross_entropy_error_der, name
         else:
             raise NameError(name+ " is not recognized! Check for correct names and possible error functions in init_error_function!")

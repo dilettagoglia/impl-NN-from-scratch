@@ -57,8 +57,8 @@ class Regularizations:
     @staticmethod
     def init_regularization(name):
         if name == "lasso":
-            return Regularizations.lasso_l1, Regularizations.lasso_l1_der
+            return Regularizations.lasso_l1, Regularizations.lasso_l1_der, name
         elif name == "ridge_regression":
-            return Regularizations.ridge_regression_l2, Regularizations.ridge_regression_l2_der
+            return Regularizations.ridge_regression_l2, Regularizations.ridge_regression_l2_der, name
         else:
             raise NameError(name+ " is not recognized! Check for correct names and possible regularizations in init_regularization!")

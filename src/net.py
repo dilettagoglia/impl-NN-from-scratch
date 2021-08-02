@@ -6,39 +6,39 @@ from error_functions import ErrorFunction
 from metrics import Metric
 from layer import Layer
 from training import Training
-#from optimizers import *
 
 class Network:
 
     # TODO rewrite all documentation with DocString
 
-    def __init__(self, input_dim, units_per_layer, act_functions, tqdm=True, **kwargs):
-        """
+    def __init__(self, input_dim, units_per_layer, act_functions, weights_init, tqdm=True, **kwargs):
+
+        """Network Constructor
+
         Args:
-            input_dim: dimension of input layer
-            units_per_layer: tuple of integers that indicates the number of units for each layer (input excluded)
-            act_functions: list of activation function names (one for each layer)
+            input_dim (int): dimension of input layer
+            units_per_layer (list): list of integers that indicates the number of units for each layer (input excluded)
+            act_functions (list): list of activation function names (one for each layer)
+            weights_init (string): weights initialization type name
+            tqdm (bool, optional): usefull for showing progress bars. Defaults to True.
             kwargs may contain arguments for the weights initialization
         """
-        # TODO decide whether to keep type checking or not
-        if not hasattr(units_per_layer, '__iter__'): #Return whether the object has an attribute with the given name.This is done by calling getattr(obj, name) and catching AttributeError
-            units_per_layer = [units_per_layer]
-            act_functions = [act_functions]
+
         self.__check_attributes(self, input_dim=input_dim, units_per_layer=units_per_layer, act_functions=act_functions)
-        self._params = { # a dictionary with all the main specific parameters of the network
-                            **{'input_dim': input_dim, 'units_per_layer': units_per_layer, 'act_functions': act_functions}, **kwargs}
-        self._training_alg = None
-        self._training_params = None # a dictionary with all useful hyperparameters to give to an optimizer
+        # a dictionary with all the main specific parameters of the network (using dict concatenation)
+        self._params = {**{'input_dim': input_dim, 'units_per_layer': units_per_layer, 'act_functions': act_functions, 'weights_init': weights_init},  **kwargs}
+        self._training_alg = None # training alghoritm used for optimization
+        self._training_params = None # a dictionary with all useful hyperparameters for the optimizer
         self._layers = []
         layer_inp_dim = input_dim
         for i in range(len(units_per_layer)):
-            # add layer to the network (vedi classe "Layer")
-            self._layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i], **kwargs))
+            # add layer to the network
+            self._layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i], init_w_name=weights_init, **kwargs))
             # keep the current number of neurons of this layer as number of inputs for the next layer
             layer_inp_dim = units_per_layer[i]
 
     # TODO decide whether to keep check attribute or not
-    @staticmethod #Controllo gli attributi passati al costruttore
+    @staticmethod
     def __check_attributes(self, input_dim, units_per_layer, act_functions):
         if input_dim < 1 or any(n_units < 1 for n_units in units_per_layer):
             raise ValueError("The input dimension and the number of units for all layers must be positive")
@@ -56,18 +56,23 @@ class Network:
         return self._params['units_per_layer']
 
     @property
+    def weights_init(self):
+        return self._params['weights_init']
+
+    @property
     def layers(self):
         # list of net's layers (see 'Layer' objects)
         return self._layers
 
     @property
-    def training_params(self):
-        return self._training_params
-
-    @property
     def params(self):
         return self._params
 
+    @property
+    def training_params(self):
+        return self._training_params
+
+    # TODO decide if keep this or implement in Layer class
     @property
     def weights(self):
         return [layer.weights.tolist() for layer in self._layers]
@@ -77,15 +82,14 @@ class Network:
         for i in range(len(value)):
             self._layers[i].weights = value[i]
 
-    def forward(self, inp=(2, 2, 2)):
-        """
-        Performs a forward pass on the whole Network (feed forward computation)
+    def forward(self, inp):
+        """Performs a forward pass on the whole Network (feed forward computation)
 
         Args:
-            inp: net's input vector/matrix
+            inp (np.ndarray): net's input vector/matrix
 
         Returns:
-            net's output vector/matrix
+            np.ndarray: return the current output for this specific layer
         """
 
         """
@@ -107,41 +111,54 @@ class Network:
             x = layer.forward_pass(x)
         return x
 
-    def compile(self, loss='squared_error', metr='binary_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., reg_type='ridge_regression', lambd=0, **kwargs):
-        """
-        Prepares the network by assigning an optimizer to it and setting its parameters
+    def compile(self, error_func='squared_error', metr='binary_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., reg_type='ridge_regression', lambda_=0, **kwargs):
+        """Prepares the network by assigning an optimizer to it and setting its parameters
 
         Args:
-            loss: the type of loss function
-            metr: the type of metric to track (accuracy etc)
-            lr: learning rate value
-            momentum:  momentum parameter
-            lambd: regularization parameter
-            reg_type:  regularization type
+            error_func (str, optional): the type of error function. Defaults to 'squared_error'.
+            metr (str, optional): the type of metric to use. Defaults to 'binary_accuracy'.
+            lr (float, optional): learning rate value. Defaults to 0.01.
+            lr_decay (str, optional): type of decay for learning rate. Defaults to None.
+            limit_step (int, optional): iteration number of weights update when we stop decaying. Defaults to None.
+            decay_rate (float, optional): amount of decay at each stage (for exponential). Defaults to None.
+            decay_steps (int, optional): length of each stage for decaying, composed of multiple iterations (steps). Defaults to None.
+            momentum (float, optional): momentum parameter. Defaults to 0..
+            reg_type (str, optional): regularization type. Defaults to 'ridge_regression'.
+            lambda_ (int, optional): regularization parameter. Defaults to 0.
+
+        Raises:
+            ValueError: momentum must be between 0 and 1
         """
         if momentum > 1. or momentum < 0.:
             raise ValueError(f"momentum must be a value between 0 and 1. Got: {momentum}")
-         #self._params = {**self._params, **{'loss': loss, 'metr': metr, 'lr': lr, 'momentum': momentum,
-         #                                     'reg_type': reg_type, 'lambd': lambd}}
-        self._training_params = {'loss': loss, 'metr': metr, 'lr': lr, 'lr_decay': lr_decay,
+        #self._params = {**self._params, **{'error_func': error_func, 'metr': metr, 'lr': lr, 'momentum': momentum,
+        #                                     'reg_type': reg_type, 'lambda_': lambda_}}
+        self._training_params = {'error_func': error_func, 'metr': metr, 'lr': lr, 'lr_decay': lr_decay,
                                   'limit_step': limit_step, 'decay_rate': decay_rate,
-                                  'decay_steps': decay_steps, 'momentum': momentum,'reg_type': reg_type, 'lambd': lambd}
-        self._training_alg = Training(net=self, loss=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
+                                  'decay_steps': decay_steps, 'momentum': momentum,'reg_type': reg_type, 'lambda_': lambda_}
+        self._training_alg = Training(net=self, error_func=error_func, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
                                      decay_rate=decay_rate, decay_steps=decay_steps,
-                                     momentum=momentum, reg_type=reg_type, lambd=lambd)
+                                     momentum=momentum, reg_type=reg_type, lambda_=lambda_)
 
-    # TODO merge fit and optimize in optimizer class (or create another class for training)
+    
     def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, **kwargs):
-        """
-        Execute the training of the network
+        # TODO define the type of the set
+        """Execute the training of the network
+
 
         Args:
-            tr_x: input training set
-            tr_y: targets for each input training pattern
-            val_x:  input validation set
-            val_y:  targets for each input validation pattern
-            batch_size: the size of the batch
-            epochs: number of epochs
+            tr_x ([type]): input training set
+            tr_y ([type]): targets for each input training pattern
+            val_x ([type]): input validation set
+            val_y ([type]): targets for each input validation patter
+            epochs (int, optional): number of epochs. Defaults to 1.
+            batch_size (int, optional): the size of the batch. Defaults to 1.
+
+        Raises:
+            AttributeError: if the input set and targets dimensions do not match
+
+        Returns:
+            [type]: [description]
         """
         # transform sets to numpy array (if they're not already)
         tr_x, tr_y = np.array(tr_x), np.array(tr_y)
@@ -149,7 +166,7 @@ class Network:
 
         n_val_examples = val_x.shape[0] # takes the dimension of validation input vector
         n_targets = val_y.shape[0]      # takes the dimension of validation target vector
-        if n_val_examples != n_targets: #todo: ricontrollare questo punto
+        if n_val_examples != n_targets:
             raise AttributeError(f"Mismatching shapes in validation set {n_val_examples} {n_targets}")
         if batch_size == 'full':
             batch_size = len(tr_x)
@@ -185,7 +202,7 @@ class Network:
             predictions.append(self.forward(inp=pattern))
         return np.array(predictions)
 
-    def evaluate(self, targets, metr, loss, net_outputs=None, inp=None):
+    def evaluate(self, targets, metr, error_func, net_outputs=None, inp=None):
         """
         Performs an evaluation of the network based on the targets and either the pre-computed outputs ('net_outputs')
         or the input data ('inp'), on which the net will first compute the output.
@@ -193,27 +210,27 @@ class Network:
         Args:
             targets: the targets for the input on which the net is evaluated
             metr: the metric to track for the evaluation
-            loss: the loss to track for the evaluation
+            error_func: the error function to track for the evaluation
             net_outputs: the output of the net for a certain input
             inp: the input on which the net has to be evaluated
 
         Returns:
-            the loss and the metric
+            the error function and the metric
         """
         if net_outputs is None:
             if inp is None:
                 raise AttributeError("Both net_outputs and inp cannot be None")
             net_outputs = self.predict(inp)
         metr_scores = np.zeros(self.layers[-1].n_units)
-        loss_scores = np.zeros(self.layers[-1].n_units)
+        error_func_scores = np.zeros(self.layers[-1].n_units)
         for x, y in zip(net_outputs, targets):
             metr_scores = np.add(metr_scores, Metric.init_metric(metr)(prediction=x, target=y)) #todo controllare quali parametri in costruttore file Paolo
-            loss_scores = np.add(loss_scores, ErrorFunction.init_error_function(loss)[0](prediction=x, target=y))
-        loss_scores = np.sum(loss_scores) / len(loss_scores)
+            error_func_scores = np.add(error_func_scores, ErrorFunction.init_error_function(error_func)[0](prediction=x, target=y))
+        error_func_scores = np.sum(error_func_scores) / len(error_func_scores)
         metr_scores = np.sum(metr_scores) / len(metr_scores)
-        loss_scores /= len(net_outputs)
+        error_func_scores /= len(net_outputs)
         metr_scores /= len(net_outputs)
-        return loss_scores, metr_scores
+        return error_func_scores, metr_scores
 
     def backprop(self, dErr_dOut, grad_net): # NB: mantenuto originale
         """
@@ -244,10 +261,10 @@ class Network:
             struct[layer_index]['biases'] = np.zeros(shape=(len(weights_matrix[0, :])))
         return struct
 
-    def print_topology(self): # utile???
+    def print_topology(self):
         """ Prints the network's architecture and parameters """
+        print("Network's topology:")
         for i,layer in enumerate(self._layers):
-            print("Network's topology:")
             print("---------- LAYER {} ----------".format(i+1))
             layer.print_details()
 
