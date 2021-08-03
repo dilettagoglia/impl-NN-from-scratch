@@ -13,7 +13,8 @@ class Network:
 
     def __init__(self, input_dim, units_per_layer, act_functions, weights_init, tqdm=True, **kwargs):
 
-        """Network Constructor
+        """
+        Network Constructor
 
         Args:
             input_dim (int): dimension of input layer
@@ -83,7 +84,8 @@ class Network:
             self._layers[i].weights = value[i]
 
     def forward(self, inp):
-        """Performs a forward pass on the whole Network (feed forward computation)
+        """
+        Performs a forward pass on the whole Network (feed forward computation)
 
         Args:
             inp (np.ndarray): net's input vector/matrix
@@ -112,7 +114,8 @@ class Network:
         return x
 
     def compile(self, error_func='squared_error', metr='binary_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., reg_type='ridge_regression', lambda_=0, **kwargs):
-        """Prepares the network by assigning an optimizer to it and setting its parameters
+        """
+        Prepares the network by assigning an optimizer to it and setting its parameters
 
         Args:
             error_func (str, optional): the type of error function. Defaults to 'squared_error'.
@@ -142,15 +145,14 @@ class Network:
 
     
     def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, **kwargs):
-        # TODO define the type of the set
-        """Execute the training of the network
-
+        """
+        Execute the training of the network
 
         Args:
-            tr_x ([type]): input training set
-            tr_y ([type]): targets for each input training pattern
-            val_x ([type]): input validation set
-            val_y ([type]): targets for each input validation patter
+            tr_x (np.ndarray): input training set
+            tr_y (np.ndarray): targets for each input training pattern
+            val_x (np.ndarray): input validation set
+            val_y (np.ndarray): targets for each input validation patter
             epochs (int, optional): number of epochs. Defaults to 1.
             batch_size (int, optional): the size of the batch. Defaults to 1.
 
@@ -158,7 +160,7 @@ class Network:
             AttributeError: if the input set and targets dimensions do not match
 
         Returns:
-            [type]: [description]
+            tuple of lists: return training error (for loss), training metric error, validation error and validation error metric for each epoch
         """
         # transform sets to numpy array (if they're not already)
         tr_x, tr_y = np.array(tr_x), np.array(tr_y)
@@ -179,12 +181,11 @@ class Network:
         Computes the outputs for a batch of patterns, useful for testing w/ a blind test set
 
         Args:
-            inp: batch of input patterns
+            inp (list): batch of input patterns
+
         Returns:
-            array of net's outputs
-
+            np.ndarray: list of predictions
         """
-
         """
         First version (before adding Layer class):
         
@@ -209,13 +210,13 @@ class Network:
 
         Args:
             targets: the targets for the input on which the net is evaluated
-            metr: the metric to track for the evaluation
-            error_func: the error function to track for the evaluation
-            net_outputs: the output of the net for a certain input
-            inp: the input on which the net has to be evaluated
+            metr (string): the metric to track for the evaluation
+            error_func (string): the error function to track for the evaluation
+            net_outputs (np.ndarray): the output of the net for a certain input
+            inp (list): the input on which the net has to be evaluated
 
         Returns:
-            the error function and the metric
+            tuple of np.ndarray: the error function and the metric
         """
         if net_outputs is None:
             if inp is None:
@@ -237,11 +238,11 @@ class Network:
         Propagates back the error to update each layer's gradient
 
         Args:
-            dErr_dOut: derivatives of the error wrt the outputs
-            grad_net: a structure with the same topology of the neural network in question, but used to store the
-                gradients. It will be updated and returned back to the caller
+            dErr_dOut (np.ndarray): derivatives of the error wrt the outputs
+            grad_net (np.ndarray): a structure with the same topology of the neural network in question, but used to store the
+            gradients. It will be updated and returned back to the caller
         Returns:
-            the updated grad_net
+            np.ndarray: the updated grad_net
         """
         curr_delta = dErr_dOut # recall backward_pass function in Layer class, where: delta = delta_Err / delta_out
         for layer_index in reversed(range(len(self._layers))):
@@ -270,6 +271,6 @@ class Network:
 
     def save_model(self, filename: str):
         """ Saves the model to filename """
-        data = {'model_params': self._params, 'weights': self.weights}
+        data = {'model_params': self._params, 'training_params': self._training_params, 'weights': self.weights}
         with open(filename, 'w') as f:
             json.dump(data, f, indent='\t')

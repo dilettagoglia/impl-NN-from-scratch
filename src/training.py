@@ -10,13 +10,14 @@ import math
 class Training:
 
     def __init__(self, net, error_func, metr, lr, momentum, reg_type, lambda_, lr_decay = None, limit_step = None, decay_rate = None, decay_steps = None):
+        # TODO change name variable for learning rate parameters
         self._net = net
         self._error_func = ErrorFunction.init_error_function(error_func) # tuple composed by (error_function, error_function_der, name)
         self._metric_name = metr
         self._metric = Metric.init_metric(metr)
         self.lr = lr
-        self.base_lr = self.lr
-        self.final_lr = self.base_lr / 100.0
+        self.base_lr = self.lr # self.base_lr is lr_0
+        self.final_lr = self.base_lr / 100.0 # self.final_lr is lr_tau (~ 1% of lr_0)
         self.lr_decay = None
         if lr_decay is not None:
             self.lr_decay = LearningRate.init_decay_technique(lr_decay) # decay function for learning rate
@@ -156,5 +157,4 @@ class Training:
             tr_error_values.append(epoch_tr_error / len(tr_x))
             epoch_tr_metric = np.sum(epoch_tr_metric) / len(epoch_tr_metric)
             tr_metric_values.append(epoch_tr_metric / len(tr_x))
-
         return tr_error_values, tr_metric_values, val_error_values, val_metric_values
