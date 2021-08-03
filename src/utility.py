@@ -21,7 +21,8 @@ Read Dataset
 
 def read_monk_dataset(dataset):
     """
-    Reads the monks datasets.
+    Reads the monks datasets and performs a preliminary preproccessing of data.
+    Creates the labels for supervised classification and hide them to the classifier.
 
     Attr:
         name: name of the dataset
@@ -52,7 +53,7 @@ def read_monk_dataset(dataset):
 Visualization 
 """
 
-def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 10.), lbltr='development',
+def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 1.1), lbltr='development',
                 lblval='internal test', *args):
     """
     Plot the curves of training loss, training metric, validation loss, validation metric
@@ -76,10 +77,11 @@ def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 10.),
     ax[1].plot(range(len(val_metr)), val_metr, color='r', label=lblval)
     ax[1].legend(loc='best', prop={'size': 9})
     ax[1].set_xlabel('Epochs', fontweight='bold')
-    ax[1].set_ylabel('Metric', fontweight='bold')
+    ax[1].set_ylabel('Acc', fontweight='bold')
     ax[1].set_ylim(ylim)
     ax[1].grid()
     if path is None:
         plt.show()
     else:
         plt.savefig(path)
+

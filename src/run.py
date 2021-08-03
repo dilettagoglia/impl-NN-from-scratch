@@ -1,6 +1,7 @@
 from net import Network
 from utility import *
 from sklearn.model_selection import train_test_split
+import numpy as np
 
 
 if __name__ == '__main__':
@@ -9,7 +10,7 @@ if __name__ == '__main__':
     # Create a neural network
     # input_dim must stay 17 for monks datasets
     # units_per_layer: tuple containing the number of units for each layer (except the input one)
-    model = Network(input_dim=17, units_per_layer=[4, 1], act_functions=['tanh', 'tanh'], weights_init='random', tqdm=True)
+    model = Network(input_dim=17, units_per_layer=[2, 2], act_functions=['tanh', 'tanh'], weights_init='random', tqdm=True)
 
     # read the dataset. Change the name in the following lines to use monks-2 or monks-3
     tr_ds_name = "monks-1.train"
@@ -24,11 +25,26 @@ if __name__ == '__main__':
     # # compile the model (check the method definition for more info about all the accepted arguments)
     train_X, val_X, train_y, val_y = train_test_split(monk_train, labels_tr, test_size=0.30)
 
-    model.compile(loss='squared_error', metr='binary_accuracy', lr=0.3, momentum=0.8)
-    # # training (check the method definition for more info about all the possible parameters)
-    tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y, batch_size='full',
-                                                    epochs=500)
-    # # plot the learning curves
-    plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation')
+    print(
+        '\nHold-out validation. Shape check:'
+        '\n Input TR: ', train_X.shape,
+        '\n Output TR: ', val_X.shape,
+        '\n Input VAL: ', train_y.shape,
+        '\n Output VAL: ', val_y.shape,
+    )
+
+    lr_rates = [0.1, 0.2, 0.3, 0.4, 0.5]
+
+    for rate in lr_rates:
+
+        model.compile(loss='squared_error', metr='binary_accuracy', lr=rate, momentum=0.8)
+        # # training (check the method definition for more info about all the possible parameters)
+        tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y, batch_size='full',
+                                                        epochs=500, tqdm=True)
+        # # plot the learning curves
+        plot_curves(tr_err, val_err, tr_metr, val_metr, path=f'../images/screening-phase/curve-with-lr-{str(rate)}.png', lbltr='Training', lblval='Validation')
+
+        #model.print_topology()
+
 
 
