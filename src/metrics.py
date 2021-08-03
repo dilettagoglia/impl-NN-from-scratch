@@ -16,6 +16,8 @@ class Metric:
         # TODO check the return value when we'll develop the code for NN
         return np.where(np.abs(prediction-target) < 0.5, 1, 0)
 
+
+
     @staticmethod
     def init_metric(name):
         if name == 'binary_accuracy':

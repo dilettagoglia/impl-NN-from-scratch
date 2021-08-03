@@ -9,7 +9,7 @@ import math
 
 class Training:
 
-    def __init__(self, net, error_func, metr, lr, momentum, reg_type, lambda_, lr_decay = None, limit_step = None, decay_rate = None, decay_steps = None):
+    def __init__(self, net, error_func, metr, lr, momentum, reg_type, lambda_, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None):
         self._net = net
         self._error_func = ErrorFunction.init_error_function(error_func) # tuple composed by (error_function, error_function_der, name)
         self._metric_name = metr
