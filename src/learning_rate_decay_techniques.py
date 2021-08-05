@@ -3,7 +3,7 @@ import math
 class LearningRate:
 
     @staticmethod
-    def linear_decay(curr_lr, init_lr, fixed_lr, curr_step, tau_step):
+    def linear_decay(curr_lr, init_lr, fixed_lr, curr_step, tau_step, **kwargs):
         """
         Function that decays linearly the learning rate eta (init_lr) for each step until iteration tau_step
         Then stops decaying and uses fix learning rate (fixed_lr)
@@ -26,7 +26,7 @@ class LearningRate:
         return fixed_lr
 
     @staticmethod
-    def exponential_decay(init_lr, decay_rate, curr_step, decay_steps):
+    def exponential_decay(init_lr, decay_rate, curr_step, decay_steps, **kwargs):
         """
         Function that decays exponentially the learning rate eta by 'decay_rate' every 'decay_steps', starting from 'init_lr'.
         So, we decay the learning rate by a portion of 'decay_rate' at each iteration (step).

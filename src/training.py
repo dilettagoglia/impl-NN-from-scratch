@@ -10,7 +10,7 @@ import math
 class Training:
 
     def __init__(self, net, error_func, metr, lr, momentum, reg_type, lambda_, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None):
-        # TODO change name variable for learning rate parameters
+        # TODO change name variable for learning rate parameters (match with lr_decay_techniques.py)
         self._net = net
         self._error_func = ErrorFunction.init_error_function(error_func) # tuple composed by (error_function, error_function_der, name)
         self._metric_name = metr
@@ -49,18 +49,25 @@ class Training:
         return self._metric
 
     def gradient_descent(self, tr_x, tr_y, val_x, val_y, epochs, batch_size, disable_tqdm=True, **kwargs):
-        # TODO copy and paste of optimize method. Modify according to our needs
+        # TODO Modify according to our needs
         """
-        :param tr_x: (numpy ndarray) input training set
-        :param tr_y: (numpy ndarray) targets for each input training pattern
-        :param val_x: (numpy ndarray) input validation set
-        :param val_y: (numpy ndarray) targets for each input validation pattern
-        :param epochs: (int) number of training epochs
-        :param batch_size: (int) number of patterns per single batch
-        :param disable_tqdm: True to disable progress bar
-        :return: tr_error_values, tr_metric_values, val_error_values, val_metric_values
+        Gradient descent algorithm for training the network
+
+        Args:
+            tr_x (np.ndarray): input training set
+            tr_y (np.ndarray): targets for each input training pattern
+            val_x (np.ndarray): input validation set
+            val_y (np.ndarray): targets for each input validation pattern
+            epochs (int): number of training epochs
+            batch_size (int): number of patterns per single batch
+            disable_tqdm (bool, optional): to disable progress bar. Defaults to True.
+
+        Returns:
+            tuple of lists: return training error (for loss), training metric error, validation error and validation error metric for each epoch
         """
         # add one dimension to the sets if they are one-dimensional
+        # TODO decide if remove this instructions or not
+        # or use np.expand_dims(variable_name, axis=0)
         tr_x = tr_x[np.newaxis, :] if len(tr_x.shape) < 2 else tr_x
         tr_y = tr_y[np.newaxis, :] if len(tr_y.shape) < 2 else tr_y
         if val_x is not None:
@@ -75,13 +82,12 @@ class Training:
 
         # cycle through epochs
         for epoch in tqdm.tqdm(range(epochs), desc="Iterating over epochs", disable=disable_tqdm):
+            # np.ndarray related to the last layer of the network (1 for Monk and 2 for ML-CUP)
             epoch_tr_error = np.zeros(net.layers[-1].n_units)
             epoch_tr_metric = np.zeros(net.layers[-1].n_units)
-            # epoch_val_error = np.zeros(net.layers[-1].n_units)
-            # epoch_val_metric = np.zeros(net.layers[-1].n_units)
 
             # shuffle the training set if using mini-batches (or stochastic)
-            if batch_size != tr_x.shape[0]:
+            if batch_size <= tr_x.shape[0]:
                 indexes = list(range(len(tr_x)))
                 np.random.shuffle(indexes)
                 tr_x = tr_x[indexes]
@@ -115,13 +121,14 @@ class Training:
 
                     # set the layers' gradients and add them into grad_net
                     # (emulate pass by reference of grad_net using return and reassign)
+                    # compute the layers gradients in a "matrix" way
                     dErr_dOut = self.error_func[1](prediction=net_outputs, target=target)
                     grad_net = net.backprop(dErr_dOut, grad_net)
 
                 # learning rate decays
                 if self.lr_decay is not None:
                     step += 1
-                    self.lr = lr_decays[self.lr_decay].func(curr_step=step, **self.lr_params)
+                    self.lr = self.lr_decay(curr_step=step, **self.lr_params)
 
                 # weights update
                 for layer_index in range(len(net.layers)):
@@ -147,7 +154,7 @@ class Training:
                         momentum_net[layer_index]['biases']
                     )
 
-            # validation
+            # validation (maybe we just want to train our network)
             if val_x is not None:
                 epoch_val_error, epoch_val_metric = net.evaluate(inp=val_x, targets=val_y, metr=self._metric_name, error_func=self._error_func[2])
                 val_error_values.append(epoch_val_error)

@@ -88,7 +88,7 @@ class Network:
         Performs a forward pass on the whole Network (feed forward computation)
 
         Args:
-            inp (np.ndarray): net's input vector/matrix
+            inp (np.ndarray): net's input vector
 
         Returns:
             np.ndarray: return the current output for this specific layer
@@ -113,6 +113,7 @@ class Network:
             x = layer.forward_pass(x)
         return x
 
+    # TODO we can remove **kwargs from compile
     def compile(self, error_func='squared_error', metr='binary_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., reg_type='ridge_regression', lambda_=0, **kwargs):
         """
         Prepares the network by assigning an optimizer to it and setting its parameters
@@ -134,8 +135,7 @@ class Network:
         """
         if momentum > 1. or momentum < 0.:
             raise ValueError(f"momentum must be a value between 0 and 1. Got: {momentum}")
-        #self._params = {**self._params, **{'error_func': error_func, 'metr': metr, 'lr': lr, 'momentum': momentum,
-        #                                     'reg_type': reg_type, 'lambda_': lambda_}}
+        
         self._training_params = {'error_func': error_func, 'metr': metr, 'lr': lr, 'lr_decay': lr_decay,
                                   'limit_step': limit_step, 'decay_rate': decay_rate,
                                   'decay_steps': decay_steps, 'momentum': momentum,'reg_type': reg_type, 'lambda_': lambda_}
