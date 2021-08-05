@@ -3,7 +3,7 @@ import numpy as np
 class WeightsInitialization:
 
     @staticmethod
-    def random_initialization(n_weights, n_units, bounds=(-0.7, 0.7), **kwargs):
+    def random_initialization(n_weights, n_units, bounds=(-0.1, 0.1), **kwargs):
         lower_bnd, upper_bnd = bounds[0], bounds[1]
         if lower_bnd >= upper_bnd:
             raise ValueError(f"Lower bound must be <= than upper bound!")

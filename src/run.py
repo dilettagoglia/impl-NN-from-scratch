@@ -42,7 +42,7 @@ if __name__ == '__main__':
         tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y, batch_size='full',
                                                         epochs=500, tqdm=True)
         # # plot the learning curves
-        plot_curves(tr_err, val_err, tr_metr, val_metr, path=f'../images/screening-phase/curve-with-lr-{str(rate)}.png', lbltr='Training', lblval='Validation')
+        plot_curves(tr_err, val_err, tr_metr, val_metr, path=f'../images/screening-phase2/curve-with-lr-{str(rate)}.png', lbltr='Training', lblval='Validation')
 
         #model.print_topology()
 

@@ -86,6 +86,9 @@
       <module name="impl-NN-from-scratch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -105,6 +108,9 @@
       <module name="impl-NN-from-scratch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -180,7 +186,8 @@
       <workItem from="1625155767911" duration="4000" />
       <workItem from="1626278417638" duration="596000" />
       <workItem from="1626886542354" duration="20073000" />
-      <workItem from="1627989979173" duration="6556000" />
+      <workItem from="1627989979173" duration="7191000" />
+      <workItem from="1628163089877" duration="405000" />
     </task>
     <servers />
   </component>
