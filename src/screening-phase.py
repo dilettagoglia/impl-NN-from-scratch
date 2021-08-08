@@ -40,31 +40,26 @@ if __name__ == '__main__':
 
     """ HYPERPARAMETER TUNING """
     lr_rates = [0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
-    momentum_val = [0, 0.01, 0.015, 0.02, 0.25, 0.03]
-    lambda_val = [0, 0.01, 0.015, 0.02, 0.25, 0.03]
+    momentum_val = [0, 0.0001, 0.001, 0.01, 0.1, 0.12]
+    lambda_val = [0, 0.0001, 0.001, 0.01, 0.1, 0.12]
 
-    # # plot the learning curves
+    # Plot Loss
 
     f, axs = plt.subplots(nrows=6, ncols=6, figsize=(36, 36))
-    plt.suptitle('Momentum and Eta variations with (lambda=0, 4 hidden units, and random weight init [-1,+1]', fontsize=28, fontweight='bold')
     plot_id = 0
 
     for i in lr_rates:
         for j in momentum_val:
             model.compile(loss='squared_error', metr='binary_accuracy', lr=i, momentum=j)
-            # lr_decay
-            # limit_step
-            # decay_rate (float, optional): amount of decay at each stage (for exponential). Defaults to None.
-            # decay_steps (int, optional): length of each stage for decaying, composed of multiple iterations (steps). Defaults to None.
-            # momentum (float, optional): momentum parameter. Defaults to 0..
-            # reg_type (str, optional): regularization type. Defaults to 'ridge_regression'.
-            # lambda_ (int, optional): regularization parameter. Defaults to 0.
+            # todo: try varying --> lr_decay, limit_step, decay_rate, decay_steps, reg_type, momentum[done]
+            # todo:                 n. of epochs[done], batch size, act. funct., n. of hidden units, weight init
+            # todo:                 hold-out split, alpha??, lambda_[done], lr[done], loss func.
 
             # # training (check the method definition for more info about all the possible parameters)
             tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y,
                                                            batch_size='full',
-                                                           epochs=300, tqdm=True)
-
+                                                           epochs=200, tqdm=True)
+            # todo: plot metrics, not just loss
             axs[int(plot_id / 6)][plot_id % 6].plot(range(len(tr_err)), tr_err, color='b', linestyle='dashed', label='Training')
             axs[int(plot_id / 6)][plot_id % 6].plot(range(len(val_err)), val_err, color='r', label='Validation')
             axs[int(plot_id / 6)][plot_id % 6].legend(loc='best', prop={'size': 9})
@@ -75,5 +70,7 @@ if __name__ == '__main__':
             axs[int(plot_id / 6)][plot_id % 6].grid()
             plot_id = plot_id + 1
 
-    plt.savefig(f'../images/momentum-and-learning-rate-variations3.png')
+    plt.suptitle(f'Momentum and Eta variations with lambda=0, units_per_layer=[4,1], act_functions=[tanh, tanh], weights_init=random[-1,+1]',
+                 fontsize=28, fontweight='bold')
+    plt.savefig(f'../images/small-momentum-eta-variations.png')
 
