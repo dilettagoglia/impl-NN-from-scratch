@@ -58,7 +58,7 @@ if __name__ == '__main__':
             # # training (check the method definition for more info about all the possible parameters)
             tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y,
                                                            batch_size='full',
-                                                           epochs=200, tqdm=True)
+                                                           epochs=500, tqdm=True)
             # todo: plot metrics, not just loss
             axs[int(plot_id / 6)][plot_id % 6].plot(range(len(tr_err)), tr_err, color='b', linestyle='dashed', label='Training')
             axs[int(plot_id / 6)][plot_id % 6].plot(range(len(val_err)), val_err, color='r', label='Validation')
