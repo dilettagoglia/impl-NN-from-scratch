@@ -43,7 +43,7 @@ class ErrorFunction:
         Returns:
             np.float64: euclidian error loss
         """
-        return np.linalg.norm(prediction - target) # L2 norm
+        return np.linalg.norm(prediction - target) # L2 norm for vectors
 
     @staticmethod
     def euclidian_error_der(prediction, target):

@@ -9,8 +9,6 @@ from training import Training
 
 class Network:
 
-    # TODO rewrite all documentation with DocString
-
     def __init__(self, input_dim, units_per_layer, act_functions, weights_init, tqdm=True, **kwargs):
 
         """
