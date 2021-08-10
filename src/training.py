@@ -9,7 +9,7 @@ import math
 
 class Training:
 
-    def __init__(self, net, error_func, metr, lr, momentum, reg_type, lambda_, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None):
+    def __init__(self, net, error_func, metr, lr, momentum, reg_type, lambda_, nesterov = False, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None):
         self._net = net
         self._error_func = ErrorFunction.init_error_function(error_func) # tuple composed by (error_function, error_function_der, name)
         self._metric_name = metr
@@ -24,6 +24,7 @@ class Training:
         self.decay_rate = decay_rate
         self.decay_steps = decay_steps
         self.momentum = momentum
+        self.nesterov = nesterov
         self.lambda_ = lambda_
         self.reg = Regularizations.init_regularization(reg_type) # tuple composed by (reg_function, reg_function_der, name)
 
@@ -48,7 +49,6 @@ class Training:
 
     def gradient_descent(self, tr_x, tr_y, val_x, val_y, epochs, batch_size, disable_tqdm=True, **kwargs):
         # TODO Modify according to our needs
-        # TODO implement Nesterov Momentum
         # TODO stop training with some criteria
         """
         Gradient descent algorithm for training the network
@@ -100,6 +100,17 @@ class Training:
                 targets_batch = tr_y[start: end]
                 grad_net = net.get_empty_struct()
 
+                # Nesterov Momentum
+                if (self.nesterov == True):
+                    # nesterov momentum (interim points)
+                    for layer_index in range(len(net.layers)):
+                        # alpha * delta_w_old 
+                        momentum_net[layer_index]['weights'] *= self.momentum 
+                        momentum_net[layer_index]['biases'] *= self.momentum
+                        # w_new1 = w_old + alpha *  delta_w_old
+                        net.layers[layer_index].weights = np.add(net.layers[layer_index].weights, momentum_net[layer_index]['weights'])
+                        net.layers[layer_index].biases = np.add(net.layers[layer_index].biases,momentum_net[layer_index]['biases'])
+
                 # cycle through patterns and targets within a batch and accumulate the gradients
                 for pattern, target in zip(train_batch, targets_batch):
                     net_outputs = net.forward(inp=pattern)
@@ -127,22 +138,35 @@ class Training:
                     # delta_w is equivalent to lrn_rate * local_grad * input_on_that_connection (local_grad = delta)
                     delta_w = self.curr_lr * grad_net[layer_index]['weights']
                     delta_b = self.curr_lr * grad_net[layer_index]['biases']
-                    # momentum_net[layer_index]['weights'] is the new delta_w --> it adds the momentum
-                    # Since it acts as delta_w, it multiplies itself by the momentum constant and then adds
-                    # lrn_rate * local_grad * input_on_that_connection (i.e. "delta_w")
-                    momentum_net[layer_index]['weights'] *= self.momentum
-                    momentum_net[layer_index]['biases'] *= self.momentum
-                    momentum_net[layer_index]['weights'] = np.add(momentum_net[layer_index]['weights'], delta_w)
-                    momentum_net[layer_index]['biases'] = np.add(momentum_net[layer_index]['biases'], delta_b)
-                    # keep separation of the 3 hyperparameters
-                    net.layers[layer_index].weights = np.subtract(
-                        np.add(net.layers[layer_index].weights, momentum_net[layer_index]['weights']),
-                        self.reg[1](w=net.layers[layer_index].weights, lambda_=self.lambda_),
-                    )
-                    net.layers[layer_index].biases = np.add(
-                        net.layers[layer_index].biases,
-                        momentum_net[layer_index]['biases']
-                    )
+                    
+                    if (self.nesterov == True):
+                        momentum_net[layer_index]['weights'] = np.add(momentum_net[layer_index]['weights'], delta_w)
+                        momentum_net[layer_index]['biases'] = np.add(momentum_net[layer_index]['biases'], delta_b)
+                        net.layers[layer_index].weights = np.subtract(
+                            np.add(net.layers[layer_index].weights, delta_w),
+                            self.reg[1](w=net.layers[layer_index].weights, lambda_=self.lambda_),
+                        )
+                        net.layers[layer_index].biases = np.add(
+                            net.layers[layer_index].biases,
+                            delta_b
+                        )    
+                    else:
+                        # momentum_net[layer_index]['weights'] is the new delta_w --> it adds the momentum
+                        # Since it acts as delta_w, it multiplies itself by the momentum constant and then adds
+                        # lrn_rate * local_grad * input_on_that_connection (i.e. "delta_w")
+                        momentum_net[layer_index]['weights'] *= self.momentum 
+                        momentum_net[layer_index]['biases'] *= self.momentum
+                        momentum_net[layer_index]['weights'] = np.add(momentum_net[layer_index]['weights'], delta_w)
+                        momentum_net[layer_index]['biases'] = np.add(momentum_net[layer_index]['biases'], delta_b)
+                        # keep separation of the 3 hyperparameters
+                        net.layers[layer_index].weights = np.subtract(
+                            np.add(net.layers[layer_index].weights, momentum_net[layer_index]['weights']),
+                            self.reg[1](w=net.layers[layer_index].weights, lambda_=self.lambda_),
+                        )
+                        net.layers[layer_index].biases = np.add(
+                            net.layers[layer_index].biases,
+                            momentum_net[layer_index]['biases']
+                        )
 
             # validation (maybe we just want to train our network)
             if val_x is not None:

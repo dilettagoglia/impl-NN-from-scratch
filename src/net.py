@@ -112,7 +112,7 @@ class Network:
         return x
 
     # TODO we can remove **kwargs from compile
-    def compile(self, error_func='squared_error', metr='binary_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., reg_type='ridge_regression', lambda_=0, **kwargs):
+    def compile(self, error_func='squared_error', metr='binary_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., nesterov = False, reg_type='ridge_regression', lambda_=0, **kwargs):
         """
         Prepares the network by assigning an optimizer to it and setting its parameters
 
@@ -139,7 +139,7 @@ class Network:
                                   'decay_steps': decay_steps, 'momentum': momentum,'reg_type': reg_type, 'lambda_': lambda_}
         self._training_alg = Training(net=self, error_func=error_func, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
                                      decay_rate=decay_rate, decay_steps=decay_steps,
-                                     momentum=momentum, reg_type=reg_type, lambda_=lambda_)
+                                     momentum=momentum, nesterov=nesterov, reg_type=reg_type, lambda_=lambda_)
 
     
     def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, **kwargs):

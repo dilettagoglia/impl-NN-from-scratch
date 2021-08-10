@@ -13,3 +13,4 @@ Useful sources used:
 - [How to build your own Neural Network from scratch in Python](https://towardsdatascience.com/how-to-build-your-own-neural-network-from-scratch-in-python-68998a08e4f6)
 - [How to code a neural network from scratch in Python](https://anderfernandez.com/en/blog/how-to-code-neural-network-from-scratch-in-python/)
 - [Naming with Underscores in Python](https://medium.com/python-features/naming-conventions-with-underscores-in-python-791251ac7097)
+- [Hyperparameters tuning for ML](https://towardsdatascience.com/how-to-tune-hyperparameters-for-machine-learning-aa23c25a662f)
