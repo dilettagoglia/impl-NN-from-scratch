@@ -14,3 +14,4 @@ Useful sources used:
 - [How to code a neural network from scratch in Python](https://anderfernandez.com/en/blog/how-to-code-neural-network-from-scratch-in-python/)
 - [Naming with Underscores in Python](https://medium.com/python-features/naming-conventions-with-underscores-in-python-791251ac7097)
 - [Hyperparameters tuning for ML](https://towardsdatascience.com/how-to-tune-hyperparameters-for-machine-learning-aa23c25a662f)
+- [Early stopping for training](https://machinelearningmastery.com/early-stopping-to-avoid-overtraining-neural-network-models/)

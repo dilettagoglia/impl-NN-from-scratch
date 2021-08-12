@@ -115,7 +115,6 @@ class Training:
                 for pattern, target in zip(train_batch, targets_batch):
                     net_outputs = net.forward(inp=pattern)
 
-                    # epoch training error = itself + error_func + regularization
                     epoch_tr_error = np.add(epoch_tr_error, self.error_func[0](prediction=net_outputs, target=target))
                     epoch_tr_metric = np.add(epoch_tr_metric, self.metr(prediction=net_outputs, target=target))
 
