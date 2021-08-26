@@ -18,7 +18,6 @@ class Layer:
     def __init__(self, inp_dim, n_units, act, init_w_name, **kwargs):
         """ Constructor -> see parameters in the class description """
 
-        # for activation function we use a dict with key (name) and value (function)
         self.weights = WeightsInitialization.init_weights_initialization(init_w_name)(n_weights=inp_dim, n_units=n_units, **kwargs)
         self.biases = WeightsInitialization.init_weights_initialization(init_w_name)(n_weights=1, n_units=n_units, **kwargs)
         self._inp_dim = inp_dim

@@ -222,10 +222,12 @@ class Network:
             net_outputs = self.predict(inp)
         metr_scores = np.zeros(self.layers[-1].n_units)
         error_func_scores = np.zeros(self.layers[-1].n_units)
+        metric = Metric.init_metric(metr)
+        error_function = ErrorFunction.init_error_function(error_func)
         for x, y in zip(net_outputs, targets):
-            metr_scores = np.add(metr_scores, Metric.init_metric(metr)(prediction=x, target=y)) #todo controllare quali parametri in costruttore file Paolo
-            error_func_scores = np.add(error_func_scores, ErrorFunction.init_error_function(error_func)[0](prediction=x, target=y))
-        error_func_scores = np.sum(error_func_scores) / len(error_func_scores)
+            metr_scores = np.add(metr_scores, metric(prediction=x, target=y))
+            error_func_scores = np.add(error_func_scores, error_function[0](prediction=x, target=y))
+        error_func_scores = np.sum(error_func_scores) / len(error_func_scores) # TODO check this division with ML-cup dataset
         metr_scores = np.sum(metr_scores) / len(metr_scores)
         error_func_scores /= len(net_outputs)
         metr_scores /= len(net_outputs)

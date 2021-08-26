@@ -1,5 +1,7 @@
 import numpy as np
 
+# TODO maybe also add euclidian error as a metric
+
 class Metric:
 
     @staticmethod

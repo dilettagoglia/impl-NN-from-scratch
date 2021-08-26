@@ -49,7 +49,7 @@ class Training:
 
     def gradient_descent(self, tr_x, tr_y, val_x, val_y, epochs, batch_size, disable_tqdm=True, **kwargs):
         # TODO Modify according to our needs
-        # TODO stop training with some criteria
+        # TODO early stopping with s consecutive val error increasing and if the progress is less than 0.1%
         """
         Gradient descent algorithm for training the network
 
@@ -77,7 +77,7 @@ class Training:
         # initialize some variables
         tr_error_values, tr_metric_values, val_error_values, val_metric_values = [], [], [], []
         net = self.net  # just to be shorter
-        momentum_net = net.get_empty_struct() # TODO decide to use momentum or Nesterov momentum
+        momentum_net = net.get_empty_struct()
         step = 0
 
         # cycle through epochs
@@ -173,7 +173,7 @@ class Training:
                 val_error_values.append(epoch_val_error)
                 val_metric_values.append(epoch_val_metric)
             
-            epoch_tr_error = np.sum(epoch_tr_error) / len(epoch_tr_error)
+            epoch_tr_error = np.sum(epoch_tr_error) / len(epoch_tr_error) #TODO check this division with ML-cup dataset (also evaluate in net.py)
             tr_error_values.append(epoch_tr_error / len(tr_x))
             epoch_tr_metric = np.sum(epoch_tr_metric) / len(epoch_tr_metric)
             tr_metric_values.append(epoch_tr_metric / len(tr_x))
