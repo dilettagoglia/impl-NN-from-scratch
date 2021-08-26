@@ -47,9 +47,8 @@ class Training:
     def metr(self):
         return self._metric
 
-    def gradient_descent(self, tr_x, tr_y, val_x, val_y, epochs, batch_size, disable_tqdm=True, **kwargs):
+    def gradient_descent(self, tr_x, tr_y, val_x, val_y, epochs, batch_size, strip_early_stopping, disable_tqdm=True, **kwargs):
         # TODO Modify according to our needs
-        # TODO early stopping with s consecutive val error increasing and if the progress is less than 0.1%
         """
         Gradient descent algorithm for training the network
 
@@ -60,6 +59,7 @@ class Training:
             val_y (np.ndarray): targets for each input validation pattern
             epochs (int): number of training epochs
             batch_size (int): number of patterns per single batch
+            strip_early_stopping (int): maximum number of consecutive epochs in which the validation error increases (0 means no early stopping)
             disable_tqdm (bool, optional): to disable progress bar. Defaults to True.
 
         Returns:
@@ -74,6 +74,11 @@ class Training:
             val_x = val_x[np.newaxis, :] if len(val_x.shape) < 2 else val_x
             val_y = val_y[np.newaxis, :] if len(val_y.shape) < 2 else val_y
 
+        # early stopping
+        if strip_early_stopping > 0 and val_x is not None:
+            counter = 0
+            val_err = math.inf
+
         # initialize some variables
         tr_error_values, tr_metric_values, val_error_values, val_metric_values = [], [], [], []
         net = self.net  # just to be shorter
@@ -82,6 +87,7 @@ class Training:
 
         # cycle through epochs
         for _ in tqdm.tqdm(range(epochs), desc="Iterating over epochs", disable=disable_tqdm):
+
             # np.ndarray related to the number of neurons of the last layer of the network (1 for Monk and 2 for ML-CUP)
             epoch_tr_error = np.zeros(net.layers[-1].n_units)
             epoch_tr_metric = np.zeros(net.layers[-1].n_units)
@@ -177,4 +183,14 @@ class Training:
             tr_error_values.append(epoch_tr_error / len(tr_x))
             epoch_tr_metric = np.sum(epoch_tr_metric) / len(epoch_tr_metric)
             tr_metric_values.append(epoch_tr_metric / len(tr_x))
+
+            # early stopping
+            if strip_early_stopping > 0 and val_x is not None:
+                if epoch_val_error < val_err:
+                    counter = 0
+                    val_err = epoch_val_error
+                else:
+                    counter+=1
+                if counter >= strip_early_stopping:
+                    break
         return tr_error_values, tr_metric_values, val_error_values, val_metric_values

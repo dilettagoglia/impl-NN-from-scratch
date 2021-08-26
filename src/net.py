@@ -142,7 +142,7 @@ class Network:
                                      momentum=momentum, nesterov=nesterov, reg_type=reg_type, lambda_=lambda_)
 
     
-    def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, **kwargs):
+    def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, strip_early_stopping=0, **kwargs):
         """
         Execute the training of the network
 
@@ -153,6 +153,7 @@ class Network:
             val_y (np.ndarray): targets for each input validation patter
             epochs (int, optional): number of epochs. Defaults to 1.
             batch_size (int, optional): the size of the batch. Defaults to 1.
+            strip_early_stopping (int, optional): limit of consecutive epochs to stop training when the validation error increased. Defaults to 0 (no early stopping).
 
         Raises:
             AttributeError: if the input set and targets dimensions do not match
@@ -172,7 +173,7 @@ class Network:
             batch_size = len(tr_x)
         self._training_params = {**self._training_params, 'epochs': epochs, 'batch_size': batch_size}
         return self._training_alg.gradient_descent(
-            tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, **kwargs)
+            tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, strip_early_stopping=strip_early_stopping ,**kwargs)
 
     def predict(self, inp):
         """

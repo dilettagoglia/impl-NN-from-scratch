@@ -15,3 +15,5 @@ Useful sources used:
 - [Naming with Underscores in Python](https://medium.com/python-features/naming-conventions-with-underscores-in-python-791251ac7097)
 - [Hyperparameters tuning for ML](https://towardsdatascience.com/how-to-tune-hyperparameters-for-machine-learning-aa23c25a662f)
 - [Early stopping for training](https://machinelearningmastery.com/early-stopping-to-avoid-overtraining-neural-network-models/)
+- [Glorot initialization for weights](https://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf)
+- [Performance comparison for Monk's problems](https://www.researchgate.net/publication/2293492_The_MONK's_Problems_A_Performance_Comparison_of_Different_Learning_Algorithms/link/57358d6208ae9f741b2987fb/download)
