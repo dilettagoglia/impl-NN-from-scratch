@@ -26,7 +26,7 @@ if __name__ == '__main__':
     train_X, val_X, train_y, val_y = train_test_split(monk_train, labels_tr, test_size=0.30)
 
 
-    model.compile(loss='squared_error', metr='binary_accuracy', lr=rate, momentum=0.8)
+    model.compile(loss='squared_error', metr='binary_class_accuracy', lr=rate, momentum=0.8)
     # # training (check the method definition for more info about all the possible parameters)
     tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y, batch_size='full',
                                                     epochs=500, tqdm=True)

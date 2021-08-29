@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
     for i in lr_rates:
         for j in momentum_val:
-            model.compile(loss='squared_error', metr='binary_accuracy', lr=i, momentum=j)
+            model.compile(loss='squared_error', metr='binary_class_accuracy', lr=i, momentum=j)
             # todo: try varying --> lr_decay, limit_step, decay_rate, decay_steps, reg_type, momentum[done]
             # todo:                 n. of epochs[done], batch size, act. funct., n. of hidden units, weight init
             # todo:                 hold-out split, alpha??, lambda_[done], lr[done], loss func.

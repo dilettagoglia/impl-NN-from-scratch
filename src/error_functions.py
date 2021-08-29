@@ -15,8 +15,7 @@ class ErrorFunction:
 
         Returns:
             np.float64: squared error loss
-        """
-        # be careful of types passed as parameters 
+        """ 
         return (np.dot(target - prediction, target - prediction))/2     # /2 usefull for the derivation
     
     @staticmethod  

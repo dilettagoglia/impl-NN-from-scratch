@@ -5,7 +5,7 @@ import numpy as np
 class Metric:
 
     @staticmethod
-    def binary_accuracy(prediction, target):
+    def binary_class_accuracy(prediction, target):
         """Compute classification accuracy based on a specific threshold
 
         Args:
@@ -21,8 +21,8 @@ class Metric:
 
     @staticmethod
     def init_metric(name):
-        if name == 'binary_accuracy':
-            return Metric.binary_accuracy
+        if name == 'binary_class_accuracy':
+            return Metric.binary_class_accuracy
         else:
             raise NameError(name+ " is not recognized! Check for correct names and possible metrics in init_metric!")
 

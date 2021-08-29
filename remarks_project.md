@@ -1,19 +1,19 @@
 ## NEURAL NETWORK MODEL IMPLEMENTATION REMARKS
-- Use 1-hot encoding for categories.
+- Use 1-hot encoding for categories ✓
 - DON'T USE TEST SET!!! ONLY FOR MODEL EVALUATION!!
 - Use LMS (divide by mb for mini-batch) as error metric (we may implement also other metrics like MEE). ✓
 - Initialize weights by random values near zero (or initialization from the paper by Bengio and Glorot). ✓
 - Try a random starting number of trials/configurations (initial weights).
-- Use mini-batch version (aka SGD).
-- Check the learning curve for learning rate.
+- Use mini-batch version (aka SGD) ✓
+- Check the learning curve for learning rate ✓
 - Use MOMENTUM (we may implement other type of momentum). ✓
-- Stop training based on some criteria in every trial (NOT WITH A FIXED VALUES OF EPOCHS!!).
+- Stop training based on some criteria in every trial (NOT WITH A FIXED VALUES OF EPOCHS!!). ✓
 - Use Tikhonov regularization (weights decay)!! (we may implement other kind of regularization). ✓
 - Report only the error term in the report (plots or tables), not the entire loss!
 - Compare with online, batch and mini-batch version?
 - Keep separations between lambda, momentum and eta in the implementation (slide 66 NOTE ON NN - part 2). ✓
 - Use high number of units but with regularization.
-- Use sigmoid function for classification in output units with threshold (we may implement also softmax, cross entropy, etc.).
+- Use sigmoid function for classification in output units with threshold (we may implement also softmax, cross entropy, etc.). ✓
 - Use exhaustive grid-search to find best hyperparameters values (MODELS SELECTION).
 Do it only for hyperparameters directly related to the VC-dim.
 - Insert also STANDARD DEVIATION in the report, not only the MEAN of the error!! (K-FOLD CV with k=5 or 10...).

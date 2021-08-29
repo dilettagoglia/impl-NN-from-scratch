@@ -28,7 +28,6 @@ class Training:
         self.lambda_ = lambda_
         self.reg = Regularizations.init_regularization(reg_type) # tuple composed by (reg_function, reg_function_der, name)
 
-    # TODO define all properties for other attributes
     @property
     def lr_params(self):
         """ Returns all the parameters related to the learning rate. Used for the decay """
@@ -48,7 +47,6 @@ class Training:
         return self._metric
 
     def gradient_descent(self, tr_x, tr_y, val_x, val_y, epochs, batch_size, strip_early_stopping, disable_tqdm=True, **kwargs):
-        # TODO Modify according to our needs
         """
         Gradient descent algorithm for training the network
 

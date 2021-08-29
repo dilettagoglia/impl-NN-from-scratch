@@ -112,13 +112,13 @@ class Network:
         return x
 
     # TODO we can remove **kwargs from compile
-    def compile(self, error_func='squared_error', metr='binary_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., nesterov = False, reg_type='ridge_regression', lambda_=0, **kwargs):
+    def compile(self, error_func='squared_error', metr='binary_class_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., nesterov = False, reg_type='ridge_regression', lambda_=0, **kwargs):
         """
         Prepares the network by assigning an optimizer to it and setting its parameters
 
         Args:
             error_func (str, optional): the type of error function. Defaults to 'squared_error'.
-            metr (str, optional): the type of metric to use. Defaults to 'binary_accuracy'.
+            metr (str, optional): the type of metric to use. Defaults to 'binary_class_accuracy'.
             lr (float, optional): learning rate value. Defaults to 0.01.
             lr_decay (str, optional): type of decay for learning rate. Defaults to None.
             limit_step (int, optional): iteration number of weights update when we stop decaying. Defaults to None.
