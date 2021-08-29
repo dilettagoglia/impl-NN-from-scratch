@@ -19,13 +19,14 @@ from tqdm import tqdm
 Read Dataset
 """
 
-def read_monk_dataset(dataset):
+def read_monk_dataset(dataset, rescale=False):
     """
     Reads the monks datasets and performs a preliminary preproccessing of data.
     Creates the labels for supervised classification and hide them to the classifier.
 
     Attr:
-        name: name of the dataset
+        dataset: name of the dataset
+        rescale: rescale to [-1,+1] the targets
 
     Return:
         monk dataset and labels (as numpy ndarrays)
@@ -39,6 +40,8 @@ def read_monk_dataset(dataset):
 
     # Labels creation - Dropping the "class" column from the Monk dataset: this represents the target y.
     labels = monk_train_1['class']
+    if rescale:
+        labels[labels == 0] = -1 # rescale to -1 for TanH output function
     monk_train_1.drop(columns=['class'], inplace=True)
     labels = pd.Series(labels).to_numpy()  # from pd Series into numpy array
     labels = np.expand_dims(labels, 1)  # add a flat dimension
