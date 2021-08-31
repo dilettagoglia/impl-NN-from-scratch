@@ -19,7 +19,9 @@ from tqdm import tqdm
 Read Dataset
 """
 
-def read_monk_dataset(dataset, rescale=False):
+
+def read_monk_dataset(dataset, rescale=False, preliminary_analysis=None):
+
     """
     Reads the monks datasets and performs a preliminary preproccessing of data.
     Creates the labels for supervised classification and hide them to the classifier.
@@ -32,31 +34,50 @@ def read_monk_dataset(dataset, rescale=False):
         monk dataset and labels (as numpy ndarrays)
     """
 
-    col_names = ['class', 'col_1', 'col_2', 'col_3', 'col_4', 'col_5', 'col_6', 'Id']
 
     # Read the .csv file containing the data. The first line contains the list of attributes. The data is assigned to a Pandas dataframe.
-    monk_train_1 = pd.read_csv(f"../datasets/monks/{str(dataset)}", sep=" ", names=col_names)
-    monk_train_1.set_index('Id', inplace=True)
+    col_names = ['class', 'col_1', 'col_2', 'col_3', 'col_4', 'col_5', 'col_6', 'Id']
+    monk_train = pd.read_csv(f"../datasets/monks/{str(dataset)}", sep=" ", names=col_names)
+    monk_train.set_index('Id', inplace=True)
+
+    if preliminary_analysis:
+
+        # Class group plot
+        monk_train.groupby(monk_train['class']).sum().plot(kind="bar")
+        plt.title(f"Dataset: {str(dataset)}")
+        plt.xlabel("Class")
+        plt.ylabel("Number of data points")
+        plt.show()
+
+        # Check class distribution
+        print("\n Check if dataset is balanced (class distribution):\n",monk_train.groupby(monk_train['class']).sum(),"\n",)
 
     # Labels creation - Dropping the "class" column from the Monk dataset: this represents the target y.
-    labels = monk_train_1['class']
+
+    labels = monk_train['class']
     if rescale:
         labels[labels == 0] = -1 # rescale to -1 for TanH output function
-    monk_train_1.drop(columns=['class'], inplace=True)
+
+    monk_train.drop(columns=['class'], inplace=True)
+
     labels = pd.Series(labels).to_numpy()  # from pd Series into numpy array
     labels = np.expand_dims(labels, 1)  # add a flat dimension
 
     """One-Hot Encoding"""
-    encoder = OneHotEncoder().fit(monk_train_1)
-    monk_dataset_1 = encoder.transform(monk_train_1).toarray()
+    encoder = OneHotEncoder().fit(monk_train)
+    monk_dataset = encoder.transform(monk_train).toarray()
 
-    return monk_dataset_1, labels
+    # choose class values: [-1, 1] or [0, 1]
+    if rescale:
+        labels[labels == 0] = -1
+
+    return monk_dataset, labels
 
 """ 
 Visualization 
 """
 
-def plot_curves(tr_loss, val_loss, tr_metr, val_metr, plt_title, path=None, ylim=(0., 1.1), lbltr='development',
+def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 1.1), lbltr='development',
                 lblval='internal test', *args):
     """
     Plot the curves of training loss, training metric, validation loss, validation metric
@@ -75,7 +96,6 @@ def plot_curves(tr_loss, val_loss, tr_metr, val_metr, plt_title, path=None, ylim
     ax[0].legend(loc='best', prop={'size': 9})
     ax[0].set_xlabel('Epochs', fontweight='bold')
     ax[0].set_ylabel('Error', fontweight='bold')
-    # ax[0].set_suptitle(plt_title)
     ax[0].grid()
     ax[1].plot(range(len(tr_metr)), tr_metr, color='b', linestyle='dashed', label=lbltr)
     ax[1].plot(range(len(val_metr)), val_metr, color='r', label=lblval)
@@ -83,7 +103,6 @@ def plot_curves(tr_loss, val_loss, tr_metr, val_metr, plt_title, path=None, ylim
     ax[1].set_xlabel('Epochs', fontweight='bold')
     ax[1].set_ylabel('Acc', fontweight='bold')
     ax[1].set_ylim(ylim)
-    #ax[1].set_title(plt_title)
     ax[1].grid()
     if path is None:
         plt.show()

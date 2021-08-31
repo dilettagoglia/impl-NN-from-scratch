@@ -20,9 +20,10 @@ from utility import *
 # Monk train dataset analysis
 ds_names=['monks-1.train', 'monks-2.train', 'monks-3.train']
 for dataset in ds_names:
-    print('\n\nAnalysis of "', dataset, '" dataset.')
-    monk_train, labels_tr = read_monk_dataset(dataset)
+    print('\n\n **** Analysis of "',dataset,'" dataset ****')
+    monk_train, labels_tr = read_monk_dataset(dataset, preliminary_analysis=True)
     print('One-Hot encoded dataset. \n Training set:\n', monk_train, '\n Labels:\n', labels_tr.T)
-
     # Check dimensions
     print('\nLabels vector shape:\n', labels_tr.shape, '\n Training dataset shape: (examples, features)\n', monk_train.shape)
+
+
