@@ -51,6 +51,7 @@ Do it only for hyperparameters directly related to the VC-dim.
         - Evaluation of the network with a target vector ✓
 - Some trials for screening phase
 - Model Selection
-    - Hold-out 
-    - K-fold cross validation
+    - Hold-out ✓
+    - K-fold cross validation ✓
     - Grid Search
+    - Random Search
