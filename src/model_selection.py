@@ -4,11 +4,10 @@ import numpy as np
 import tqdm
 
 # TODO implement cross-validation, grid search and random search inside this class
-# TODO implement validation directly in houldout_splitting method
 
 # split a dataset into a train and validation set
 def holdout_validation(net,dataset, labels, test_size, loss, metr, lr, shuffle=True, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
-            momentum=0., nesterov=False, epochs=1, batch_size=1, reg_type='l2', lambda_=0):
+            momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, reg_type='l2', lambda_=0):
     train_size = int((1 - test_size) * len(dataset))
     if shuffle:
         # shuffle the whole dataset once
@@ -18,11 +17,10 @@ def holdout_validation(net,dataset, labels, test_size, loss, metr, lr, shuffle=T
         labels = labels[indexes]
     train_X, val_X = dataset[:train_size,:], dataset[train_size:,:]
     train_Y, val_Y = labels[:train_size,:], labels[train_size:,:]
-    net.compile(loss=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
+    net.compile(error_func=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
                     decay_rate=decay_rate, decay_steps=decay_steps, momentum=momentum,
-                    reg_type=reg_type, lambda_=lambda_)
-    # # training (check the method definition for more info about all the possible parameters)
-    tr_err, tr_metr, val_err, val_metr = net.fit(tr_x=train_X, tr_y=train_Y, val_x=val_X, val_y=val_Y, batch_size=batch_size, epochs=epochs)
+                    nesterov=nesterov, reg_type=reg_type, lambda_=lambda_)
+    tr_err, tr_metr, val_err, val_metr = net.fit(tr_x=train_X, tr_y=train_Y, val_x=val_X, val_y=val_Y, batch_size=batch_size, epochs=epochs, strip_early_stopping=strip)
     return tr_err, tr_metr, val_err, val_metr
 
 #TODO DocString documentation
@@ -53,7 +51,7 @@ def kfold_CV(net, dataset, loss, metr, lr, path=None, lr_decay=None, limit_step=
         tr_data, tr_targets, val_data, val_targets = sets_from_folds(x_folds, y_folds, val_fold_index=i)
 
         # compile and fit the model on the current training set and evaluate it on the current validation set
-        net.compile(opt=opt, loss=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
+        net.compile(opt=opt, error_func=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
                     decay_rate=decay_rate, decay_steps=decay_steps, staircase=staircase, momentum=momentum,
                     reg_type=reg_type, lambd=lambd)
         warnings.simplefilter("error")

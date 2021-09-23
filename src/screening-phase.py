@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
     for i in lambda_val:
         for j in momentum_val:
-            model.compile(loss=loss, metr=metr, lr=lr, momentum=j, lambda_=i)
+            model.compile(error_func=loss, metr=metr, lr=lr, momentum=j, lambda_=i)
 
             # # training (check the method definition for more info about all the possible parameters)
             tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y,

@@ -26,12 +26,12 @@ if __name__ == '__main__':
     # hold-out validation
     # # compile the model (check the method definition for more info about all the accepted arguments)
     train_X, val_X, train_y, val_y = train_test_split(monk_train, labels_tr, test_size=0.30)
-    model.compile(loss='binary_cross_entropy', metr='binary_class_accuracy', lr=0.76, momentum=0.83, lambda_=0)
+    model.compile(error_func='binary_cross_entropy', metr='binary_class_accuracy', lr=0.76, momentum=0.83, lambda_=0)
     # # training (check the method definition for more info about all the possible parameters)
     tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y, batch_size='full',
                                                     epochs=500)
     # # plot the learning curves
-    plot_curves(tr_err, val_err, tr_metr, val_metr, plt_title="Test net", lbltr='Training', lblval='Validation')
+    plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation')
 
 
 

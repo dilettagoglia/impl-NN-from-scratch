@@ -68,6 +68,7 @@ class ErrorFunction:
         Returns:
             np.float64: binary cross-entropy loss
         """
+        #TODO check log for zero
         return np.sum(np.where(target == 0, - np.log(1. - prediction), - np.log(prediction)))
 
     @staticmethod
@@ -81,6 +82,7 @@ class ErrorFunction:
         Returns:
             np.ndarray: derivative of the binary cross-entropy
         """
+        #TODO check division by zero
         return np.where(target == 0, 1 / (1. - prediction), - 1. / prediction)
 
     @staticmethod
