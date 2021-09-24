@@ -15,6 +15,7 @@ from sklearn.model_selection import train_test_split # hold-out approach
 from tqdm import tqdm
 # from IPython import display
 
+
 """
 Read Dataset
 """
@@ -108,4 +109,9 @@ def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 1.1),
         plt.show()
     else:
         plt.savefig(path)
+
+# replace 0 values with an extremely small value
+def eta(x):
+  ETA = 0.0000000001
+  return np.maximum(x, ETA)
 

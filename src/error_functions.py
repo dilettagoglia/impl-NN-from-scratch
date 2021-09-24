@@ -1,4 +1,5 @@
 import numpy as np
+from utility import eta
 
 class ErrorFunction:
     """
@@ -68,8 +69,7 @@ class ErrorFunction:
         Returns:
             np.float64: binary cross-entropy loss
         """
-        #TODO check log for zero
-        return np.sum(np.where(target == 0, - np.log(1. - prediction), - np.log(prediction)))
+        return np.sum(np.where(target == 0, - np.log(eta(1. - prediction)), - np.log(eta(prediction))))
 
     @staticmethod
     def binary_cross_entropy_error_der(prediction, target):
@@ -82,8 +82,7 @@ class ErrorFunction:
         Returns:
             np.ndarray: derivative of the binary cross-entropy
         """
-        #TODO check division by zero
-        return np.where(target == 0, 1 / (1. - prediction), - 1. / prediction)
+        return np.where(target == 0, 1 / eta(1. - prediction), - 1. / eta(prediction))
 
     @staticmethod
     def init_error_function(name):

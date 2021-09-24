@@ -9,7 +9,7 @@ from training import Training
 
 class Network:
 
-    def __init__(self, input_dim, units_per_layer, act_functions, weights_init, tqdm=True, **kwargs):
+    def __init__(self, input_dim, units_per_layer, act_functions, weights_init, **kwargs):
 
         """
         Network Constructor
