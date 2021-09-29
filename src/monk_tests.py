@@ -35,7 +35,7 @@ if __name__ == '__main__':
         'act_functions': ('relu', 'sigmoid'),
         'weights_init': 'random',
         'init_value': 0.2,
-        'limits': (-0.1, 0.1)
+        #'limits': (-0.1, 0.1)
     }
 
     mod_par_monk2 = {
@@ -44,7 +44,7 @@ if __name__ == '__main__':
         'act_functions': ('relu', 'sigmoid'),
         'weights_init': 'random',
         'init_value': 0.2,
-        'limits': (-0.25, 0.25)
+        #'limits': (-0.25, 0.25)
     }
 
     mod_par_monk3 = {
@@ -53,7 +53,7 @@ if __name__ == '__main__':
         'act_functions': ('relu', 'sigmoid'),
         'weights_init': 'random',
         # 'init_value': 0.2,
-        'limits': (-0.1, 0.1)
+        #'limits': (-0.1, 0.1)
     }
 
     # create model

@@ -89,7 +89,7 @@ def read_cup(int_ts=False):
     """
     # read the dataset
     col_names = ['id', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'target_x', 'target_y']
-    directory = "../datasets/cup/"
+    directory = "../datasets/ML-cup/"
     int_ts_path = directory + "CUP-INTERNAL-TEST.csv"
     dev_set_path = directory + "CUP-DEV-SET.csv"
     file = "ML-CUP20-TR.csv"
