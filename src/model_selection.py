@@ -1,13 +1,21 @@
 from scipy.sparse import data
-from utility import read_monk_dataset
+from utility import *
 import numpy as np
 import tqdm
+from net import Network
 
 # TODO implement cross-validation, grid search and random search inside this class
 
 # split a dataset into a train and validation set
-def holdout_validation(net,dataset, labels, test_size, loss, metr, lr, shuffle=True, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
-            momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, reg_type='l2', lambda_=0):
+def holdout_validation(net,path, test_size, loss, metr, lr, shuffle=True, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
+            momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, reg_type='ridge_regression', lambda_=0):
+    if path == "cup":
+        dev_set_x, labels, _, _, _ = read_cup(int_ts=True)
+        print("cup")
+    else:
+        rescale = True if net.params['act_functions'][-1] == 'tanh' else False
+        dataset, labels = read_monk_dataset(dataset=path, rescale=rescale)
+
     train_size = int((1 - test_size) * len(dataset))
     if shuffle:
         # shuffle the whole dataset once
@@ -25,11 +33,10 @@ def holdout_validation(net,dataset, labels, test_size, loss, metr, lr, shuffle=T
 
 #TODO DocString documentation
 def kfold_CV(net, dataset, loss, metr, lr, path=None, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
-            momentum=0., nesterov=False, epochs=1, batch_size=1, k_folds=5, reg_type='l2', lambda_=0,
+            momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, k_folds=5, reg_type='ridge_regression', lambda_=0,
             disable_tqdms=(True, True), plot=True, verbose=False, **kwargs):
-    # TODO implement utility function to read cup dataset
     if dataset == "cup":
-        # dev_set_x, labels, _, _, _ = read_cup(int_ts=True)
+        dev_set_x, labels, _, _, _ = read_cup(int_ts=True)
         print("cup")
     else:
         rescale = True if net.params['act_functions'][-1] == 'tanh' else False
@@ -51,13 +58,14 @@ def kfold_CV(net, dataset, loss, metr, lr, path=None, lr_decay=None, limit_step=
         tr_data, tr_targets, val_data, val_targets = sets_from_folds(x_folds, y_folds, val_fold_index=i)
 
         # compile and fit the model on the current training set and evaluate it on the current validation set
-        net.compile(opt=opt, error_func=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
-                    decay_rate=decay_rate, decay_steps=decay_steps, staircase=staircase, momentum=momentum,
-                    reg_type=reg_type, lambd=lambd)
-        warnings.simplefilter("error")
+        net.compile(error_func=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
+                    decay_rate=decay_rate, decay_steps=decay_steps, momentum=momentum, nesterov=nesterov,
+                    reg_type=reg_type, lambda_=lambda_)
+        # warnings.simplefilter("error")
+        #TODO decide to keep this catching of exception
         try:
             tr_history = net.fit(tr_x=tr_data, tr_y=tr_targets, val_x=val_data, val_y=val_targets, epochs=epochs,
-                                 batch_size=batch_size, disable_tqdm=disable_tqdms[1])
+                                 batch_size=batch_size, strip_early_stopping=strip, disable_tqdm=disable_tqdms[1])
         except Exception as e:
             print(f"{e.__class__.__name__} occurred. Training suppressed.")
             print(e, '\n')

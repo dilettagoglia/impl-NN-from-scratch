@@ -1,4 +1,6 @@
 import statistics
+import math
+import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -73,6 +75,83 @@ def read_monk_dataset(dataset, rescale=False, preliminary_analysis=None):
         labels[labels == 0] = -1
 
     return monk_dataset, labels
+
+def read_cup(int_ts=False):
+    """
+    Reads the CUP training and test set
+    :return: CUP training data, CUP training targets and CUP test data (as numpy ndarray)
+    """
+    # read the dataset
+    col_names = ['id', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'target_x', 'target_y']
+    directory = "../datasets/cup/"
+    int_ts_path = directory + "CUP-INTERNAL-TEST.csv"
+    dev_set_path = directory + "CUP-DEV-SET.csv"
+    file = "ML-CUP20-TR.csv"
+
+    if int_ts and not (os.path.exists(int_ts_path) and os.path.exists(dev_set_path)):
+        df = pd.read_csv(directory + file, sep=',', names=col_names, skiprows=range(7), usecols=range(0, 13))
+        df = df.sample(frac=1, axis=0)
+        int_ts_df = df.iloc[: math.floor(len(df) * 0.1), :]
+        dev_set_df = df.iloc[math.floor(len(df) * 0.1) :, :]
+        int_ts_df.to_csv(path_or_buf=int_ts_path, index=False, float_format='%.6f', header=False)
+        dev_set_df.to_csv(path_or_buf=dev_set_path, index=False, float_format='%.6f', header=False)
+
+    if int_ts and os.path.exists(int_ts_path) and os.path.exists(dev_set_path):
+        tr_data = pd.read_csv(dev_set_path, sep=',', names=col_names, skiprows=range(7), usecols=range(1, 11))
+        tr_targets = pd.read_csv(dev_set_path, sep=',', names=col_names, skiprows=range(7), usecols=range(11, 13))
+        int_ts_data = pd.read_csv(int_ts_path,  sep=',', names=col_names, skiprows=range(7), usecols=range(1, 11))
+        int_ts_targets = pd.read_csv(int_ts_path,  sep=',', names=col_names, skiprows=range(7), usecols=range(11, 13))
+        int_ts_data = int_ts_data.to_numpy(dtype=np.float32)
+        int_ts_targets = int_ts_targets.to_numpy(dtype=np.float32)
+    else:
+        tr_data = pd.read_csv(directory + file, sep=',', names=col_names, skiprows=range(7), usecols=range(1, 11))
+        tr_targets = pd.read_csv(directory + file, sep=',', names=col_names, skiprows=range(7), usecols=range(11, 13))
+
+    file = "ML-CUP20-TS.csv"
+    cup_ts_data = pd.read_csv(directory + file, sep=',', names=col_names[: -2], skiprows=range(7), usecols=range(1, 11))
+
+    tr_data = tr_data.to_numpy(dtype=np.float32)
+    tr_targets = tr_targets.to_numpy(dtype=np.float32)
+    cup_ts_data = cup_ts_data.to_numpy(dtype=np.float32)
+
+    # shuffle the training dataset once
+    indexes = list(range(tr_targets.shape[0]))
+    np.random.shuffle(indexes)
+    tr_data = tr_data[indexes]
+    tr_targets = tr_targets[indexes]
+
+    # detach internal test set if needed
+    if int_ts:
+        if not (os.path.exists(int_ts_path) and os.path.exists(dev_set_path)):
+            tr_data, int_ts_data, tr_targets, int_ts_targets = train_test_split(tr_data, tr_targets, test_size=0.1)
+
+        return tr_data, tr_targets, int_ts_data, int_ts_targets, cup_ts_data
+
+    return tr_data, tr_targets, cup_ts_data
+
+#TODO write DocString documentation
+def sets_from_folds(x_folds, y_folds, val_fold_index):
+    """
+    Takes folds from cross validation and return training and validation sets as a whole (not lists of folds)
+    :param x_folds: list of folds containing the data
+    :param y_folds: list of folds containing the targets
+    :param val_fold_index: index of the fold to use as validation set
+    :return: training data set, training targets set, validation data set, validation targets set (as numpy ndarray)
+    """
+    val_data, val_targets = x_folds[val_fold_index], y_folds[val_fold_index]
+    tr_data_folds = np.concatenate((x_folds[: val_fold_index], x_folds[val_fold_index + 1:]))
+    tr_targets_folds = np.concatenate((y_folds[: val_fold_index], y_folds[val_fold_index + 1:]))
+    # here tr_data_folds & tr_targets_folds are still a "list of folds", we need a single seq as a whole
+    tr_data = tr_data_folds[0]
+    tr_targets = tr_targets_folds[0]
+    for j in range(1, len(tr_data_folds)):
+        tr_data = np.concatenate((tr_data, tr_data_folds[j]))
+        tr_targets = np.concatenate((tr_targets, tr_targets_folds[j]))
+    tr_data = np.array(tr_data, dtype=np.float32)
+    tr_targets = np.array(tr_targets, dtype=np.float32)
+    val_data = np.array(val_data, dtype=np.float32) #TODO check if we can remove this instruction
+    val_targets = np.array(val_targets, dtype=np.float32)
+    return tr_data, tr_targets, val_data, val_targets
 
 """ 
 Visualization 
