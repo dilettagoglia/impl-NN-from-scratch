@@ -5,6 +5,7 @@ import tqdm
 from net import Network
 
 # TODO implement cross-validation, grid search and random search inside this class
+#TODO generate DocString documentation for all methods
 
 # split a dataset into a train and validation set
 def holdout_validation(net,path, test_size, loss, metr, lr, shuffle=True, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
@@ -31,7 +32,6 @@ def holdout_validation(net,path, test_size, loss, metr, lr, shuffle=True, lr_dec
     tr_err, tr_metr, val_err, val_metr = net.fit(tr_x=train_X, tr_y=train_Y, val_x=val_X, val_y=val_Y, batch_size=batch_size, epochs=epochs, strip_early_stopping=strip)
     return tr_err, tr_metr, val_err, val_metr
 
-#TODO DocString documentation
 def kfold_CV(net, dataset, loss, metr, lr, path=None, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
             momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, k_folds=5, reg_type='ridge_regression', lambda_=0,
             disable_tqdms=(True, True), plot=True, verbose=False, **kwargs):
@@ -77,10 +77,12 @@ def kfold_CV(net, dataset, loss, metr, lr, path=None, lr_decay=None, limit_step=
         #   [1] --> training metric values for each epoch
         #   [2] --> validation error values for each epoch
         #   [3] --> validation metric values for each epoch
+        #   variables useful for plotting
         tr_error_values += tr_history[0]
         tr_metric_values += tr_history[1]
         val_error_values += tr_history[2]
         val_metric_values += tr_history[3]
+        # keep last error value for training and validation per fold
         try:
             tr_error_per_fold.append(tr_history[0][-1])
             tr_metric_per_fold.append(tr_history[1][-1])
@@ -117,7 +119,7 @@ def kfold_CV(net, dataset, loss, metr, lr, path=None, lr_decay=None, limit_step=
         print("Val Loss: {} - std:(+/- {})\n"
               "Train Loss: {} - std:(+/- {})\n"
               "Val Metric: {} - std:(+/- {})\n"
-              "Train Metric: {} - std(+/- {}\n".format(avg_val_err, std_val_err,
+              "Train Metric: {} - std(+/- {})\n".format(avg_val_err, std_val_err,
                                                        avg_tr_err, std_tr_err,
                                                        avg_val_metric, std_val_metric,
                                                        avg_tr_metr, std_tr_metr))

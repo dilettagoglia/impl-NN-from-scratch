@@ -42,7 +42,7 @@ if __name__ == '__main__':
     elif VALIDATION == "kfold":
         kfold_CV(net=model, dataset=tr_ds_name, loss='squared_error',
                                              metr='binary_class_accuracy', lr=0.76, momentum=0.83, lambda_=0,batch_size='full',
-                                                        epochs=500)
+                                                        epochs=500, disable_tqdms=(False,False), verbose=True)
 
 
 

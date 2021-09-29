@@ -74,6 +74,12 @@ def read_monk_dataset(dataset, rescale=False, preliminary_analysis=None):
     if rescale:
         labels[labels == 0] = -1
 
+    # shuffle the whole dataset once
+    indexes = list(range(len(monk_dataset)))
+    np.random.shuffle(indexes)
+    monk_dataset = monk_dataset[indexes]
+    labels = labels[indexes]
+
     return monk_dataset, labels
 
 def read_cup(int_ts=False):
@@ -129,15 +135,17 @@ def read_cup(int_ts=False):
 
     return tr_data, tr_targets, cup_ts_data
 
-#TODO write DocString documentation
 def sets_from_folds(x_folds, y_folds, val_fold_index):
-    """
-    Takes folds from cross validation and return training and validation sets as a whole (not lists of folds)
-    :param x_folds: list of folds containing the data
-    :param y_folds: list of folds containing the targets
-    :param val_fold_index: index of the fold to use as validation set
-    :return: training data set, training targets set, validation data set, validation targets set (as numpy ndarray)
-    """
+    """ Takes folds from cross validation and return training and validation sets as a whole (not lists of folds)
+
+    Args:
+        x_folds (np.ndarray): list of folds containing the data
+        y_folds (np.ndarray): list of folds containing the targets
+        val_fold_index (int): index of the fold to use as validation set
+
+    Returns:
+        [tuple of np.ndarray]: training data set, training targets set, validation data set, validation targets set
+    """    
     val_data, val_targets = x_folds[val_fold_index], y_folds[val_fold_index]
     tr_data_folds = np.concatenate((x_folds[: val_fold_index], x_folds[val_fold_index + 1:]))
     tr_targets_folds = np.concatenate((y_folds[: val_fold_index], y_folds[val_fold_index + 1:]))

@@ -173,7 +173,7 @@ class Network:
             batch_size = len(tr_x)
         self._training_params = {**self._training_params, 'epochs': epochs, 'batch_size': batch_size}
         return self._training_alg.gradient_descent(
-            tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, strip_early_stopping=strip_early_stopping, disable_tqdm=False,**kwargs)
+            tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, strip_early_stopping=strip_early_stopping ,**kwargs)
 
     def predict(self, inp):
         """
