@@ -6,6 +6,7 @@ if __name__ == '__main__':
     tr_ds_name = "monks-1.train"
     monk_train, labels_tr = read_monk_dataset(dataset=tr_ds_name, rescale=False)
 
+    #TODO change name for paramaters to adapt to our network ('error_func' instead of 'loss', etc. ) -> check net.py file
     # grid search parameters
     gs_params = {'units_per_layer': ((2, 2), (4, 2), (3, 2)),
                  'act_functions': (('leaky_relu', 'sigmoid'),),

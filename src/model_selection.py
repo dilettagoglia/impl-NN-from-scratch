@@ -16,7 +16,7 @@ import itertools as it
 
 # split a dataset into a train and validation set
 def holdout_validation(net,path, test_size, loss, metr, lr, shuffle=True, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
-            momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, reg_type='ridge_regression', lambda_=0):
+            momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, reg_type='ridge_regression', lambda_=0, disable_tqdm=False):
     if path == "cup":
         dev_set_x, labels, _, _, _ = read_cup(int_ts=True)
         print("cup")
@@ -36,7 +36,7 @@ def holdout_validation(net,path, test_size, loss, metr, lr, shuffle=True, lr_dec
     net.compile(error_func=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
                     decay_rate=decay_rate, decay_steps=decay_steps, momentum=momentum,
                     nesterov=nesterov, reg_type=reg_type, lambda_=lambda_)
-    tr_err, tr_metr, val_err, val_metr = net.fit(tr_x=train_X, tr_y=train_Y, val_x=val_X, val_y=val_Y, batch_size=batch_size, epochs=epochs, strip_early_stopping=strip)
+    tr_err, tr_metr, val_err, val_metr = net.fit(tr_x=train_X, tr_y=train_Y, val_x=val_X, val_y=val_Y, batch_size=batch_size, epochs=epochs, strip_early_stopping=strip, disable_tqdm=disable_tqdm)
     return tr_err, tr_metr, val_err, val_metr
 
 ''' *** K-FOLD CV *** '''

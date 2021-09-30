@@ -35,6 +35,7 @@ class Network:
             self._layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i], init_w_name=weights_init, **kwargs))
             # keep the current number of neurons of this layer as number of inputs for the next layer
             layer_inp_dim = units_per_layer[i]
+        self.print_topology()
 
     # TODO decide whether to keep check attribute or not
     @staticmethod
@@ -142,7 +143,7 @@ class Network:
                                      momentum=momentum, nesterov=nesterov, reg_type=reg_type, lambda_=lambda_)
 
     
-    def fit(self, tr_x, tr_y, val_x, val_y, epochs=1, batch_size=1, strip_early_stopping=0, **kwargs):
+    def fit(self, tr_x, tr_y, val_x = None, val_y = None, epochs=1, batch_size=1, strip_early_stopping=0, **kwargs):
         """
         Execute the training of the network
 
@@ -163,12 +164,12 @@ class Network:
         """
         # transform sets to numpy array (if they're not already)
         tr_x, tr_y = np.array(tr_x), np.array(tr_y)
-        val_x, val_y = np.array(val_x), np.array(val_y)
-
-        n_val_examples = val_x.shape[0] # takes the dimension of validation input vector
-        n_targets = val_y.shape[0]      # takes the dimension of validation target vector
-        if n_val_examples != n_targets:
-            raise AttributeError(f"Mismatching shapes in validation set {n_val_examples} {n_targets}")
+        if val_x is not None and val_y is not None:
+            val_x, val_y = np.array(val_x), np.array(val_y)
+            n_val_examples = val_x.shape[0] # takes the dimension of validation input vector
+            n_targets = val_y.shape[0]      # takes the dimension of validation target vector
+            if n_val_examples != n_targets:
+                raise AttributeError(f"Mismatching shapes in validation set {n_val_examples} {n_targets}")
         if batch_size == 'full':
             batch_size = len(tr_x)
         self._training_params = {**self._training_params, 'epochs': epochs, 'batch_size': batch_size}
@@ -265,7 +266,7 @@ class Network:
 
     def print_topology(self):
         """ Prints the network's architecture and parameters """
-        print("Network's topology:")
+        print("---------- Network's topology ----------")
         for i,layer in enumerate(self._layers):
             print("---------- LAYER {} ----------".format(i+1))
             layer.print_details()

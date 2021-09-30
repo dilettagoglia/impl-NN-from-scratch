@@ -6,6 +6,7 @@ if __name__ == '__main__':
     devset_x, devset_y, int_ts_x, int_ts_y, ts_data = read_cup(int_ts=True)
 
     # grid search parameters
+    #TODO change name for paramaters to adapt to our network ('error_func' instead of 'loss', etc. ) -> check net.py file
     gs_params = {'units_per_layer': ((20, 2), (20, 20, 2), (20, 20, 10, 2), (8, 8, 8, 8, 8, 2)),
                  'act_functions': (('leaky_relu', 'identity'), ('tanh', 'identity'),
                           ('leaky_relu', 'leaky_relu', 'identity'), ('tanh', 'tanh', 'identity'),

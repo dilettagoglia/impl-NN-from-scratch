@@ -27,6 +27,7 @@ class Training:
         self.nesterov = nesterov
         self.lambda_ = lambda_
         self.reg = Regularizations.init_regularization(reg_type) # tuple composed by (reg_function, reg_function_der, name)
+        self.print_training_parameters()
 
     @property
     def lr_params(self):
@@ -192,3 +193,17 @@ class Training:
                 if counter >= strip_early_stopping:
                     break
         return tr_error_values, tr_metric_values, val_error_values, val_metric_values
+
+    def print_training_parameters(self):
+        """ Prints the training parameters """
+        print("---------------- TRAINING PARAMETERS ----------------")
+        print("Error Function: {}".format(self.error_func))
+        print("Metric: {}".format(self.metr))
+        print("Learning Rate Parameters: {}".format(self.lr_params))
+        print("Momentum: {}".format(self.momentum))
+        print("Nesterov: {}".format(self.nesterov))
+        print("Lambda Regularization Rate: {}".format(self.lambda_))
+        print("Regularization: {}".format(self.reg))
+
+
+
