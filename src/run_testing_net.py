@@ -16,7 +16,7 @@ if __name__ == '__main__':
     # read the dataset. Change the name in the following lines to use monks-2 or monks-3
     tr_ds_name = "monks-3.train"
     ts_ds_name = "monks-3.test"
-    VALIDATION = "novalidation"
+    VALIDATION = "holdout"
     if VALIDATION == "holdout_sklearn":
         monk_train, labels_tr = read_monk_dataset(dataset=tr_ds_name)
         #monk_test, labels_ts = read_monk_dataset(dataset="monks-1.test")
@@ -35,13 +35,13 @@ if __name__ == '__main__':
         # # plot the learning curves
         plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation')
     elif VALIDATION == "holdout":
-        tr_err, tr_metr, val_err, val_metr = holdout_validation(net=model, path=tr_ds_name, test_size=0.30, loss='squared_error',
+        tr_err, tr_metr, val_err, val_metr = holdout_validation(net=model, path=tr_ds_name, test_size=0.30, error_func='squared_error',
                                              metr='binary_class_accuracy', lr=0.76, momentum=0.83, lambda_=0,batch_size='full',
                                                         epochs=500, disable_tqdm=False)
         # # plot the learning curves
         plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation')
     elif VALIDATION == "kfold":
-        kfold_CV(net=model, dataset=tr_ds_name, loss='squared_error',
+        kfold_CV(net=model, dataset=tr_ds_name, error_func='squared_error',
                                              metr='binary_class_accuracy', lr=0.76, momentum=0.83, lambda_=0,batch_size='full',
                                                         epochs=500, disable_tqdms=(False,False), verbose=True)
     else: # NO VALIDATION

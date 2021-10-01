@@ -7,14 +7,10 @@ if __name__ == '__main__':
 
     # grid search parameters
     #[Edit: DONE] TODO change name for paramaters to adapt to our network ('error_func' instead of 'loss', etc. ) -> check net.py file
-    gs_params = {'units_per_layer': ((20, 2), (20, 20, 2), (20, 20, 10, 2), (8, 8, 8, 8, 8, 2)),
-                 'act_functions': (('leaky_relu', 'identity'), ('tanh', 'identity'),
-                          ('leaky_relu', 'leaky_relu', 'identity'), ('tanh', 'tanh', 'identity'),
-                          ('leaky_relu', 'leaky_relu', 'leaky_relu', 'identity'),
-                          ('tanh', 'tanh', 'tanh', 'identity'),
-                          ('leaky_relu', 'leaky_relu', 'leaky_relu', 'leaky_relu', 'leaky_relu', 'identity'),
-                          ('tanh', 'tanh', 'tanh', 'tanh', 'tanh', 'identity'),),
-                 'weight_init': ('random', 'glorot',),
+    gs_params = {'units_per_layer': ([20, 2], [20, 20, 2]),
+                 'act_functions': (['leaky_relu', 'identity'], ['tanh', 'identity'],
+                          ['leaky_relu', 'leaky_relu', 'identity'], ['tanh', 'tanh', 'identity'],),
+                 'weights_init': ('random', 'glorot',),
                  'bounds': ((-0.1, 0.1), (-0.001, 0.001)),
                  'momentum': (0.5, 0.8),
                  'batch_size': (1, 200, 'full'),

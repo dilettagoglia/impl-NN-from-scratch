@@ -27,7 +27,7 @@ class Training:
         self.nesterov = nesterov
         self.lambda_ = lambda_
         self.reg = Regularizations.init_regularization(reg_type) # tuple composed by (reg_function, reg_function_der, name)
-        self.print_training_parameters()
+        # self.print_training_parameters()
 
     @property
     def lr_params(self):

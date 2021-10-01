@@ -25,6 +25,11 @@ Do it only for hyperparameters directly related to the VC-dim.
 - Compare our simulator with an "oracle" tool to assess its correctness (Keras, Pytorch, etc.).
 - Try to implement an efficient code for the experiments!
 - Implement some decay technique for learning rate ✓
+LEARNING RATE IN [0.01 0.5] in LMS WITHOUT MOMENTUM
+LEARNING RATE IN [0.2, 0.9] in LMS WITH MOMENTUM
+MOMENTUM IN [0.5, 0.9]
+INIT_WEIGHTS IN [-0.01, 0.01], [-0.25, 0.25], [-0.1, 0.1]
+MOMENTUM IN 
 
 ## PYTHON IMPLEMENTATION REMARKS
 - Use static methods for utility classes (when we don't care about the property of the object)

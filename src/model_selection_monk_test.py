@@ -8,9 +8,9 @@ if __name__ == '__main__':
 
     #TODO change name for paramaters to adapt to our network ('error_func' instead of 'loss', etc. ) -> check net.py file
     # grid search parameters
-    gs_params = {'units_per_layer': ((2, 2), (4, 2), (3, 2)),
-                 'act_functions': (('leaky_relu', 'sigmoid'),),
-                 'weight_init': ('random', 'glorot',),
+    gs_params = {'units_per_layer': ([2, 2], [4, 2], [3, 2]),
+                 'act_functions': (['leaky_relu', 'sigmoid'],),
+                 'weights_init': ('random', 'glorot',),
                  #'bounds': ((-0.1, 0.1), (-0.001, 0.001)),
                  'momentum': (0.5, 0.8),
                  'batch_size': (1, 200, 'full'),

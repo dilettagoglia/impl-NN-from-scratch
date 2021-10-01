@@ -246,9 +246,9 @@ def list_of_combos(param_dict):
     :param param_dict: dict{kind_of_param: tuple of all the values of that param to try in the grid search)
     :return: list of dictionaries{kind_of_param: value of that param}
     """
-    expected_keys = sorted(['units_per_layer', 'act_functions', 'weights_init', 'limits', 'momentum', 'batch_size', 'lr', 'loss',
-                            'metr', 'epochs', 'lr_decay', 'decay_rate', 'decay_steps', 'staircase', 'limit_step',
-                            'lambd', 'reg_type'])
+    expected_keys = sorted(['units_per_layer', 'act_functions', 'weights_init', 'bounds', 'momentum', 'batch_size', 'lr', 'error_func',
+                            'metr', 'epochs', 'lr_decay', 'decay_rate', 'decay_steps', 'limit_step',
+                            'lambda_', 'reg_type'])
     for k in expected_keys:
         if k not in param_dict.keys():
             param_dict[k] = ('l2',) if k == 'reg_type' else ((0,) if k == 'lambd' else (None,))
