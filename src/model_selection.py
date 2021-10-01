@@ -15,7 +15,7 @@ import itertools as it
 #TODO generate DocString documentation for all methods
 
 # split a dataset into a train and validation set
-def holdout_validation(net,path, test_size, loss, metr, lr, shuffle=True, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
+def holdout_validation(net,path, test_size, error_func, metr, lr, shuffle=True, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
             momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, reg_type='ridge_regression', lambda_=0, disable_tqdm=False):
     if path == "cup":
         dev_set_x, labels, _, _, _ = read_cup(int_ts=True)
@@ -33,7 +33,7 @@ def holdout_validation(net,path, test_size, loss, metr, lr, shuffle=True, lr_dec
         labels = labels[indexes]
     train_X, val_X = dataset[:train_size,:], dataset[train_size:,:]
     train_Y, val_Y = labels[:train_size,:], labels[train_size:,:]
-    net.compile(error_func=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
+    net.compile(error_func=error_func, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
                     decay_rate=decay_rate, decay_steps=decay_steps, momentum=momentum,
                     nesterov=nesterov, reg_type=reg_type, lambda_=lambda_)
     tr_err, tr_metr, val_err, val_metr = net.fit(tr_x=train_X, tr_y=train_Y, val_x=val_X, val_y=val_Y, batch_size=batch_size, epochs=epochs, strip_early_stopping=strip, disable_tqdm=disable_tqdm)
@@ -43,7 +43,7 @@ def holdout_validation(net,path, test_size, loss, metr, lr, shuffle=True, lr_dec
 
 #TODO DocString documentation
 #todo: change loss param with error_func for omogeneous notation
-def kfold_CV(net, dataset, loss, metr, lr, path=None, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
+def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
             momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, k_folds=5, reg_type='ridge_regression', lambda_=0,
             disable_tqdms=(True, True), plot=True, verbose=False, **kwargs):
     if dataset == "cup":
@@ -69,7 +69,7 @@ def kfold_CV(net, dataset, loss, metr, lr, path=None, lr_decay=None, limit_step=
         tr_data, tr_targets, val_data, val_targets = sets_from_folds(x_folds, y_folds, val_fold_index=i)
 
         # compile and fit the model on the current training set and evaluate it on the current validation set
-        net.compile(error_func=loss, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
+        net.compile(error_func=error_func, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
                     decay_rate=decay_rate, decay_steps=decay_steps, momentum=momentum, nesterov=nesterov,
                     reg_type=reg_type, lambda_=lambda_)
         # warnings.simplefilter("error")
