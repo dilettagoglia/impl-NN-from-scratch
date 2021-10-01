@@ -37,7 +37,7 @@
       <recent name="C:\Users\Diletta\Documents\GitHub\impl-NN-from-scratch\src\run" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.model_selection_monk_test">
+  <component name="RunManager" selected="Python.model_selection_cup_test (1)">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="impl-NN-from-scratch" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -83,6 +83,9 @@
       <module name="impl-NN-from-scratch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -102,6 +105,9 @@
       <module name="impl-NN-from-scratch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -121,6 +127,9 @@
       <module name="impl-NN-from-scratch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -140,6 +149,9 @@
       <module name="impl-NN-from-scratch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -157,8 +169,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.model_selection_monk_test" />
         <item itemvalue="Python.model_selection_cup_test (1)" />
+        <item itemvalue="Python.model_selection_monk_test" />
         <item itemvalue="Python.model_selection_cup_test" />
         <item itemvalue="Python.monk_tests" />
         <item itemvalue="Python.run (1)" />

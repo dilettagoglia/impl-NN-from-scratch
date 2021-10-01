@@ -42,6 +42,7 @@ def holdout_validation(net,path, test_size, loss, metr, lr, shuffle=True, lr_dec
 ''' *** K-FOLD CV *** '''
 
 #TODO DocString documentation
+#todo: change loss param with error_func for omogeneous notation
 def kfold_CV(net, dataset, loss, metr, lr, path=None, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
             momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, k_folds=5, reg_type='ridge_regression', lambda_=0,
             disable_tqdms=(True, True), plot=True, verbose=False, **kwargs):
@@ -350,8 +351,7 @@ def grid_search(dataset, params, coarse=True, n_config=1):
     :param n_config: (int) number of config to generate for each param in case of NOT coarse grid search
     """
     models = []
-    # input_dim = 10 if dataset == "cup" else 17
-    input_dim = 17 #TODO: modifica temporanea
+    input_dim = 10 if dataset == "cup" else 17
 
     # In case generate random combinations
     if not coarse:

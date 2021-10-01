@@ -6,7 +6,7 @@ if __name__ == '__main__':
     devset_x, devset_y, int_ts_x, int_ts_y, ts_data = read_cup(int_ts=True)
 
     # grid search parameters
-    #TODO change name for paramaters to adapt to our network ('error_func' instead of 'loss', etc. ) -> check net.py file
+    #[Edit: DONE] TODO change name for paramaters to adapt to our network ('error_func' instead of 'loss', etc. ) -> check net.py file
     gs_params = {'units_per_layer': ((20, 2), (20, 20, 2), (20, 20, 10, 2), (8, 8, 8, 8, 8, 2)),
                  'act_functions': (('leaky_relu', 'identity'), ('tanh', 'identity'),
                           ('leaky_relu', 'leaky_relu', 'identity'), ('tanh', 'tanh', 'identity'),
@@ -15,7 +15,7 @@ if __name__ == '__main__':
                           ('leaky_relu', 'leaky_relu', 'leaky_relu', 'leaky_relu', 'leaky_relu', 'identity'),
                           ('tanh', 'tanh', 'tanh', 'tanh', 'tanh', 'identity'),),
                  'weight_init': ('random', 'glorot',),
-                 'limits': ((-0.1, 0.1), (-0.001, 0.001)),
+                 'bounds': ((-0.1, 0.1), (-0.001, 0.001)),
                  'momentum': (0.5, 0.8),
                  'batch_size': (1, 200, 'full'),
                  'lr': (0.001, 0.0001),
@@ -23,18 +23,18 @@ if __name__ == '__main__':
                  'limit_step': (400,),
                  'decay_rate': (0.95,),
                  'decay_steps': (400,),
-                 'lambd': (0, 0.001, 0.0001, 0.00001),
+                 'lambda_': (0, 0.001, 0.0001, 0.00001),
                  'reg_type': ('lasso', 'ridge_regression'),
                  #'staircase': (True, False),
-                 'loss': ('squared_error',),
+                 'error_func': ('squared_error',),
                  'metr': ('binary_class_accuracy',),
                  'epochs': (150, 400, 700)}
 
     # coarse to fine grid search. Results are saved on file
     grid_search(dataset="cup", params=gs_params, coarse=True)
     _, best_params = get_best_models(dataset="cup", coarse=True, n_models=5)
-    best_params = best_params[0]
-    grid_search(dataset="cup", params=best_params, coarse=False, n_config=4)
-    best_models, best_params = get_best_models(dataset="cup", coarse=False, n_models=10)
+    #best_params = best_params[0]
+    #grid_search(dataset="cup", params=best_params, coarse=False, n_config=4)
+    #best_models, best_params = get_best_models(dataset="cup", coarse=False, n_models=10)
     for p in best_params:
         print(p)

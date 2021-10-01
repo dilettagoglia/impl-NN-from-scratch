@@ -11,7 +11,7 @@ if __name__ == '__main__':
     gs_params = {'units_per_layer': ((2, 2), (4, 2), (3, 2)),
                  'act_functions': (('leaky_relu', 'sigmoid'),),
                  'weight_init': ('random', 'glorot',),
-                 #'limits': ((-0.1, 0.1), (-0.001, 0.001)),
+                 #'bounds': ((-0.1, 0.1), (-0.001, 0.001)),
                  'momentum': (0.5, 0.8),
                  'batch_size': (1, 200, 'full'),
                  'lr': (0.001, 0.0001),
@@ -19,10 +19,10 @@ if __name__ == '__main__':
                  'limit_step': (400,),
                  'decay_rate': (0.95,),
                  'decay_steps': (400,),
-                 'lambd': (0, 0.001, 0.0001, 0.00001),
+                 'lambda_': (0, 0.001, 0.0001, 0.00001),
                  'reg_type': ('lasso', 'ridge_regression'),
                  #'staircase': (True, False),
-                 'loss': ('squared_error',),
+                 'error_func': ('squared_error',),
                  'metr': ('binary_class_accuracy',),
                  'epochs': (150, 400, 700)}
 
