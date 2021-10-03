@@ -10,7 +10,7 @@ if __name__ == '__main__':
     gs_params = {'units_per_layer': ([2, 2], [4, 2], [3, 2]),
                  'act_functions': (['leaky_relu', 'sigmoid'],),
                  'weights_init': ('random', 'glorot',),
-                 # 'bounds': ((-0.1, 0.1), (-0.001, 0.001)),
+                 'bounds': ((-0.1, 0.1), (-0.001, 0.001)),
                  'momentum': (0.5, 0.8),
                  'batch_size': (1, 200, 'full'),
                  'lr': (0.001, 0.0001),

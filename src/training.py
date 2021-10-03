@@ -88,8 +88,8 @@ class Training:
         for _ in tqdm.tqdm(range(epochs), desc="Iterating over epochs", disable=disable_tqdm):
 
             # np.ndarray related to the number of neurons of the last layer of the network (1 for Monk and 2 for ML-CUP)
-            epoch_tr_error = np.zeros(net.layers[-1].n_units)
-            epoch_tr_metric = np.zeros(net.layers[-1].n_units)
+            epoch_tr_error = np.zeros(1)
+            epoch_tr_metric = np.zeros(1)
 
             # shuffle the training set if using mini-batches (or stochastic)
             if batch_size <= tr_x.shape[0]:
@@ -177,10 +177,10 @@ class Training:
                 epoch_val_error, epoch_val_metric = net.evaluate(inp=val_x, targets=val_y, metr=self._metric_name, error_func=self._error_func[2])
                 val_error_values.append(epoch_val_error)
                 val_metric_values.append(epoch_val_metric)
-            
-            epoch_tr_error = np.sum(epoch_tr_error) / len(epoch_tr_error) #TODO check this division with ML-cup dataset (also evaluate in net.py)
+            #TODO check this division with ML-cup dataset (also evaluate in net.py)
+            #epoch_tr_error = np.sum(epoch_tr_error) / len(epoch_tr_error)
             tr_error_values.append(epoch_tr_error / len(tr_x))
-            epoch_tr_metric = np.sum(epoch_tr_metric) / len(epoch_tr_metric)
+            #epoch_tr_metric = np.sum(epoch_tr_metric) / len(epoch_tr_metric)
             tr_metric_values.append(epoch_tr_metric / len(tr_x))
 
             # early stopping

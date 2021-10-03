@@ -6,7 +6,7 @@ import numpy as np
 
 # MUSCA TEST
 if __name__ == '__main__':
-    DATASET = "cup"
+    DATASET = "monk"
     if DATASET == "monk":
         # MONKS DEMO
 
@@ -15,9 +15,9 @@ if __name__ == '__main__':
         # units_per_layer: tuple containing the number of units for each layer (except the input one)
         model = Network(input_dim=17, units_per_layer=[4, 1], act_functions=['relu', 'sigmoid'], weights_init='random')
         # read the dataset. Change the name in the following lines to use monks-2 or monks-3
-        tr_ds_name = "monks-3.train"
-        ts_ds_name = "monks-3.test"
-        VALIDATION = "holdout"
+        tr_ds_name = "monks-1.train"
+        ts_ds_name = "monks-1.test"
+        VALIDATION = "we"
         if VALIDATION == "holdout_sklearn":
             monk_train, labels_tr = read_monk_dataset(dataset=tr_ds_name)
             #monk_test, labels_ts = read_monk_dataset(dataset="monks-1.test")

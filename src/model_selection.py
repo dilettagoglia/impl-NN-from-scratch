@@ -364,6 +364,7 @@ def grid_search(dataset, params, coarse=True, n_config=1):
         **param_combos[i]) for i in range(len(param_combos)))
 
     # do not save models with suppressed training
+    #TODO decide to keep these instructions
     for r, p in zip(results, param_combos):
         if r is None:
             results.remove(r)
