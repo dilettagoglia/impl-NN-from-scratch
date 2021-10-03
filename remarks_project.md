@@ -29,7 +29,6 @@ LEARNING RATE IN [0.01 0.5] in LMS WITHOUT MOMENTUM
 LEARNING RATE IN [0.2, 0.9] in LMS WITH MOMENTUM
 MOMENTUM IN [0.5, 0.9]
 INIT_WEIGHTS IN [-0.01, 0.01], [-0.25, 0.25], [-0.1, 0.1]
-MOMENTUM IN 
 
 ## PYTHON IMPLEMENTATION REMARKS
 - Use static methods for utility classes (when we don't care about the property of the object)

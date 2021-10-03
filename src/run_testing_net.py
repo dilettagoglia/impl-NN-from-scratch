@@ -15,8 +15,8 @@ if __name__ == '__main__':
         # units_per_layer: tuple containing the number of units for each layer (except the input one)
         model = Network(input_dim=17, units_per_layer=[4, 1], act_functions=['relu', 'sigmoid'], weights_init='random')
         # read the dataset. Change the name in the following lines to use monks-2 or monks-3
-        tr_ds_name = "monks-1.train"
-        ts_ds_name = "monks-1.test"
+        tr_ds_name = "monks-2.train"
+        ts_ds_name = "monks-2.test"
         VALIDATION = "we"
         if VALIDATION == "holdout_sklearn":
             monk_train, labels_tr = read_monk_dataset(dataset=tr_ds_name)
@@ -48,10 +48,10 @@ if __name__ == '__main__':
         else: # NO VALIDATION
             monk_train, labels_tr = read_monk_dataset(dataset=tr_ds_name)
             monk_test, labels_ts = read_monk_dataset(dataset=ts_ds_name)
-            model.compile(error_func='squared_error', metr='binary_class_accuracy', lr=0.76, momentum=0.83, lambda_=0.01)
-            tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=monk_train, tr_y=labels_tr, batch_size='full',
-                                                            epochs=500, disable_tqdm=False)
-            plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation')
+            model.compile(error_func='squared_error', metr='binary_class_accuracy', lr=0.76, momentum=0.83, lambda_=0, nesterov=True)
+            tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=monk_train, tr_y=labels_tr, val_x=monk_test, val_y=labels_ts, batch_size='full',
+                                                            epochs=500, disable_tqdm=False,)
+            plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Test')
             print(tr_err[-1], tr_metr[-1])
             print(model.evaluate(targets=labels_ts, metr='binary_class_accuracy', error_func='squared_error', inp=monk_test))
 

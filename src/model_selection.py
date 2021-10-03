@@ -37,9 +37,7 @@ def holdout_validation(net,path, test_size, error_func, metr, lr, lr_decay=None,
 
 #TODO DocString documentation
 
-#todo: change loss param with error_func for omogeneous notation
 def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
-
             momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, k_folds=5, reg_type='ridge_regression', lambda_=0,
             disable_tqdms=(True, True), plot=True, verbose=False, **kwargs):
     if dataset == "cup":
@@ -152,8 +150,8 @@ def randomize_params(base_params, fb_dim, n_config=2):
     rand_params = {}
     for k, v in base_params.items():
         # if the parameter does not have to change
-        if k in ('act_functions', 'weights_init', 'decay_rate', 'loss', 'lr_decay', 'metr', 'reg_type', 'staircase',
-                 'units_per_layer', 'limits', 'epochs'):
+        if k in ('act_functions', 'weights_init', 'decay_rate', 'error_func', 'lr_decay', 'metr', 'reg_type',
+                 'units_per_layer', 'bounds', 'epochs'):
             rand_params[k] = (v,)
         else:
             rand_params[k] = [v]
@@ -188,8 +186,8 @@ def randomize_params(base_params, fb_dim, n_config=2):
 
                 elif k in ("limit_step", "decay_steps"):
                     if base_params['lr_decay'] is not None:
-                        if v is None or (base_params['lr_decay'] == 'linear' and k == 'decay_steps') or \
-                                (base_params['lr_decay'] == 'exponential' and k == 'limit_step'):
+                        if v is None or (base_params['lr_decay'] == 'linear_decay' and k == 'decay_steps') or \
+                                (base_params['lr_decay'] == 'exponential_decay' and k == 'limit_step'):
                             rand_params[k] = (None,)
                             continue
                         lower = max(1, v - 100)
@@ -198,7 +196,7 @@ def randomize_params(base_params, fb_dim, n_config=2):
                     else:
                         rand_params[k] = (v,)
 
-                elif k in ("lambd", "lr"):
+                elif k in ("lambda_", "lr"):
                     value = max(0., np.random.normal(loc=v, scale=0.001))
                     for l in rand_params[k]:
                         if abs(value - l) < 0.0005:
