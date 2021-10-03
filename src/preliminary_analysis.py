@@ -27,3 +27,6 @@ for dataset in ds_names:
     print('\nLabels vector shape:\n', labels_tr.shape, '\n Training dataset shape: (examples, features)\n', monk_train.shape)
 
 
+# Cup train dataset analysis
+
+#TODO

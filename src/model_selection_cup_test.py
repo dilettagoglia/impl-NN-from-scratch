@@ -23,7 +23,7 @@ if __name__ == '__main__':
                  'reg_type': ('lasso', 'ridge_regression'),
                  #'staircase': (True, False),
                  'error_func': ('squared_error',),
-                 'metr': ('binary_class_accuracy',),
+                 'metr': ('euclidian_error',),
                  'epochs': (150, 400, 700)}
 
     # coarse to fine grid search. Results are saved on file
