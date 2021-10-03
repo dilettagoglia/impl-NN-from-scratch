@@ -15,22 +15,16 @@ import itertools as it
 #TODO generate DocString documentation for all methods
 
 # split a dataset into a train and validation set
-def holdout_validation(net,path, test_size, error_func, metr, lr, shuffle=True, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
+def holdout_validation(net,path, test_size, error_func, metr, lr, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
             momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, reg_type='ridge_regression', lambda_=0, disable_tqdm=False):
     if path == "cup":
-        dev_set_x, labels, _, _, _ = read_cup(int_ts=True)
+        dataset, labels, _, _, _ = read_cup(int_ts=True)
         print("cup")
     else:
         rescale = True if net.params['act_functions'][-1] == 'tanh' else False
         dataset, labels = read_monk_dataset(dataset=path, rescale=rescale)
 
     train_size = int((1 - test_size) * len(dataset))
-    if shuffle:
-        # shuffle the whole dataset once
-        indexes = list(range(len(dataset)))
-        np.random.shuffle(indexes)
-        dataset = dataset[indexes]
-        labels = labels[indexes]
     train_X, val_X = dataset[:train_size,:], dataset[train_size:,:]
     train_Y, val_Y = labels[:train_size,:], labels[train_size:,:]
     net.compile(error_func=error_func, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
@@ -251,28 +245,27 @@ def list_of_combos(param_dict):
                             'lambda_', 'reg_type'])
     for k in expected_keys:
         if k not in param_dict.keys():
-            param_dict[k] = ('l2',) if k == 'reg_type' else ((0,) if k == 'lambd' else (None,))
+            param_dict[k] = ('ridge_regression',) if k == 'reg_type' else ((0,) if k == 'lambda_' else (None,))
     param_dict = OrderedDict(sorted(param_dict.items()))
+    # cartesian product of input iterables (list of tuples)
     combo_list = list(it.product(*(param_dict[k] for k in param_dict.keys())))
     combos = []
     for c in combo_list:
         if len(c[expected_keys.index('units_per_layer')]) == len(c[expected_keys.index('act_functions')]):
             d = {k: c[i] for k, i in zip(expected_keys, range(len(expected_keys)))}
-            combos.append(d)
+            combos.append(d) # list of dictionaries
 
     for c in combos:
-        if c['lr_decay'] == 'linear':
+        if c['lr_decay'] == 'linear_decay':
             c['decay_rate'] = None
             c['decay_steps'] = None
-            c['staircase'] = False
-        elif c['lr_decay'] == 'exponential':
+        elif c['lr_decay'] == 'exponential_decay':
             c['limit_step'] = None
 
     final_combos = []
     for i in range(len(combos) - 1):
         if combos[i] != combos[i + 1]:
             final_combos.append(combos[i])
-
     return final_combos
 
 def get_best_models(dataset, coarse=False, n_models=1, fn=None):
@@ -365,7 +358,7 @@ def grid_search(dataset, params, coarse=True, n_config=1):
 
     # perform parallelized grid search
     results = Parallel(n_jobs=os.cpu_count(), verbose=50)(delayed(kfold_CV)(
-        net=models[i], dataset=dataset, k_folds=5, disable_tqdm=(True, True), interplot=False,
+        net=models[i], dataset=dataset, k_folds=5, disable_tqdm=(False, False), interplot=False,
         **param_combos[i]) for i in range(len(param_combos)))
 
     # do not save models with suppressed training

@@ -17,7 +17,7 @@ from sklearn.model_selection import train_test_split # hold-out approach
 from tqdm import tqdm
 # from IPython import display
 
-
+#TODO use DocString documentation for this file
 """
 Read Dataset
 """
@@ -96,17 +96,17 @@ def read_cup(int_ts=False):
 
     if int_ts and not (os.path.exists(int_ts_path) and os.path.exists(dev_set_path)):
         df = pd.read_csv(directory + file, sep=',', names=col_names, skiprows=range(7), usecols=range(0, 13))
-        df = df.sample(frac=1, axis=0)
+        df = df.sample(frac=1, axis=0) # shuffle the dataset
         int_ts_df = df.iloc[: math.floor(len(df) * 0.1), :]
         dev_set_df = df.iloc[math.floor(len(df) * 0.1) :, :]
         int_ts_df.to_csv(path_or_buf=int_ts_path, index=False, float_format='%.6f', header=False)
         dev_set_df.to_csv(path_or_buf=dev_set_path, index=False, float_format='%.6f', header=False)
 
     if int_ts and os.path.exists(int_ts_path) and os.path.exists(dev_set_path):
-        tr_data = pd.read_csv(dev_set_path, sep=',', names=col_names, skiprows=range(7), usecols=range(1, 11))
-        tr_targets = pd.read_csv(dev_set_path, sep=',', names=col_names, skiprows=range(7), usecols=range(11, 13))
-        int_ts_data = pd.read_csv(int_ts_path,  sep=',', names=col_names, skiprows=range(7), usecols=range(1, 11))
-        int_ts_targets = pd.read_csv(int_ts_path,  sep=',', names=col_names, skiprows=range(7), usecols=range(11, 13))
+        tr_data = pd.read_csv(dev_set_path, sep=',', names=col_names, usecols=range(1, 11))
+        tr_targets = pd.read_csv(dev_set_path, sep=',', names=col_names, usecols=range(11, 13))
+        int_ts_data = pd.read_csv(int_ts_path,  sep=',', names=col_names, usecols=range(1, 11))
+        int_ts_targets = pd.read_csv(int_ts_path,  sep=',', names=col_names, usecols=range(11, 13))
         int_ts_data = int_ts_data.to_numpy(dtype=np.float32)
         int_ts_targets = int_ts_targets.to_numpy(dtype=np.float32)
     else:
@@ -121,12 +121,13 @@ def read_cup(int_ts=False):
     cup_ts_data = cup_ts_data.to_numpy(dtype=np.float32)
 
     # shuffle the training dataset once
+    # (pd.read_csv in previous instructions sorts by ID)
     indexes = list(range(tr_targets.shape[0]))
     np.random.shuffle(indexes)
     tr_data = tr_data[indexes]
     tr_targets = tr_targets[indexes]
 
-    # detach internal test set if needed
+    # detach internal test set if needed (maybe some problem with OS file reading)
     if int_ts:
         if not (os.path.exists(int_ts_path) and os.path.exists(dev_set_path)):
             tr_data, int_ts_data, tr_targets, int_ts_targets = train_test_split(tr_data, tr_targets, test_size=0.1)

@@ -6,7 +6,6 @@ if __name__ == '__main__':
     devset_x, devset_y, int_ts_x, int_ts_y, ts_data = read_cup(int_ts=True)
 
     # grid search parameters
-    #[Edit: DONE] TODO change name for paramaters to adapt to our network ('error_func' instead of 'loss', etc. ) -> check net.py file
     gs_params = {'units_per_layer': ([20, 2], [20, 20, 2]),
                  'act_functions': (['leaky_relu', 'identity'], ['tanh', 'identity'],
                           ['leaky_relu', 'leaky_relu', 'identity'], ['tanh', 'tanh', 'identity'],),
@@ -21,7 +20,6 @@ if __name__ == '__main__':
                  'decay_steps': (400,),
                  'lambda_': (0, 0.001, 0.0001, 0.00001),
                  'reg_type': ('lasso', 'ridge_regression'),
-                 #'staircase': (True, False),
                  'error_func': ('squared_error',),
                  'metr': ('binary_class_accuracy',),
                  'epochs': (150, 400, 700)}
