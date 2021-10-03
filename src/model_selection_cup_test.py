@@ -21,7 +21,7 @@ if __name__ == '__main__':
                  'lambda_': (0, 0.001, 0.0001, 0.00001),
                  'reg_type': ('lasso', 'ridge_regression'),
                  'error_func': ('squared_error',),
-                 'metr': ('binary_class_accuracy',),
+                 'metr': ('euclidian_error',),
                  'epochs': (150, 400, 700)}
 
     # coarse to fine grid search. Results are saved on file
