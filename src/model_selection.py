@@ -83,6 +83,7 @@ def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit
         #   [2] --> validation error values for each epoch
         #   [3] --> validation metric values for each epoch
         #   variables useful for plotting
+
         tr_error_values += tr_history[0]
         tr_metric_values += tr_history[1]
         val_error_values += tr_history[2]
@@ -240,7 +241,7 @@ def list_of_combos(param_dict):
     :param param_dict: dict{kind_of_param: tuple of all the values of that param to try in the grid search)
     :return: list of dictionaries{kind_of_param: value of that param}
     """
-    expected_keys = sorted(['units_per_layer', 'act_functions', 'weights_init', 'bounds', 'momentum', 'batch_size', 'lr', 'error_func',
+    expected_keys = sorted(['units_per_layer', 'act_functions', 'weights_init', 'bounds', 'momentum', 'nesterov', 'batch_size', 'lr', 'error_func',
                             'metr', 'epochs', 'lr_decay', 'decay_rate', 'decay_steps', 'limit_step',
                             'lambda_', 'reg_type'])
     for k in expected_keys:

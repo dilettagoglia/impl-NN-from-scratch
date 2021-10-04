@@ -20,6 +20,7 @@ Implementation of a Neural Network from scratch in Python for the Machine Learni
 - [Grid Search in Python from scratch](https://towardsdatascience.com/grid-search-in-python-from-scratch-hyperparameter-tuning-3cca8443727b)
 - [itertools — Functions creating iterators for efficient looping¶](https://docs.python.org/3/library/itertools.html)
 - [Joblib: running Python functions as pipeline jobs](https://joblib.readthedocs.io/en/latest/)
+- [The MONK's Problems A Performance Comparison](https://www.researchgate.net/publication/2293492_The_MONK%27s_Problems_A_Performance_Comparison_of_Different_Learning_Algorithms)
 
 For parameter tuning:
 - [How to Tune Hyperparameters for Machine Learning](https://towardsdatascience.com/how-to-tune-hyperparameters-for-machine-learning-aa23c25a662f)

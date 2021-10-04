@@ -17,7 +17,7 @@ if __name__ == '__main__':
         # read the dataset. Change the name in the following lines to use monks-2 or monks-3
         tr_ds_name = "monks-2.train"
         ts_ds_name = "monks-2.test"
-        VALIDATION = "we"
+        VALIDATION = "kfold"
         if VALIDATION == "holdout_sklearn":
             monk_train, labels_tr = read_monk_dataset(dataset=tr_ds_name)
             #monk_test, labels_ts = read_monk_dataset(dataset="monks-1.test")
