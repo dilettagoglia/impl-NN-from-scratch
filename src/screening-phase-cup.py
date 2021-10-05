@@ -33,6 +33,7 @@ if __name__ == '__main__':
 
     for i in lambda_val:
         for j in momentum_val:
+            print('compilo', i, j) # debugging print
             model.compile(error_func=error_func, metr=metr, lr=lr, momentum=j, lambda_=i)
 
             # # training (check the method definition for more info about all the possible parameters)
