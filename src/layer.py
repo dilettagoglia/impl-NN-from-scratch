@@ -74,7 +74,7 @@ class Layer:
 
         """
         self._inputs = inp # (numpy ndarray) input vector
-        self._nets = np.matmul(inp, self.weights) #  use'numpy.dot' to perform dot product of two arrays. Buth if both are 2-D arrays it is matrix multiplication and using 'matmul' or 'a@b' is preferred.
+        self._nets = np.dot(inp, self.weights) #  use'numpy.dot' to perform dot product of two arrays. Buth if both are 2-D arrays it is matrix multiplication and using 'matmul' or 'a@b' is preferred.
         self._nets = np.add(self._nets, self.biases)
         self._outputs = self._act(self._nets)
         return self._outputs #the vector of the current layer's outputs
