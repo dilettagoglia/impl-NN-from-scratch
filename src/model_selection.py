@@ -1,3 +1,4 @@
+from operator import index
 from scipy.sparse import data
 from utility import *
 import numpy as np
@@ -264,9 +265,10 @@ def list_of_combos(param_dict):
             c['limit_step'] = None
 
     final_combos = []
-    for i in range(len(combos) - 1):
-        if combos[i] != combos[i + 1]:
-            final_combos.append(combos[i])
+    for i in range(len(combos)):
+        # TODO check for CUP grid-search
+        #if combos[i] != combos[i + 1]:
+        final_combos.append(combos[i])
     return final_combos
 
 def get_best_models(dataset, coarse=False, n_models=1, fn=None):
@@ -327,7 +329,7 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
             for j in indexes:
                 if std_errors[j] != value_of_best:
                     indexes.remove(j)
-
+        print(metrics[index_of_best])
         metrics = np.delete(metrics, index_of_best)
         models.append(Network(input_dim=input_dim, **data['params'][index_of_best]))
         params.append(data['params'][index_of_best])
@@ -359,7 +361,7 @@ def grid_search(dataset, params, coarse=True, n_config=1):
 
     # perform parallelized grid search
     results = Parallel(n_jobs=os.cpu_count(), verbose=50)(delayed(kfold_CV)(
-        net=models[i], dataset=dataset, k_folds=5, disable_tqdm=(False, False), interplot=False,
+        net=models[i], dataset=dataset, k_folds=5, disable_tqdm=(False, False), plot=False, verbose=True,
         **param_combos[i]) for i in range(len(param_combos)))
 
     # do not save models with suppressed training

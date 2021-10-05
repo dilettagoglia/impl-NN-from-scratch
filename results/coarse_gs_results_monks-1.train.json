@@ -1,0 +1,9798 @@
+{
+	"params": [
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.25,
+				0.25
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.1,
+				0.1
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.1,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.4,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.76,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.8,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": false,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				2,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				3,
+				1
+			],
+			"weights_init": "glorot"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "random"
+		},
+		{
+			"act_functions": [
+				"relu",
+				"sigmoid"
+			],
+			"batch_size": "full",
+			"bounds": [
+				-0.01,
+				0.01
+			],
+			"decay_rate": null,
+			"decay_steps": null,
+			"epochs": 500,
+			"error_func": "squared_error",
+			"lambda_": 0,
+			"limit_step": null,
+			"lr": 0.8,
+			"lr_decay": null,
+			"metr": "binary_class_accuracy",
+			"momentum": 0.9,
+			"nesterov": true,
+			"reg_type": "ridge_regression",
+			"units_per_layer": [
+				4,
+				1
+			],
+			"weights_init": "glorot"
+		}
+	],
+	"results": [
+		[
+			0.08954009189160708,
+			0.03026898219276617,
+			0.687,
+			0.19727138667328314
+		],
+		[
+			0.08702177624512081,
+			0.012368775061541435,
+			0.7413333333333333,
+			0.09525637919728934
+		],
+		[
+			0.07836488112415856,
+			0.02677528925576088,
+			0.8156666666666667,
+			0.09278170317710518
+		],
+		[
+			0.06643882776498217,
+			0.03327170781004377,
+			0.8240000000000001,
+			0.11482160075525857
+		],
+		[
+			0.08541437266297087,
+			0.029361694450895568,
+			0.8053333333333332,
+			0.0738045466831896
+		],
+		[
+			0.055431733425391004,
+			0.024076017923505957,
+			0.8636666666666667,
+			0.09295399100869443
+		],
+		[
+			0.09522947761579183,
+			0.027223268304026278,
+			0.6863333333333334,
+			0.17678738014286474
+		],
+		[
+			0.08440859936486056,
+			0.025596573017435353,
+			0.7813333333333332,
+			0.09963488902543685
+		],
+		[
+			0.07936174494049744,
+			0.02610429460992473,
+			0.733,
+			0.12278436382536663
+		],
+		[
+			0.08036054047035343,
+			0.009913920299913013,
+			0.782,
+			0.03370459909270543
+		],
+		[
+			0.07826297298294589,
+			0.01493788383160368,
+			0.7823333333333333,
+			0.053868151794708705
+		],
+		[
+			0.06643966193599989,
+			0.023269095033520835,
+			0.7916666666666667,
+			0.08845588982337156
+		],
+		[
+			0.07863269473990349,
+			0.026235659903450795,
+			0.8066666666666666,
+			0.04580150409951378
+		],
+		[
+			0.05906062039239457,
+			0.029078255192800585,
+			0.8789999999999999,
+			0.06696267617113282
+		],
+		[
+			0.06837517472452719,
+			0.008785941918641722,
+			0.798,
+			0.03815756805667781
+		],
+		[
+			0.06918706435024218,
+			0.04719078158569395,
+			0.8226666666666667,
+			0.13750797956643987
+		],
+		[
+			0.06431260212957358,
+			0.0298714888860865,
+			0.8783333333333333,
+			0.08554401076508968
+		],
+		[
+			0.046438351668874854,
+			0.028021890443831108,
+			0.8796666666666667,
+			0.08358894132067417
+		],
+		[
+			0.07869348363372577,
+			0.01766714030725792,
+			0.7746666666666667,
+			0.03873557079022389
+		],
+		[
+			0.1104819896053768,
+			0.030511336904841355,
+			0.7413333333333333,
+			0.08828237523864986
+		],
+		[
+			0.047821642559097446,
+			0.020584816834741268,
+			0.8879999999999999,
+			0.09927738916792686
+		],
+		[
+			0.07035270698178754,
+			0.01940923173118107,
+			0.8300000000000001,
+			0.04979959839195493
+		],
+		[
+			0.06466776233687377,
+			0.039717522038509374,
+			0.8296666666666667,
+			0.12198542718064499
+		],
+		[
+			0.06589983556330739,
+			0.01700722557515051,
+			0.8303333333333335,
+			0.047893400148431506
+		],
+		[
+			0.07058644970622553,
+			0.01714607950915929,
+			0.8233333333333335,
+			0.05308274463305166
+		],
+		[
+			0.052342732068412036,
+			0.022536270645063746,
+			0.8636666666666667,
+			0.06928523973000633
+		],
+		[
+			0.043514732336481766,
+			0.046632419558002236,
+			0.8949999999999999,
+			0.1354252561378416
+		],
+		[
+			0.045754160359346534,
+			0.03783246546356074,
+			0.9039999999999999,
+			0.10307278981380101
+		],
+		[
+			0.032026669938430924,
+			0.028935221391712253,
+			0.9279999999999999,
+			0.07756287771866124
+		],
+		[
+			0.024258653473518393,
+			0.015884554151176532,
+			0.9513333333333334,
+			0.047121592125526114
+		],
+		[
+			0.04719395735552896,
+			0.01441187045562303,
+			0.8866666666666667,
+			0.032110918876779464
+		],
+		[
+			0.062380236053235026,
+			0.027961441378604384,
+			0.8560000000000001,
+			0.07418894796396562
+		],
+		[
+			0.023060152617703493,
+			0.017657958746585635,
+			0.9516666666666665,
+			0.04659518334668414
+		],
+		[
+			0.04723496143669436,
+			0.021787520994992073,
+			0.8789999999999999,
+			0.09123595782365634
+		],
+		[
+			0.01950825918963819,
+			0.02212246454395599,
+			0.9513333333333334,
+			0.06434628539740615
+		],
+		[
+			0.046068610883718726,
+			0.01670954793303457,
+			0.8870000000000001,
+			0.046861498055439925
+		],
+		[
+			0.046877957736007045,
+			0.0454912484060032,
+			0.8870000000000001,
+			0.13006152390311285
+		],
+		[
+			0.058114673449869494,
+			0.04155106171984107,
+			0.8063333333333332,
+			0.19832745089315743
+		],
+		[
+			0.021973758462654668,
+			0.025198697242293133,
+			0.96,
+			0.050596442562694056
+		],
+		[
+			0.07752727918383567,
+			0.02404853441707922,
+			0.8216666666666667,
+			0.07753135566408671
+		],
+		[
+			0.03881387567018163,
+			0.019572244555818102,
+			0.9113333333333333,
+			0.05298217729681475
+		],
+		[
+			0.02971504155791329,
+			0.02180010972952052,
+			0.9359999999999999,
+			0.059866518188383074
+		],
+		[
+			0.053646305829058806,
+			0.04623199396174757,
+			0.8793333333333333,
+			0.08359691647689194
+		],
+		[
+			0.08599332605368937,
+			0.041921516864610375,
+			0.6476666666666667,
+			0.2235362262463166
+		],
+		[
+			0.04168347991368056,
+			0.040469855220035836,
+			0.9103333333333333,
+			0.09465962415118942
+		],
+		[
+			0.047749559305451224,
+			0.03056236561074056,
+			0.8786666666666665,
+			0.08458000814481974
+		],
+		[
+			0.024420360840857153,
+			0.028640519659972153,
+			0.952,
+			0.064
+		],
+		[
+			0.016536000163825122,
+			0.017726011071520123,
+			0.968,
+			0.0466476151587624
+		],
+		[
+			0.03232642457178635,
+			0.012118827402629907,
+			0.9193333333333333,
+			0.043838085927396256
+		],
+		[
+			0.06920289060070887,
+			0.037999380947112804,
+			0.8393333333333333,
+			0.11267258367105597
+		],
+		[
+			0.04389133511627271,
+			0.014454706951689874,
+			0.8873333333333333,
+			0.029242282932615087
+		],
+		[
+			0.07167670077718115,
+			0.02143203668020658,
+			0.8313333333333335,
+			0.04539211874813117
+		],
+		[
+			0.02277072338205358,
+			0.024180221271342367,
+			0.96,
+			0.05059644256269406
+		],
+		[
+			0.05666380583223309,
+			0.04963936929966869,
+			0.8480000000000001,
+			0.12998461447417534
+		],
+		[
+			0.08376741801933,
+			0.056565799541330376,
+			0.813,
+			0.14154857823376396
+		],
+		[
+			0.07285321275611656,
+			0.0289219341820657,
+			0.7506666666666667,
+			0.1976573915755352
+		],
+		[
+			0.03510580899779918,
+			0.03033947428424508,
+			0.9183333333333333,
+			0.06993647911577414
+		],
+		[
+			0.061374844138781845,
+			0.047760954191823,
+			0.8383333333333333,
+			0.13676419284463479
+		],
+		[
+			0.0071560820451715855,
+			0.007775171846190446,
+			0.9833333333333334,
+			0.03333333333333335
+		],
+		[
+			0.026662814910384015,
+			0.020869523182066477,
+			0.9359999999999999,
+			0.059866518188383074
+		],
+		[
+			0.03667217816758396,
+			0.03901481813037566,
+			0.901,
+			0.14115239990875109
+		],
+		[
+			0.0853900391671075,
+			0.053493647456924164,
+			0.736,
+			0.19855477833585372
+		],
+		[
+			0.06804174869963575,
+			0.07002620481469458,
+			0.8560000000000001,
+			0.1488086019019062
+		],
+		[
+			0.036295420459207764,
+			0.03540273363095366,
+			0.9189999999999999,
+			0.0916733330909267
+		],
+		[
+			0.039227027641512924,
+			0.021696336611116415,
+			0.9039999999999999,
+			0.05425863986500215
+		],
+		[
+			0.02129389123423653,
+			0.012683929954643555,
+			0.9433333333333334,
+			0.041204099040966516
+		],
+		[
+			0.050383560947201846,
+			0.016780595798001494,
+			0.8783333333333333,
+			0.05327079666926131
+		],
+		[
+			0.08194194420370089,
+			0.02495307952460583,
+			0.7969999999999999,
+			0.09651942809610922
+		],
+		[
+			0.0304753036896278,
+			0.025719108251347197,
+			0.9353333333333333,
+			0.05447119524217466
+		],
+		[
+			0.029758108790203703,
+			0.022979670809597886,
+			0.9440000000000002,
+			0.047999999999999994
+		],
+		[
+			0.02228750567100723,
+			0.01629848526594207,
+			0.9513333333333334,
+			0.039754804042334856
+		],
+		[
+			0.025622432212510475,
+			0.029535637315428017,
+			0.944,
+			0.07838367176906168
+		],
+		[
+			0.07640825602461013,
+			0.041734141883038374,
+			0.8,
+			0.12649110640673517
+		],
+		[
+			0.07869444135431783,
+			0.06137500015938327,
+			0.8073333333333332,
+			0.16621806293073096
+		],
+		[
+			0.06566503868616613,
+			0.05198492786025747,
+			0.8533333333333333,
+			0.11345091939297414
+		],
+		[
+			0.01744306817937898,
+			0.013897818564039785,
+			0.9596666666666666,
+			0.03578329840085236
+		],
+		[
+			0.022123351405914007,
+			0.024087160745680125,
+			0.96,
+			0.050596442562694056
+		],
+		[
+			0.017442256227979482,
+			0.010937417931918962,
+			0.96,
+			0.03577708763999662
+		],
+		[
+			0.06549485045007286,
+			0.0411636830769333,
+			0.8460000000000001,
+			0.09789790600416334
+		],
+		[
+			0.07394012734288617,
+			0.02997821429007498,
+			0.8153333333333335,
+			0.0815298173131224
+		],
+		[
+			0.027264458462268975,
+			0.02851622462713403,
+			0.944,
+			0.05425863986500214
+		],
+		[
+			0.04390391637558389,
+			0.04871739435487417,
+			0.8876666666666667,
+			0.1168265571025888
+		],
+		[
+			0.002488623046673778,
+			0.001150926555409469,
+			1.0,
+			0.0
+		],
+		[
+			0.023516107906727413,
+			0.03248943707677456,
+			0.9516666666666665,
+			0.0775313556640867
+		],
+		[
+			0.04865909324350405,
+			0.0361263707966946,
+			0.8949999999999999,
+			0.08258329128825032
+		],
+		[
+			0.08957002153420654,
+			0.03144002946850664,
+			0.7256666666666667,
+			0.17797502945950341
+		],
+		[
+			0.04239252640242146,
+			0.035107573662685035,
+			0.9026666666666665,
+			0.07950960808466973
+		],
+		[
+			0.059022299781743004,
+			0.02334809729022656,
+			0.8706666666666667,
+			0.06471819253072852
+		],
+		[
+			0.030184670538306535,
+			0.02517274405307284,
+			0.9349999999999999,
+			0.055317266743757317
+		],
+		[
+			0.0456200334016677,
+			0.04111238073145783,
+			0.9039999999999999,
+			0.08616263691415203
+		],
+		[
+			0.0710618434636607,
+			0.04632035194502965,
+			0.8236666666666667,
+			0.09619655803498264
+		],
+		[
+			0.06212934106416743,
+			0.03704904563901814,
+			0.8559999999999999,
+			0.0897997772825746
+		],
+		[
+			0.05801245470167584,
+			0.058251135534508246,
+			0.8720000000000001,
+			0.12998461447417534
+		],
+		[
+			0.03932257415562897,
+			0.032687412498065165,
+			0.9109999999999999,
+			0.078
+		],
+		[
+			0.015745053137649484,
+			0.017863728980246366,
+			0.959,
+			0.04565084884205331
+		],
+		[
+			0.008087597208765394,
+			0.008598682197787378,
+			0.984,
+			0.019595917942265444
+		],
+		[
+			0.07932737155910259,
+			0.014678856491745489,
+			0.7896666666666667,
+			0.05033664448270043
+		],
+		[
+			0.08164374851921741,
+			0.020532024830547776,
+			0.7976666666666667,
+			0.05995924541812638
+		],
+		[
+			0.07702564424622155,
+			0.028112777909644376,
+			0.791,
+			0.09840731680114036
+		],
+		[
+			0.07028843370118223,
+			0.023543067080371415,
+			0.8626666666666667,
+			0.05491002741859731
+		],
+		[
+			0.0785031268007861,
+			0.04082200621746209,
+			0.8206666666666665,
+			0.14086084543895716
+		],
+		[
+			0.0718844376165866,
+			0.01593880892641863,
+			0.7906666666666667,
+			0.06304848222686338
+		],
+		[
+			0.08768306157224902,
+			0.01840745135694621,
+			0.774,
+			0.06560487786742689
+		],
+		[
+			0.06955512109638011,
+			0.029085011613505636,
+			0.7983333333333333,
+			0.10436048634953321
+		],
+		[
+			0.08483371392479486,
+			0.030028488943938343,
+			0.781,
+			0.10121264743103997
+		],
+		[
+			0.07269992097836929,
+			0.018579801793751734,
+			0.8066666666666666,
+			0.058118652580542315
+		],
+		[
+			0.08213768999038797,
+			0.027620691799135857,
+			0.773,
+			0.09097252332435328
+		],
+		[
+			0.05927296984083859,
+			0.024925507016679112,
+			0.8633333333333335,
+			0.07369607256232252
+		],
+		[
+			0.0736096296742067,
+			0.014021567234328586,
+			0.8223333333333335,
+			0.05509184250967753
+		],
+		[
+			0.061469252966266694,
+			0.004685901326042317,
+			0.8870000000000001,
+			0.016613247725836167
+		],
+		[
+			0.08100889518057205,
+			0.031132355863281686,
+			0.7909999999999999,
+			0.07644605941446556
+		],
+		[
+			0.0736360886066044,
+			0.01986223079592553,
+			0.7973333333333333,
+			0.0913698223947297
+		],
+		[
+			0.05749752215946248,
+			0.03196189161960307,
+			0.8863333333333333,
+			0.08342927810094275
+		],
+		[
+			0.06831467020255594,
+			0.02840626343802397,
+			0.8556666666666667,
+			0.06924674079775243
+		],
+		[
+			0.07894363071586853,
+			0.020805554480264377,
+			0.8150000000000001,
+			0.05310367218940702
+		],
+		[
+			0.08280845579551896,
+			0.03689508683951604,
+			0.7646666666666667,
+			0.11924950500712547
+		],
+		[
+			0.07353526458207406,
+			0.02644501228549728,
+			0.8153333333333335,
+			0.11138721251163039
+		],
+		[
+			0.061350445220587045,
+			0.015310384860345057,
+			0.8466666666666667,
+			0.05902918298980971
+		],
+		[
+			0.07290393720659091,
+			0.02288829105541111,
+			0.8560000000000001,
+			0.082365041127896
+		],
+		[
+			0.0496420157252973,
+			0.02202790162560458,
+			0.8946666666666665,
+			0.05568163471418958
+		],
+		[
+			0.07416496064526587,
+			0.0395692721335458,
+			0.8223333333333332,
+			0.11521766839817194
+		],
+		[
+			0.03383330287433718,
+			0.02242429324399795,
+			0.9349999999999999,
+			0.055317266743757317
+		],
+		[
+			0.04143067314096829,
+			0.04356195606496663,
+			0.9280000000000002,
+			0.08908422980528034
+		],
+		[
+			0.05151353486865604,
+			0.020912295785464274,
+			0.8789999999999999,
+			0.05660388679233961
+		],
+		[
+			0.03720167864174578,
+			0.01571294432497104,
+			0.9026666666666665,
+			0.06133333333333334
+		],
+		[
+			0.02350397574551626,
+			0.025579489523751893,
+			0.9279999999999999,
+			0.08908422980528034
+		],
+		[
+			0.06557668801556173,
+			0.05442022317089977,
+			0.8543333333333333,
+			0.1451267645121939
+		],
+		[
+			0.07835520573327313,
+			0.043062871096287016,
+			0.7653333333333332,
+			0.17191212225371943
+		],
+		[
+			0.07823504945646655,
+			0.03180370586546068,
+			0.8063333333333335,
+			0.06909253054981979
+		],
+		[
+			0.03584018694080279,
+			0.023884186468643823,
+			0.9349999999999999,
+			0.04919349550499537
+		],
+		[
+			0.04744001931654947,
+			0.031214920237156808,
+			0.8960000000000001,
+			0.0783836717690617
+		],
+		[
+			0.03957199174392258,
+			0.028727947284559803,
+			0.9036666666666667,
+			0.0739399155470921
+		],
+		[
+			0.06838708478079791,
+			0.03863849419991933,
+			0.8556666666666667,
+			0.08576194442240168
+		],
+		[
+			0.07549502899452057,
+			0.04935321972553434,
+			0.8306666666666667,
+			0.1169691317304603
+		],
+		[
+			0.06797620217259502,
+			0.0503565613520112,
+			0.8536666666666666,
+			0.10315252999536385
+		],
+		[
+			0.07074213161213946,
+			0.058114647497925685,
+			0.7983333333333332,
+			0.1943479125463176
+		],
+		[
+			0.01621275824838957,
+			0.01600291282275392,
+			0.96,
+			0.050596442562694056
+		],
+		[
+			0.016528840091234828,
+			0.011984417753532053,
+			0.9516666666666665,
+			0.029851484236317463
+		],
+		[
+			0.05246890955407933,
+			0.02913347341128392,
+			0.8949999999999999,
+			0.06016643582596531
+		],
+		[
+			0.08586869341425574,
+			0.030104932787340798,
+			0.7663333333333333,
+			0.15020134634697668
+		],
+		[
+			0.04148993719484294,
+			0.014469379504953892,
+			0.9113333333333333,
+			0.029784410538251555
+		],
+		[
+			0.040828839736639554,
+			0.037101741566118396,
+			0.9033333333333333,
+			0.09656316297866617
+		],
+		[
+			0.0243480719480141,
+			0.03680727600862759,
+			0.944,
+			0.0932952303175248
+		],
+		[
+			0.03062145779505539,
+			0.03607685676451606,
+			0.9353333333333333,
+			0.07434454325040345
+		],
+		[
+			0.05507985430253992,
+			0.03108064661003,
+			0.8776666666666666,
+			0.08836540298354578
+		],
+		[
+			0.10649890950162191,
+			0.04382309940689281,
+			0.7586666666666667,
+			0.10933333333333337
+		],
+		[
+			0.06540060731971006,
+			0.044966258021762955,
+			0.8629999999999999,
+			0.10293687385966216
+		],
+		[
+			0.040412878889015943,
+			0.047550462533159435,
+			0.9039999999999999,
+			0.12026637102698326
+		],
+		[
+			0.039037600514407814,
+			0.028994537079588108,
+			0.8869999999999999,
+			0.07769169839822014
+		],
+		[
+			0.02479121242900147,
+			0.024481923490697215,
+			0.951,
+			0.048207883172775794
+		],
+		[
+			0.07384343059926465,
+			0.034221421716573545,
+			0.8463333333333333,
+			0.07865819163387316
+		],
+		[
+			0.07774438274603439,
+			0.031815344866476455,
+			0.766,
+			0.1724644890984808
+		],
+		[
+			0.03810611979219855,
+			0.028240491833780294,
+			0.9276666666666665,
+			0.05860982094419938
+		],
+		[
+			0.03376082896826971,
+			0.04392007287364955,
+			0.9359999999999999,
+			0.08979977728257459
+		],
+		[
+			0.04107268425778317,
+			0.025062487836341116,
+			0.9106666666666665,
+			0.054910027418597324
+		],
+		[
+			0.032950704130239844,
+			0.03845062985385051,
+			0.9279999999999999,
+			0.08908422980528034
+		],
+		[
+			0.07549803827629845,
+			0.04129483441599548,
+			0.8143333333333335,
+			0.13072277706828464
+		],
+		[
+			0.0838426393957151,
+			0.03945497045935058,
+			0.772,
+			0.15979987484350544
+		],
+		[
+			0.035239219900170995,
+			0.03347619687252316,
+			0.9196666666666665,
+			0.07137070672045903
+		],
+		[
+			0.04696411921334757,
+			0.04461619991113947,
+			0.8796666666666665,
+			0.11570268411368473
+		],
+		[
+			0.009306653776681462,
+			0.01731639758396775,
+			0.984,
+			0.03199999999999998
+		],
+		[
+			0.036731461394089816,
+			0.022900351178987633,
+			0.9193333333333333,
+			0.043838085927396256
+		],
+		[
+			0.07558716092914078,
+			0.021565357563039962,
+			0.8233333333333335,
+			0.05308274463305166
+		],
+		[
+			0.07808180932700357,
+			0.03186089878061747,
+			0.806,
+			0.0656048778674269
+		],
+		[
+			0.02600469981973568,
+			0.023944797118172986,
+			0.951,
+			0.048207883172775794
+		],
+		[
+			0.06801238539481606,
+			0.039451941392531824,
+			0.8386666666666667,
+			0.11316850759425569
+		],
+		[
+			0.016616413124703976,
+			0.02305269662095583,
+			0.968,
+			0.0466476151587624
+		],
+		[
+			0.020125851859418443,
+			0.01768940176319574,
+			0.9593333333333334,
+			0.03653917228278592
+		],
+		[
+			0.05282924498119964,
+			0.012056759419393714,
+			0.8866666666666667,
+			0.032110918876779464
+		],
+		[
+			0.07020013370634216,
+			0.03436276783417575,
+			0.8230000000000001,
+			0.11151681487560518
+		],
+		[
+			0.05286731082882037,
+			0.03536756265460144,
+			0.8793333333333333,
+			0.07967712623108619
+		],
+		[
+			0.018902908859090115,
+			0.02686857299917931,
+			0.9586666666666666,
+			0.06455316499685441
+		],
+		[
+			0.03368398581173689,
+			0.029505145519221763,
+			0.9353333333333333,
+			0.06005923002429445
+		],
+		[
+			0.015553005097433372,
+			0.01906098434528174,
+			0.9676666666666666,
+			0.04670950414827563
+		],
+		[
+			0.05519102256476782,
+			0.031996548679304966,
+			0.8859999999999999,
+			0.068
+		],
+		[
+			0.0882766594406858,
+			0.05316434705242104,
+			0.7976666666666667,
+			0.1229435281383738
+		],
+		[
+			0.03135231241414356,
+			0.02948556055276912,
+			0.9349999999999999,
+			0.06587867636800242
+		],
+		[
+			0.060020431734132185,
+			0.03512540123771305,
+			0.8473333333333333,
+			0.11933891979475
+		],
+		[
+			0.021762057999961545,
+			0.017398475565989956,
+			0.9596666666666666,
+			0.03578329840085236
+		],
+		[
+			0.0008614328847480065,
+			0.00042795395000480444,
+			1.0,
+			0.0
+		],
+		[
+			0.06922791232740128,
+			0.034821468357819046,
+			0.8473333333333335,
+			0.06325960620947443
+		],
+		[
+			0.0735013920445992,
+			0.022643397138755048,
+			0.8310000000000001,
+			0.058
+		],
+		[
+			0.02853877371613517,
+			0.019655449231988403,
+			0.9199999999999999,
+			0.0565685424949238
+		],
+		[
+			0.06635798214116734,
+			0.0626075723276408,
+			0.8543333333333333,
+			0.1451267645121939
+		],
+		[
+			0.016201738727654194,
+			0.017081225386756143,
+			0.968,
+			0.0466476151587624
+		],
+		[
+			0.014624420327883265,
+			0.01761406075982205,
+			0.976,
+			0.03199999999999999
+		],
+		[
+			0.07510598888901063,
+			0.03518353925501059,
+			0.8463333333333333,
+			0.07865819163387314
+		],
+		[
+			0.08858620753379673,
+			0.04063180057037115,
+			0.7516666666666667,
+			0.17377507812623125
+		],
+		[
+			0.04349691610183002,
+			0.04370736211707174,
+			0.9196666666666665,
+			0.09107018050809924
+		],
+		[
+			0.04686644932171048,
+			0.03808844460308072,
+			0.8939999999999999,
+			0.09624967532412772
+		],
+		[
+			0.025946520010938796,
+			0.0299527630522586,
+			0.944,
+			0.06974238309665079
+		],
+		[
+			0.022986039896958306,
+			0.028724923926709275,
+			0.952,
+			0.064
+		],
+		[
+			0.08994818614565417,
+			0.015028199478501985,
+			0.79,
+			0.07848566748139435
+		],
+		[
+			0.08185026537286597,
+			0.013437171329341248,
+			0.798,
+			0.03815756805667781
+		],
+		[
+			0.0821115907137839,
+			0.014712721490562372,
+			0.7903333333333333,
+			0.07746253574757571
+		],
+		[
+			0.06100644588278538,
+			0.008549111918258629,
+			0.8476666666666667,
+			0.05815305475878097
+		],
+		[
+			0.08556420444543061,
+			0.030741559164387672,
+			0.7826666666666666,
+			0.09252987505545321
+		],
+		[
+			0.06393435456729044,
+			0.03183163932170166,
+			0.8793333333333333,
+			0.07967712623108619
+		],
+		[
+			0.0930251324277286,
+			0.025352076957046523,
+			0.7746666666666667,
+			0.07307834456557184
+		],
+		[
+			0.06532949652367429,
+			0.008142105152580771,
+			0.8226666666666667,
+			0.06471819253072854
+		],
+		[
+			0.07630654110775917,
+			0.021937827537318263,
+			0.7896666666666667,
+			0.10106323652930264
+		],
+		[
+			0.06312988669848578,
+			0.010446759507854142,
+			0.8789999999999999,
+			0.025377155080899064
+		],
+		[
+			0.08175048593117601,
+			0.022181563797539865,
+			0.7656666666666667,
+			0.060842236791375244
+		],
+		[
+			0.06241800392070821,
+			0.010498179297539594,
+			0.8393333333333333,
+			0.04260412082312119
+		],
+		[
+			0.07557785876166352,
+			0.028378849480428767,
+			0.8063333333333335,
+			0.05342076167350835
+		],
+		[
+			0.06504219090097221,
+			0.02320195163749818,
+			0.8546666666666667,
+			0.041397799190026736
+		],
+		[
+			0.0782642286515974,
+			0.012786485037606614,
+			0.8223333333333335,
+			0.03339327943031518
+		],
+		[
+			0.04251997889462471,
+			0.027940995716846863,
+			0.9116666666666665,
+			0.06375299557232153
+		],
+		[
+			0.09729033716909777,
+			0.055616131104613296,
+			0.7806666666666666,
+			0.10609010845084055
+		],
+		[
+			0.04318808139495948,
+			0.03555870571876289,
+			0.8719999999999999,
+			0.11702991070662236
+		],
+		[
+			0.08227395311104138,
+			0.022693905032078427,
+			0.798,
+			0.058103356185335804
+		],
+		[
+			0.07374386519008194,
+			0.036036483356425765,
+			0.8310000000000001,
+			0.098812954616285
+		],
+		[
+			0.08409889720786355,
+			0.027815326530401047,
+			0.791,
+			0.05141984052872978
+		],
+		[
+			0.06867915337855639,
+			0.022764600823483475,
+			0.8296666666666667,
+			0.06812080772014115
+		],
+		[
+			0.062211322775060904,
+			0.025757564099215726,
+			0.8396666666666667,
+			0.07536872325072547
+		],
+		[
+			0.047243057594909946,
+			0.025993138051903456,
+			0.8949999999999999,
+			0.06526867548832287
+		],
+		[
+			0.04699409960169852,
+			0.0175736519298924,
+			0.9030000000000001,
+			0.06539113089708726
+		],
+		[
+			0.06818387763905734,
+			0.026791106456450223,
+			0.8546666666666667,
+			0.05471542540982182
+		],
+		[
+			0.063255587872088,
+			0.03663889930135836,
+			0.8459999999999999,
+			0.10423051376636307
+		],
+		[
+			0.028062061755278016,
+			0.011961066953635684,
+			0.9356666666666665,
+			0.04060103994289363
+		],
+		[
+			0.04777681538378775,
+			0.02317629584806318,
+			0.9106666666666665,
+			0.04873511168665882
+		],
+		[
+			0.03793592751616144,
+			0.022171570172259784,
+			0.9119999999999999,
+			0.06400000000000002
+		],
+		[
+			0.060843731049943985,
+			0.022838658889259573,
+			0.8710000000000001,
+			0.03903844259188626
+		],
+		[
+			0.059816836723767294,
+			0.04223886429745897,
+			0.8619999999999999,
+			0.10205880657738459
+		],
+		[
+			0.07685468631794783,
+			0.025005520324760555,
+			0.7983333333333333,
+			0.04394440932713866
+		],
+		[
+			0.045311268363610546,
+			0.01429885476415865,
+			0.8710000000000001,
+			0.06873136110975832
+		],
+		[
+			0.06967114402717935,
+			0.030621263860777008,
+			0.8230000000000001,
+			0.09610411021387168
+		],
+		[
+			0.05434566442077576,
+			0.025462487031496867,
+			0.8709999999999999,
+			0.06873136110975833
+		],
+		[
+			0.07671045188411343,
+			0.032283854653508685,
+			0.8393333333333335,
+			0.0752004728117524
+		],
+		[
+			0.0909658488303335,
+			0.03510712563909919,
+			0.678,
+			0.22130521909796888
+		],
+		[
+			0.056533059464276184,
+			0.03003923329819131,
+			0.8800000000000001,
+			0.07155417527999328
+		],
+		[
+			0.03338325348600056,
+			0.024743100604069795,
+			0.9190000000000002,
+			0.07644605941446556
+		],
+		[
+			0.02188717319442056,
+			0.0154984742502051,
+			0.9513333333333334,
+			0.047121592125526114
+		],
+		[
+			0.047307382723286336,
+			0.018202039943972625,
+			0.8793333333333333,
+			0.056111001100002146
+		],
+		[
+			0.07332268314252935,
+			0.01926572258166483,
+			0.8466666666666667,
+			0.053333333333333344
+		],
+		[
+			0.05825544295159496,
+			0.04710458721331689,
+			0.8720000000000001,
+			0.10851727973000429
+		],
+		[
+			0.06266241402458482,
+			0.03090533676839517,
+			0.8559999999999999,
+			0.0783836717690617
+		],
+		[
+			0.05884749470562387,
+			0.03301287799141019,
+			0.8873333333333333,
+			0.06852088084015784
+		],
+		[
+			0.04544711794668972,
+			0.026968209446562152,
+			0.9023333333333333,
+			0.06768883052452436
+		],
+		[
+			0.03876457606185138,
+			0.0252111802756633,
+			0.9113333333333333,
+			0.052982177296814745
+		],
+		[
+			0.05148535321805918,
+			0.01760875671843381,
+			0.8873333333333333,
+			0.05843895200216299
+		],
+		[
+			0.03395255102370885,
+			0.029602191723812673,
+			0.9119999999999999,
+			0.07756287771866124
+		],
+		[
+			0.03501933599261714,
+			0.01238111361053782,
+			0.9193333333333333,
+			0.035801924218926785
+		],
+		[
+			0.045485521049800665,
+			0.03354239077175007,
+			0.9029999999999999,
+			0.08268010643437755
+		],
+		[
+			0.015158767653904592,
+			0.02304421125713362,
+			0.976,
+			0.047999999999999994
+		],
+		[
+			0.0071379557082084325,
+			0.00906301286449166,
+			0.9833333333333334,
+			0.03333333333333335
+		],
+		[
+			0.056599945247339155,
+			0.04294690596360307,
+			0.8789999999999999,
+			0.098
+		],
+		[
+			0.05728969949679228,
+			0.02778589628398851,
+			0.8393333333333335,
+			0.11267258367105597
+		],
+		[
+			0.03471663652755338,
+			0.03539011543698781,
+			0.9280000000000002,
+			0.07756287771866124
+		],
+		[
+			0.04345616581068525,
+			0.02729815165691789,
+			0.8863333333333333,
+			0.066335845848564
+		],
+		[
+			0.04197815894970877,
+			0.03387226452860155,
+			0.9116666666666665,
+			0.07735919107930514
+		],
+		[
+			0.008580757161970938,
+			0.01121340442214797,
+			0.976,
+			0.03199999999999999
+		],
+		[
+			0.07206446301142877,
+			0.03275561522534991,
+			0.8546666666666667,
+			0.06537413691803338
+		],
+		[
+			0.09562730380958999,
+			0.04495623296668128,
+			0.7173333333333333,
+			0.1998043487459114
+		],
+		[
+			0.04931311618992764,
+			0.019738480531076023,
+			0.8953333333333333,
+			0.04768414597932712
+		],
+		[
+			0.03350794268455026,
+			0.0208769060141832,
+			0.9359999999999999,
+			0.04079215610874226
+		],
+		[
+			0.06242926480739759,
+			0.03206211701365393,
+			0.8783333333333333,
+			0.06897664661157266
+		],
+		[
+			0.04201679472030941,
+			0.04680292955525755,
+			0.9113333333333333,
+			0.09923261112714464
+		],
+		[
+			0.08321321612314053,
+			0.026740795233792254,
+			0.8226666666666667,
+			0.05392999577641782
+		],
+		[
+			0.08107468383591195,
+			0.0373646529291104,
+			0.7886666666666667,
+			0.12514169746509132
+		],
+		[
+			0.06679138179461126,
+			0.027557503030960582,
+			0.8620000000000001,
+			0.06337191807101945
+		],
+		[
+			0.037900899816929554,
+			0.03750851132933746,
+			0.9183333333333333,
+			0.08631981876203815
+		],
+		[
+			0.034498422069839704,
+			0.016814939949746272,
+			0.9280000000000002,
+			0.039191835884530846
+		],
+		[
+			0.04897677367784234,
+			0.05570737941061355,
+			0.9039999999999999,
+			0.11757550765359254
+		],
+		[
+			0.06838857293096538,
+			0.042708127783632935,
+			0.8463333333333333,
+			0.09352599163393624
+		],
+		[
+			0.05831733204673635,
+			0.0314785976506258,
+			0.8640000000000001,
+			0.09666436778875659
+		],
+		[
+			0.052789825532128784,
+			0.047260532664365355,
+			0.8800000000000001,
+			0.09465727652959388
+		],
+		[
+			0.023612939889757923,
+			0.018075643167196922,
+			0.9593333333333334,
+			0.03653917228278592
+		],
+		[
+			0.046636635759746796,
+			0.04519539507927245,
+			0.9039999999999999,
+			0.10307278981380101
+		],
+		[
+			0.017229860361731627,
+			0.015463001601434207,
+			0.968,
+			0.029933259094191523
+		],
+		[
+			0.053708269890213045,
+			0.033523105752906075,
+			0.8710000000000001,
+			0.07748548251124207
+		],
+		[
+			0.04552980288412962,
+			0.04319748424345617,
+			0.8960000000000001,
+			0.11757550765359254
+		],
+		[
+			0.059484029660085105,
+			0.05893248253886179,
+			0.8716666666666667,
+			0.13460229484588207
+		],
+		[
+			0.05002929624724255,
+			0.02472425885089079,
+			0.9029999999999999,
+			0.048538644398046386
+		],
+		[
+			0.04304459613858594,
+			0.04290659960044461,
+			0.9113333333333333,
+			0.08903432546558158
+		],
+		[
+			0.015263236537481111,
+			0.0237169132681351,
+			0.967,
+			0.048538644398046386
+		],
+		[
+			0.07869394723449823,
+			0.039814351921160174,
+			0.8316666666666667,
+			0.0921472251948539
+		],
+		[
+			0.061332006204866694,
+			0.02389722748254518,
+			0.8390000000000001,
+			0.07952358140828417
+		],
+		[
+			0.03870954726239058,
+			0.03915379455855509,
+			0.9119999999999999,
+			0.10552724766618336
+		],
+		[
+			0.06703067561177764,
+			0.07061919089303968,
+			0.8546666666666667,
+			0.14681204915734192
+		],
+		[
+			0.05680730081371179,
+			0.040192940421254396,
+			0.8866666666666667,
+			0.08240819808193303
+		],
+		[
+			0.027716600494226938,
+			0.049051490896039836,
+			0.9359999999999999,
+			0.10910545357588686
+		],
+		[
+			0.05357565142222569,
+			0.023070003101483688,
+			0.8953333333333333,
+			0.05397941994665907
+		],
+		[
+			0.09137122168726483,
+			0.06387507240012202,
+			0.75,
+			0.16468151080191124
+		],
+		[
+			0.04995758998485355,
+			0.03239929300484197,
+			0.9033333333333333,
+			0.0648416875508684
+		],
+		[
+			0.03155094471895359,
+			0.030243129691822523,
+			0.9269999999999999,
+			0.06477653896280659
+		],
+		[
+			0.03307965240869054,
+			0.04547566571222614,
+			0.9359999999999999,
+			0.08979977728257459
+		],
+		[
+			0.04990600011948387,
+			0.030176988875325862,
+			0.8879999999999999,
+			0.06881860213634101
+		]
+	]
+}

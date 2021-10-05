@@ -191,7 +191,7 @@ def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 1.1),
     ax[1].plot(range(len(val_metr)), val_metr, color='r', label=lblval)
     ax[1].legend(loc='best', prop={'size': 9})
     ax[1].set_xlabel('Epochs', fontweight='bold')
-    ax[1].set_ylabel('Acc', fontweight='bold')
+    ax[1].set_ylabel('Accuracy', fontweight='bold')
     ax[1].set_ylim(ylim)
     ax[1].grid()
     if path is None:

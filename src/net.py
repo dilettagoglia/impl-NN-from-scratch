@@ -35,7 +35,7 @@ class Network:
             self._layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i], init_w_name=weights_init, **kwargs))
             # keep the current number of neurons of this layer as number of inputs for the next layer
             layer_inp_dim = units_per_layer[i]
-        #self.print_topology()
+        # self.print_topology()
 
     # TODO decide whether to keep check attribute or not
     @staticmethod
