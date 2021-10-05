@@ -11,7 +11,7 @@ if __name__ == '__main__':
     # Create a neural network
     # input_dim must stay 17 for monks datasets
     # units_per_layer: tuple containing the number of units for each layer (except the input one)
-    model = Network(input_dim=17, units_per_layer=[4, 1], act_functions=['tanh', 'tanh'], weights_init='random', tqdm=True)
+    model = Network(input_dim=17, units_per_layer=[2, 1], act_functions=['tanh', 'tanh'], weights_init='random', tqdm=True)
 
     # read the dataset. Change the name in the following lines to use monks-2 or monks-3
     tr_ds_name = "monks-1.train"
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     '''********* hold-out validation ************** '''
     train_X, val_X, train_y, val_y = train_test_split(monk_train, labels_tr, test_size=0.30)
 
-    model.compile(error_func='squared_error', metr='binary_class_accuracy', lr=0.7, momentum=0.9, lambda_=0.01)
+    model.compile(error_func='squared_error', metr='binary_class_accuracy', lr=0.75, momentum=0.85, lambda_=0)
 
     tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y, batch_size='full', epochs=150, tqdm=True)
 
