@@ -16,7 +16,7 @@ if __name__ == '__main__':
     # reg_type = 'lasso'  # default regularization type is Tikhonov
     batch_size = 'full' # try out batch sizes in powers of 2 (for better memory optimization) based on the data-size
     epochs = 500
-    lr = 0.001
+    lr = 0.7
     momentum_val = [0.5, 0.7, 0.8, 0.9]
     lambda_val = [0, 0.001, 0.0001, 0.00001]
 

@@ -18,6 +18,7 @@ if __name__ == '__main__':
                  'batch_size': ('full',),
                  'lr': (0.001, 0.0001),
                  'lambda_': (0, 0.001, 0.0001, 0.00001),
+                 'reg_type': ('lasso', 'ridge_regression'),
                  'error_func': ('squared_error',),
                  'metr': ('binary_class_accuracy',),
                  'epochs': (500,)}
