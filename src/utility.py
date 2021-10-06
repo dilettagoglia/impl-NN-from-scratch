@@ -166,7 +166,7 @@ def sets_from_folds(x_folds, y_folds, val_fold_index):
 Visualization 
 """
 
-def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 1.1), lbltr='development',
+def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 10.), lbltr='development',
                 lblval='internal test', *args):
     """
     Plot the curves of training loss, training metric, validation loss, validation metric

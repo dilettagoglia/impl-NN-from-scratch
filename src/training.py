@@ -191,6 +191,7 @@ class Training:
                     counter+=1
                 if counter >= strip_early_stopping:
                     break
+            # print(tr_error_values[-1], val_error_values[-1])
         return tr_error_values, tr_metric_values, val_error_values, val_metric_values
 
     def print_training_parameters(self):
