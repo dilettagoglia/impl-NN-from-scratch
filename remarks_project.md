@@ -24,10 +24,6 @@ Do it only for hyperparameters directly related to the VC-dim.
 - Compare our simulator with an "oracle" tool to assess its correctness (Keras, Pytorch, etc.).
 - Try to implement an efficient code for the experiments! ✓
 - Implement some decay technique for learning rate ✓
-LEARNING RATE IN [0.01 0.5] in LMS WITHOUT MOMENTUM
-LEARNING RATE IN [0.2, 0.9] in LMS WITH MOMENTUM
-MOMENTUM IN [0.5, 0.9] ✓
-USE GLOROT FOR INITIALIZATION
 
 ## PYTHON IMPLEMENTATION REMARKS
 - Use static methods for utility classes (when we don't care about the property of the object)
@@ -58,3 +54,35 @@ USE GLOROT FOR INITIALIZATION
     - K-fold cross validation ✓
     - Grid Search ✓
     - Random Search ✓
+
+## Screening Phase
+
+MOMENTUM IN [0.5, 0.9] ✓
+USE GLOROT FOR INITIALIZATION
+
+
+ """ HYPERPARAMETERS """
+    units_per_layer = [20, 20, 2]
+    act_functions = ['tanh', 'tanh','identity']
+    weights_init = 'random' # or glorot
+    error_func = 'squared_error'
+    metr = 'euclidian_error'
+    reg_type = 'ridge_regression'  # default regularization type is Tikhonov
+    batch_size = 100 # try out batch sizes in powers of 2 (for better memory optimization) based on the data-size
+    epochs = 500
+    lr = 0.01
+    momentum_val = 0.6
+    lambda_val = 0
+It seems that glorot and random perform similarly (does't matter initialization for larger net)
+glorot e random indifferente (glorot sembra di pochissimo migliore ma hanno curve molto simili)
+batch_size = 1 -> UNSTABLE LEARNING
+batch_size = 'full' -> decrease very slowly the error
+eta > 0.1 -> OVERFLOW
+We have to use eta < 0.1
+eta = 0.1 -> error doesn't decrease and remain on 20-21
+eta = 0.05 -> unstable
+eta = 0.001 -> very smooth curves
+lambda = 0.1 overfitting pesissimo
+momentum a 0.9 troppo alto (modello instabile)
+more layers and no regularization -> not stable and overfitting
+seems better one layer with very few regularization
