@@ -86,3 +86,33 @@ lambda = 0.1 overfitting pesissimo
 momentum a 0.9 troppo alto (modello instabile)
 more layers and no regularization -> not stable and overfitting
 seems better one layer with very few regularization
+use epochs as hyperparameters
+unstable model and underfitting with few units (less than 10 units)
+with ReLu or leaky_relu we have to set eta <= 0.0005, otherwise OVERFLOW (very similar learning curve for both, maybe better ReLU)
+if at epoch 50 validation error isn't below 30, DISCARD MODEL!
+TODO -> add info on images of screening phase cup
+
+## GRID SEARCH
+### Fixed hyperparameters
+weights_init = glorot
+error_func = squared_error
+metr = euclidian_error
+reg_type = ridge_regression
+nesterov = True
+epochs = 500
+
+### Other hyperparameters
+momentum = [0.6, 0.7, 0.8]
+lambda_ = [0, 0.0001, 0.01]
+units_per_layer =  [(10,2), (20, 2), (10,10,2), (20, 20, 2), (20, 20, 10, 2)] COMPARE 10 AND 20 UNITS
+COMPARE RELU AND LEAKY_RELU
+act_function = [('relu', 'identity'), ('tanh', 'identity'),
+                          ('relu', 'relu', 'identity'), ('tanh', 'tanh', 'identity'),
+                          ('relu', 'relu', 'relu', 'identity'),
+                          ('tanh', 'tanh', 'tanh', 'identity')]
+batch_size = []
+lr = [0.0001, 0.001 0.005, 0.01]
+lr_decay = [None, 'linear', 'exponential']
+limit_step = 
+decay_rate = 
+decay_steps' =
