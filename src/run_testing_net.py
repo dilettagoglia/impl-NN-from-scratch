@@ -60,7 +60,7 @@ if __name__ == '__main__':
         # Create a neural network
         # input_dim must stay 10 for cup datasets
         # units_per_layer: tuple containing the number of units for each layer (except the input one)
-        model = Network(input_dim=10, units_per_layer=[20,20, 2], act_functions=['leaky_relu','leaky_relu', 'identity'], weights_init='glorot')
+        model = Network(input_dim=10, units_per_layer=[20,20, 2], act_functions=['relu','relu', 'identity'], weights_init='glorot')
         # read the dataset. Change the name in the following lines to use monks-2 or monks-3
         tr_ds_name = "ML-CUP20-TR.csv"
         # ts_ds_name = "monks-3.test"
@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
             # # compile the model (check the method definition for more info about all the accepted arguments)
             # train_X, val_X, train_y, val_y = train_test_split(cup_train, labels_tr, test_size=0.1)
-            model.compile(error_func='squared_error', metr='euclidian_error', lr=0.0005, momentum=0.6, nesterov=True, lambda_=0.00001, reg_type='ridge_regression')
+            model.compile(error_func='squared_error', metr='euclidian_error', lr=0.0005, lr_decay='exponential_decay', decay_rate= 0.95, decay_steps=400, momentum=0.6, nesterov=True, lambda_=0.00001, reg_type='ridge_regression')
             # # training (check the method definition for more info about all the possible parameters)
             tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=cup_train, tr_y=labels_tr, val_x=cup_its, val_y=labels_its, batch_size=128,
                                                             epochs=100, disable_tqdm=False)

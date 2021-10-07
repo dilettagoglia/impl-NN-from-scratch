@@ -99,20 +99,31 @@ error_func = squared_error
 metr = euclidian_error
 reg_type = ridge_regression
 nesterov = True
-epochs = 500
 
 ### Other hyperparameters
 momentum = [0.6, 0.7, 0.8]
-lambda_ = [0, 0.0001, 0.01]
-units_per_layer =  [(10,2), (20, 2), (10,10,2), (20, 20, 2), (20, 20, 10, 2)] COMPARE 10 AND 20 UNITS
-COMPARE RELU AND LEAKY_RELU
+lambda_ = [0, 0.0001, 0.001, 0.01]
+units_per_layer =  [(10,2), (20, 2), (20, 20, 2), (20, 20, 20, 2)]
 act_function = [('relu', 'identity'), ('tanh', 'identity'),
                           ('relu', 'relu', 'identity'), ('tanh', 'tanh', 'identity'),
                           ('relu', 'relu', 'relu', 'identity'),
                           ('tanh', 'tanh', 'tanh', 'identity')]
-batch_size = []
+batch_size = [64, 128, 256, 512]
 lr = [0.0001, 0.001 0.005, 0.01]
+reg_type = ['lasso','ridge_regression']
 lr_decay = [None, 'linear', 'exponential']
-limit_step = 
-decay_rate = 
-decay_steps' =
+epochs = ['200','300','400']
+limit_step = 400 -> DA RIVEDERE
+decay_rate = 0.95 -> DA RIVEDERE
+decay_steps = 400 -> DA RIVEDERE
+
+DILETTA
+units_per_layer =  [(20, 2), (20, 20, 2)]
+act_function = [('relu', 'identity'), ('tanh', 'identity'),
+                          ('relu', 'relu', 'identity'), ('tanh', 'tanh', 'identity')]
+PAOLO
+units_per_layer =  [(10,2), (20, 20, 20, 2)]
+act_function = [('relu', 'identity'), ('tanh', 'identity'),
+                          ('relu', 'relu', 'relu', 'identity'),
+                          ('tanh', 'tanh', 'tanh', 'identity')]
+

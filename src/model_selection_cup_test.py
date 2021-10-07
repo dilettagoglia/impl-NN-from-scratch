@@ -30,5 +30,5 @@ if __name__ == '__main__':
     #best_params = best_params[0]
     #grid_search(dataset="cup", params=best_params, coarse=False, n_config=4)
     #best_models, best_params = get_best_models(dataset="cup", coarse=False, n_models=10)
-    for p in best_params:
-        print(p)
+    #for p in best_params:
+    #    print(p)

@@ -10,19 +10,19 @@ from matplotlib import pyplot as plt
 if __name__ == '__main__':
 
     """ HYPERPARAMETERS """
-    units_per_layer_val = [[20,2],[20, 20, 2], [20,20,20,2], [20,20,20,20,2]]
-    act_functions_val = [['tanh','identity'],['tanh', 'tanh','identity'], ['tanh', 'tanh','tanh','identity'], ['tanh', 'tanh','tanh','tanh','identity']]
+    units_per_layer_val = [[10,2],[20,2],[10, 10, 2], [20,20,2]]
+    act_functions_val = [['relu','identity'],['relu','identity'], ['relu', 'relu','identity'], ['relu', 'relu','identity']]
     weights_init = 'glorot' # or glorot
     error_func = 'squared_error'
     metr = 'euclidian_error'
     reg_type = 'ridge_regression'  # default regularization type is Tikhonov
     batch_size = 128 # try out batch sizes in powers of 2 (for better memory optimization) based on the data-size
-    epochs = 1
-    lr = 0.01
+    epochs = 250
+    lr = 0.0005
     # lr_val = [0.001, 0.005, 0.01, 0.05]
     momentum = 0.6
     # momentum_val = [0.6, 0.7, 0.8, 0.9]
-    lambda_val = [0, 0.0001, 0.001, 0.1]
+    lambda_val = [0, 0.0001, 0.001]
     # lambda_ = 0.0001
 
     # input dimension for cup is 10
@@ -43,15 +43,13 @@ if __name__ == '__main__':
             model = Network(input_dim=10, units_per_layer=i, act_functions=z, weights_init=weights_init)
             model.compile(error_func=error_func, metr=metr, lr=lr, momentum=momentum, nesterov=True, lambda_=j)
             
-            if j == 0.1 and i == [20,20,20,20,2]:
-                epochs = 250
             # # training (check the method definition for more info about all the possible parameters)
             tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=tr_data, tr_y=tr_targets, val_x=int_ts_data, val_y=int_ts_targets,
                                                            batch_size=batch_size,
                                                            epochs=epochs, disable_tqdm=False)
             ylim = 30
-            # if tr_err[50] > ylim or val_err[50] > ylim:
-            ylim = 200
+            if tr_err[50] > ylim or val_err[50] > ylim:
+                ylim = 200
             # plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation',ylim=ylim)
             
             # to plot the loss curve: substitute tr_metr with tr_err and val_metr with val_err
@@ -68,4 +66,4 @@ if __name__ == '__main__':
 
     plt.suptitle(f'Units per layer and lambda variations with'
                  f' momentum = {str(momentum)}, learning_rate = {str(lr)}, act_functions = tanh for hidden layer, weights_init = {str(weights_init)}, \n loss = {str(error_func)}, metr = {str(metr)}, batch_size = {str(batch_size)}, epochs = {str(epochs)}', fontsize=28, fontweight='bold')
-    plt.savefig(f'../images/cup_screening_phase.png')
+    plt.savefig(f'../images/cup_screening_phase_cmp_units_layer_lambda_relu.png')
