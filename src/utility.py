@@ -97,8 +97,8 @@ def read_cup(int_ts=False):
     if int_ts and not (os.path.exists(int_ts_path) and os.path.exists(dev_set_path)):
         df = pd.read_csv(directory + file, sep=',', names=col_names, skiprows=range(7), usecols=range(0, 13))
         df = df.sample(frac=1, axis=0) # shuffle the dataset
-        int_ts_df = df.iloc[: math.floor(len(df) * 0.1), :]
-        dev_set_df = df.iloc[math.floor(len(df) * 0.1) :, :]
+        int_ts_df = df.iloc[: math.floor(len(df) * 0.2), :]
+        dev_set_df = df.iloc[math.floor(len(df) * 0.2) :, :]
         int_ts_df.to_csv(path_or_buf=int_ts_path, index=False, float_format='%.6f', header=False)
         dev_set_df.to_csv(path_or_buf=dev_set_path, index=False, float_format='%.6f', header=False)
 
@@ -130,7 +130,7 @@ def read_cup(int_ts=False):
     # detach internal test set if needed (maybe some problem with OS file reading)
     if int_ts:
         if not (os.path.exists(int_ts_path) and os.path.exists(dev_set_path)):
-            tr_data, int_ts_data, tr_targets, int_ts_targets = train_test_split(tr_data, tr_targets, test_size=0.1)
+            tr_data, int_ts_data, tr_targets, int_ts_targets = train_test_split(tr_data, tr_targets, test_size=0.2)
 
         return tr_data, tr_targets, int_ts_data, int_ts_targets, cup_ts_data
 

@@ -58,7 +58,7 @@ Do it only for hyperparameters directly related to the VC-dim.
 ## Screening Phase
 
 MOMENTUM IN [0.5, 0.9] ✓
-USE GLOROT FOR INITIALIZATION
+USE GLOROT FOR INITIALIZATION ✓
 
 
  """ HYPERPARAMETERS """
@@ -86,9 +86,11 @@ lambda = 0.1 overfitting pesissimo
 momentum a 0.9 troppo alto (modello instabile)
 more layers and no regularization -> not stable and overfitting
 seems better one layer with very few regularization
-use epochs as hyperparameters
 unstable model and underfitting with few units (less than 10 units)
 with ReLu or leaky_relu we have to set eta <= 0.0005, otherwise OVERFLOW (very similar learning curve for both, maybe better ReLU)
+with ReLU curve very very smooth, stable but slower respect tanh
+batch_size = 64 -> not bad results but a bit unstable
+batch_size >= 512 -> very very smooth curves but error is not so good
 if at epoch 50 validation error isn't below 30, DISCARD MODEL!
 TODO -> add info on images of screening phase cup
 
@@ -108,14 +110,14 @@ act_function = [('relu', 'identity'), ('tanh', 'identity'),
                           ('relu', 'relu', 'identity'), ('tanh', 'tanh', 'identity'),
                           ('relu', 'relu', 'relu', 'identity'),
                           ('tanh', 'tanh', 'tanh', 'identity')]
-batch_size = [64, 128, 256, 512]
-lr = [0.0001, 0.001 0.005, 0.01]
+batch_size = [128, 256]
+lr = [0.0001, 0.001, 0.005, 0.01]
 reg_type = ['lasso','ridge_regression']
 lr_decay = [None, 'linear', 'exponential']
-epochs = ['200','300','400']
-limit_step = 400 -> DA RIVEDERE
+epochs = 350
+limit_step = 350 
 decay_rate = 0.95 -> DA RIVEDERE
-decay_steps = 400 -> DA RIVEDERE
+decay_steps = 350 
 
 DILETTA
 units_per_layer =  [(20, 2), (20, 20, 2)]
@@ -127,3 +129,13 @@ act_function = [('relu', 'identity'), ('tanh', 'identity'),
                           ('relu', 'relu', 'relu', 'identity'),
                           ('tanh', 'tanh', 'tanh', 'identity')]
 
+
+1) CHANGE INTERNAL TEST SIZE IN READ CUP ✓
+2) SCREENING PHASE BATCH_SIZE ✓
+4) SCREENING PHASE L1/L2 REGULARIZATION ✓ difficile capire il migliore, vanno messi entrambi nella grid
+3) SCREENING PHASE LR_PARAMS
+5) LEGGERE CODICE MODEL_SELECTION
+6) AVVIARE GRID_SEARCH
+
+sfoltire batch_size, learning rate e lambda
+learning rate, lambda_, momentum and batch_size are perturbed in fine grid-search
