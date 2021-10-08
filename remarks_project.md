@@ -91,6 +91,8 @@ with ReLu or leaky_relu we have to set eta <= 0.0005, otherwise OVERFLOW (very s
 with ReLU curve very very smooth, stable but slower respect tanh
 batch_size = 64 -> not bad results but a bit unstable
 batch_size >= 512 -> very very smooth curves but error is not so good
+limit_step <= 300 -> error is not good (linear_decay doesn't seem to improve learning)
+we used eta = 0.001 so we discarded some decay because we had no improvements
 if at epoch 50 validation error isn't below 30, DISCARD MODEL!
 TODO -> add info on images of screening phase cup
 
@@ -104,7 +106,7 @@ nesterov = True
 
 ### Other hyperparameters
 momentum = [0.6, 0.7, 0.8]
-lambda_ = [0, 0.0001, 0.001, 0.01]
+lambda_ = [0, 0.0001, 0.001]
 units_per_layer =  [(10,2), (20, 2), (20, 20, 2), (20, 20, 20, 2)]
 act_function = [('relu', 'identity'), ('tanh', 'identity'),
                           ('relu', 'relu', 'identity'), ('tanh', 'tanh', 'identity'),
