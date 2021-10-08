@@ -29,4 +29,7 @@ for dataset in ds_names:
 
 # Cup train dataset analysis
 
-#TODO
+print('\n\n **** Analysis of ML-CUP20-TR dataset ****')
+tr_data, tr_targets, int_ts_data, int_ts_targets, cup_ts_data = read_cup(int_ts=True)
+# Check dimensions
+print('\nLabels vector shape:\n', tr_targets.shape, '\n Training dataset shape: (examples, features)\n', tr_data.shape)
