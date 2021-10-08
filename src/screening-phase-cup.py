@@ -21,10 +21,10 @@ if __name__ == '__main__':
     epochs = 250
     # lr = 0.005
     lr_val = [0.001, 0.005, 0.01, 0.05]
-    lr_decay = 'linear_decay'
-    decay_rate = None
-    decay_steps = None
-    limit_step_val = [100,200,300,400]
+    lr_decay = 'exponential_decay'
+    decay_rate_val = [0.70, 0.80, 0.90, 1]
+    decay_steps = 350
+    limit_step = None
     momentum = 0.6
     # momentum_val = [0.6, 0.7, 0.8, 0.9]
     # lambda_val = [0, 0.0001, 0.001, 0.01]
@@ -44,9 +44,9 @@ if __name__ == '__main__':
     plot_id = 0
 
     for i in lr_val:
-        for j in limit_step_val:
+        for j in decay_rate_val:
             model = Network(input_dim=10, units_per_layer=units_per_layer, act_functions=act_functions, weights_init=weights_init)
-            model.compile(error_func=error_func, metr=metr, lr=i, lr_decay=lr_decay, decay_steps=decay_steps, decay_rate=decay_rate, limit_step=j, momentum=momentum, nesterov=True, lambda_=lambda_, reg_type=reg_type)
+            model.compile(error_func=error_func, metr=metr, lr=i, lr_decay=lr_decay, decay_steps=decay_steps, decay_rate=j, limit_step=limit_step, momentum=momentum, nesterov=True, lambda_=lambda_, reg_type=reg_type)
             
             # # training (check the method definition for more info about all the possible parameters)
             tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=tr_data, tr_y=tr_targets, val_x=int_ts_data, val_y=int_ts_targets,
@@ -64,11 +64,11 @@ if __name__ == '__main__':
             axs[int(plot_id / 4)][plot_id % 4].set_xlabel('Epochs', fontweight='bold')
             axs[int(plot_id / 4)][plot_id % 4].set_ylabel('Error (MSE)', fontweight='bold') # change to 'Error' if plotting error curve
             axs[int(plot_id / 4)][plot_id % 4].set_ylim([0, ylim])
-            axs[int(plot_id / 4)][plot_id % 4].set_title(f'Learning Rate: {str(i)}, Tau Step (limit): {str(j)}')
+            axs[int(plot_id / 4)][plot_id % 4].set_title(f'Learning Rate: {str(i)}, Decay Rate: {str(j)}')
             axs[int(plot_id / 4)][plot_id % 4].grid()
             plot_id = plot_id + 1
             
 
-    plt.suptitle(f'Learning rate per tau_step (limit) variations with'
+    plt.suptitle(f'Learning rate per decay_rate (exponential decay) variations with'
                  f' momentum = {str(momentum)}, batch_size = {str(batch_size)}, act_functions = {str(act_functions)}, weights_init = {str(weights_init)}, \n loss = {str(error_func)}, metr = {str(metr)}, units_per_layer = {str(units_per_layer)}, lambda = {str(lambda_)},  epochs = {str(epochs)}', fontsize=28, fontweight='bold')
-    plt.savefig(f'../images/cup_screening_phase_cmp_lr_limit_step.png')
+    plt.savefig(f'../images/cup_screening_phase_cmp_lr_decay_rate.png')

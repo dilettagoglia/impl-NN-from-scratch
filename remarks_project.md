@@ -101,7 +101,6 @@ TODO -> add info on images of screening phase cup
 weights_init = glorot
 error_func = squared_error
 metr = euclidian_error
-reg_type = ridge_regression
 nesterov = True
 
 ### Other hyperparameters
@@ -115,11 +114,9 @@ act_function = [('relu', 'identity'), ('tanh', 'identity'),
 batch_size = [128, 256]
 lr = [0.0001, 0.001, 0.005, 0.01]
 reg_type = ['lasso','ridge_regression']
-lr_decay = [None, 'linear', 'exponential']
+lr_decay = [None, 'linear']
 epochs = 350
-limit_step = 350 
-decay_rate = 0.95 -> DA RIVEDERE
-decay_steps = 350 
+limit_step = 350
 
 DILETTA
 units_per_layer =  [(20, 2), (20, 20, 2)]
@@ -130,14 +127,3 @@ units_per_layer =  [(10,2), (20, 20, 20, 2)]
 act_function = [('relu', 'identity'), ('tanh', 'identity'),
                           ('relu', 'relu', 'relu', 'identity'),
                           ('tanh', 'tanh', 'tanh', 'identity')]
-
-
-1) CHANGE INTERNAL TEST SIZE IN READ CUP ✓
-2) SCREENING PHASE BATCH_SIZE ✓
-4) SCREENING PHASE L1/L2 REGULARIZATION ✓ difficile capire il migliore, vanno messi entrambi nella grid
-3) SCREENING PHASE LR_PARAMS
-5) LEGGERE CODICE MODEL_SELECTION
-6) AVVIARE GRID_SEARCH
-
-sfoltire batch_size, learning rate e lambda
-learning rate, lambda_, momentum and batch_size are perturbed in fine grid-search

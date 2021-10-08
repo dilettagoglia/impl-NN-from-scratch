@@ -9,7 +9,7 @@ import math
 
 class Training:
 
-    def __init__(self, net, error_func, metr, lr, momentum, reg_type, lambda_, nesterov = False, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None):
+    def __init__(self, net, error_func, metr, lr, momentum, reg_type, lambda_, nesterov = True, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None):
         self._net = net
         self._error_func = ErrorFunction.init_error_function(error_func) # tuple composed by (error_function, error_function_der, name)
         self._metric_name = metr
@@ -191,8 +191,8 @@ class Training:
                     counter+=1
                 if counter >= strip_early_stopping:
                     break
-            print(val_error_values[-1])
-            print(val_metric_values[-1])
+            # print(val_error_values[-1])
+            # print(val_metric_values[-1])
         return tr_error_values, tr_metric_values, val_error_values, val_metric_values
 
     def print_training_parameters(self):

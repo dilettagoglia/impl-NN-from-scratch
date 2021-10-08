@@ -113,7 +113,7 @@ class Network:
         return x
 
     # TODO we can remove **kwargs from compile
-    def compile(self, error_func='squared_error', metr='binary_class_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., nesterov = False, reg_type='ridge_regression', lambda_=0, **kwargs):
+    def compile(self, error_func='squared_error', metr='binary_class_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., nesterov = True, reg_type='ridge_regression', lambda_=0, **kwargs):
         """
         Prepares the network by assigning an optimizer to it and setting its parameters
 

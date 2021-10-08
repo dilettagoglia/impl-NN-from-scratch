@@ -60,7 +60,7 @@ if __name__ == '__main__':
         # HYPERPARAMETERS
         units_per_layer = [20,20, 2]
         act_functions = ['tanh','tanh', 'identity']
-        lr = 0.005
+        lr = 0.1
         lr_decay = 'exponential_decay'
         decay_rate = 1
         decay_steps = 350

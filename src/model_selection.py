@@ -17,10 +17,10 @@ import itertools as it
 
 # split a dataset into a train and validation set
 def holdout_validation(net,path, test_size, error_func, metr, lr, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
-            momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, reg_type='ridge_regression', lambda_=0, disable_tqdm=False):
+            momentum=0., nesterov=True, epochs=1, batch_size=1, strip=0, reg_type='ridge_regression', lambda_=0, disable_tqdm=False):
     if path == "cup":
         dataset, labels, _, _, _ = read_cup(int_ts=True)
-        print("cup")
+        # print("cup")
     else:
         rescale = True if net.params['act_functions'][-1] == 'tanh' else False
         dataset, labels = read_monk_dataset(dataset=path, rescale=rescale)
@@ -39,11 +39,11 @@ def holdout_validation(net,path, test_size, error_func, metr, lr, lr_decay=None,
 #TODO DocString documentation
 
 def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
-            momentum=0., nesterov=False, epochs=1, batch_size=1, strip=0, k_folds=5, reg_type='ridge_regression', lambda_=0,
+            momentum=0., nesterov=True, epochs=1, batch_size=1, strip=0, k_folds=5, reg_type='ridge_regression', lambda_=0,
             disable_tqdms=(True, True), plot=True, verbose=False, **kwargs):
     if dataset == "cup":
         dev_set_x, labels, _, _, _ = read_cup(int_ts=True)
-        print("cup")
+        # print("cup")
     else:
         rescale = True if net.params['act_functions'][-1] == 'tanh' else False
         dev_set_x, labels = read_monk_dataset(dataset=dataset, rescale=rescale)
