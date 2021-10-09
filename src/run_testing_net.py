@@ -58,7 +58,7 @@ if __name__ == '__main__':
     # CUP TESTS
     else:
         # HYPERPARAMETERS
-        units_per_layer = [20,20, 2]
+        units_per_layer = [30,30, 2]
         act_functions = ['relu','relu', 'identity']
         lr = 0.1
         lr_decay = None

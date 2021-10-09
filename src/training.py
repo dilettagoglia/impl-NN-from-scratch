@@ -194,10 +194,12 @@ class Training:
             
             # early stopping for fine tuning validation
             if baseline_early_stopping is not None and val_x is not None:
-                if epoch == baseline_early_stopping['epoch'] and epoch_val_error > baseline_early_stopping['threshold']:
+                if math.isnan(epoch_val_error):
+                    raise Exception("Validation error at epoch {} is NaN".format(epoch))
+                if epoch == baseline_early_stopping['epoch'] and (epoch_val_error > baseline_early_stopping['threshold'] or math.isnan(epoch_val_error)):
                     raise Exception("Validation error at epoch {} is above threshold {}".format(epoch,baseline_early_stopping['threshold']))
-            print(val_error_values[-1])
-            print(val_metric_values[-1])
+            # print(val_error_values[-1])
+            # print(val_metric_values[-1])
         return tr_error_values, tr_metric_values, val_error_values, val_metric_values
 
     def print_training_parameters(self):
