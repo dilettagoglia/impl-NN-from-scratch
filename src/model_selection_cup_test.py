@@ -24,8 +24,9 @@ if __name__ == '__main__':
                  'metr': ('euclidian_error',),
                  'epochs': (350,)}
 
+    baseline_es = {'epoch': 50, 'threshold': 25}
     # coarse to fine grid search. Results are saved on file
-    grid_search(dataset="cup", params=gs_params, coarse=True)
+    grid_search(dataset="cup", params=gs_params, coarse=True, baseline_es=baseline_es)
     _, best_params = get_best_models(dataset="cup", coarse=True, n_models=5)
     #best_params = best_params[0]
     #grid_search(dataset="cup", params=best_params, coarse=False, n_config=4)

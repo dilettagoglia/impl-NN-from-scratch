@@ -47,7 +47,7 @@ class Training:
     def metr(self):
         return self._metric
 
-    def gradient_descent(self, tr_x, tr_y, val_x, val_y, epochs, batch_size, strip_early_stopping, disable_tqdm=True, **kwargs):
+    def gradient_descent(self, tr_x, tr_y, val_x, val_y, epochs, batch_size, strip_early_stopping, baseline_early_stopping, disable_tqdm=True, **kwargs):
         """
         Gradient descent algorithm for training the network
 
@@ -85,7 +85,7 @@ class Training:
         step = 0
 
         # cycle through epochs
-        for _ in tqdm.tqdm(range(epochs), desc="Iterating over epochs", disable=disable_tqdm):
+        for epoch in tqdm.tqdm(range(epochs), desc="Iterating over epochs", disable=disable_tqdm):
 
             # np.ndarray related to the number of neurons of the last layer of the network (1 for Monk and 2 for ML-CUP)
             epoch_tr_error = np.zeros(net.layers[-1].n_units)
@@ -182,7 +182,7 @@ class Training:
             epoch_tr_metric = np.sum(epoch_tr_metric) / len(epoch_tr_metric)
             tr_metric_values.append(epoch_tr_metric / len(tr_x))
 
-            # early stopping
+            # early stopping for training
             if strip_early_stopping > 0 and val_x is not None:
                 if epoch_val_error < val_err:
                     counter = 0
@@ -191,8 +191,13 @@ class Training:
                     counter+=1
                 if counter >= strip_early_stopping:
                     break
-            # print(val_error_values[-1])
-            # print(val_metric_values[-1])
+            
+            # early stopping for fine tuning validation
+            if baseline_early_stopping is not None and val_x is not None:
+                if epoch == baseline_early_stopping['epoch'] and epoch_val_error > baseline_early_stopping['threshold']:
+                    raise Exception("Validation error at epoch {} is above threshold {}".format(epoch,baseline_early_stopping['threshold']))
+            print(val_error_values[-1])
+            print(val_metric_values[-1])
         return tr_error_values, tr_metric_values, val_error_values, val_metric_values
 
     def print_training_parameters(self):

@@ -39,7 +39,7 @@ def holdout_validation(net,path, test_size, error_func, metr, lr, lr_decay=None,
 #TODO DocString documentation
 
 def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
-            momentum=0., nesterov=True, epochs=1, batch_size=1, strip=0, k_folds=5, reg_type='ridge_regression', lambda_=0,
+            momentum=0., nesterov=True, epochs=1, batch_size=1, strip=0, baseline_es = None, k_folds=5, reg_type='ridge_regression', lambda_=0,
             disable_tqdms=(True, True), plot=True, verbose=False, **kwargs):
     if dataset == "cup":
         dev_set_x, labels, _, _, _ = read_cup(int_ts=True)
@@ -68,10 +68,9 @@ def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit
                     decay_rate=decay_rate, decay_steps=decay_steps, momentum=momentum, nesterov=nesterov,
                     reg_type=reg_type, lambda_=lambda_)
         # warnings.simplefilter("error")
-        #TODO decide to keep this catching of exception
         try:
             tr_history = net.fit(tr_x=tr_data, tr_y=tr_targets, val_x=val_data, val_y=val_targets, epochs=epochs,
-                                 batch_size=batch_size, strip_early_stopping=strip, disable_tqdm=disable_tqdms[1])
+                                 batch_size=batch_size, strip_early_stopping=strip, baseline_early_stopping=baseline_es, disable_tqdm=disable_tqdms[1])
         except Exception as e:
             print(f"{e.__class__.__name__} occurred. Training suppressed.")
             print(e, '\n')
@@ -338,7 +337,7 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
 
 ''' *** GRID SEARCH *** '''
 
-def grid_search(dataset, params, coarse=True, n_config=1):
+def grid_search(dataset, params, coarse=True, baseline_es = None, n_config=1):
     """
     Performs a grid search over a set of parameters to find the best combination of hyperparameters
     :param dataset: name of the dataset (monks-1, monks-2, monks-3, cup)
@@ -361,11 +360,11 @@ def grid_search(dataset, params, coarse=True, n_config=1):
 
     # perform parallelized grid search
     results = Parallel(n_jobs=os.cpu_count(), verbose=50)(delayed(kfold_CV)(
-        net=models[i], dataset=dataset, k_folds=5, disable_tqdm=(False, False), plot=False, verbose=True,
+        net=models[i], dataset=dataset, k_folds=5, baseline_es = baseline_es, disable_tqdm=(False, False), plot=False, verbose=True,
         **param_combos[i]) for i in range(len(param_combos)))
 
     # do not save models with suppressed training
-    #TODO decide to keep these instructions
+    # pruning models
     for r, p in zip(results, param_combos):
         if r is None:
             results.remove(r)

@@ -143,7 +143,7 @@ class Network:
                                      momentum=momentum, nesterov=nesterov, reg_type=reg_type, lambda_=lambda_)
 
     
-    def fit(self, tr_x, tr_y, val_x = None, val_y = None, epochs=1, batch_size=1, strip_early_stopping=0, **kwargs):
+    def fit(self, tr_x, tr_y, val_x = None, val_y = None, epochs=1, batch_size=1, strip_early_stopping=0, baseline_early_stopping = None, **kwargs):
         """
         Execute the training of the network
 
@@ -172,9 +172,9 @@ class Network:
                 raise AttributeError(f"Mismatching shapes in validation set {n_val_examples} {n_targets}")
         if batch_size == 'full':
             batch_size = len(tr_x)
-        self._training_params = {**self._training_params, 'epochs': epochs, 'batch_size': batch_size}
+        self._training_params = {**self._training_params, 'epochs': epochs, 'batch_size': batch_size, 'strip_es': strip_early_stopping, 'baseline_es': baseline_early_stopping}
         return self._training_alg.gradient_descent(
-            tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, strip_early_stopping=strip_early_stopping ,**kwargs)
+            tr_x=tr_x, tr_y=tr_y, val_x=val_x, val_y=val_y, epochs=epochs, batch_size=batch_size, strip_early_stopping=strip_early_stopping , baseline_early_stopping=baseline_early_stopping, **kwargs)
 
     def predict(self, inp):
         """
