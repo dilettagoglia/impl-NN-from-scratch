@@ -73,27 +73,27 @@ USE GLOROT FOR INITIALIZATION ✓
     lr = 0.01
     momentum_val = 0.6
     lambda_val = 0
-It seems that glorot and random perform similarly (does't matter initialization for larger net)
-glorot e random indifferente (glorot sembra di pochissimo migliore ma hanno curve molto simili)
-batch_size = 1 -> UNSTABLE LEARNING
-batch_size = 'full' -> decrease very slowly the error
-eta > 0.1 -> OVERFLOW
-We have to use eta < 0.1
-eta = 0.1 -> error doesn't decrease and remain on 20-21
-eta = 0.05 -> unstable
-eta = 0.001 -> very smooth curves
-lambda = 0.1 overfitting pesissimo
-momentum a 0.9 troppo alto (modello instabile)
-more layers and no regularization -> not stable and overfitting
-seems better one layer with very few regularization
-unstable model and underfitting with few units (less than 10 units)
-with ReLu or leaky_relu we have to set eta <= 0.0005, otherwise OVERFLOW (very similar learning curve for both, maybe better ReLU)
-with ReLU curve very very smooth, stable but slower respect tanh
-batch_size = 64 -> not bad results but a bit unstable
-batch_size >= 512 -> very very smooth curves but error is not so good
+It seems that glorot and random perform similarly (does't matter initialization for larger net) ✓
+glorot e random indifferente (glorot sembra di pochissimo migliore ma hanno curve molto simili) ✓
+batch_size = 1 -> UNSTABLE LEARNING ✓
+batch_size = 'full' -> decrease very slowly the error ✓
+eta > 0.1 -> OVERFLOW ✓
+We have to use eta < 0.1 ✓
+eta = 0.1 -> error doesn't decrease and remain on 20-21 ✓
+eta = 0.05 -> unstable ✓
+eta = 0.001 -> very smooth curves ✓
+lambda = 0.1 overfitting pesissimon ✓
+momentum a 0.9 troppo alto (modello instabile) ✓
+more layers and no regularization -> not stable and overfitting ✓
+seems better one layer with very few regularization ✓
+unstable model and underfitting with few units (less than 10 units) ✓
+with ReLu or leaky_relu we have to set eta <= 0.0005, otherwise OVERFLOW (very similar learning curve for both, maybe better ReLU) ✓
+with ReLU curve very very smooth, stable but slower respect tanh ✓
+batch_size = 64 -> not bad results but a bit unstable ✓
+batch_size >= 512 -> very very smooth curves but error is not so good ✓
 limit_step <= 300 -> error is not good (linear_decay doesn't seem to improve learning)
 we used eta = 0.001 so we discarded some decay because we had no improvements
-if at epoch 50 validation error isn't below 30, DISCARD MODEL!
+if at epoch 50 validation error isn't below 30, DISCARD MODEL! ✓
 TODO -> add info on images of screening phase cup
 
 ## GRID SEARCH
