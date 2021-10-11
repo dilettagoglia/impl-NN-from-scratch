@@ -138,7 +138,7 @@ def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit
 
 ''' *** USEFUL FUNCTIONS FOR GRID SEARCH *** '''
 
-def randomize_params(base_params, fb_dim, n_config=2):
+def randomize_params(base_params, n_config=2):
     """
     Generates combination of random hyperparameters
     :param base_params: parameters on which the random perturbation will be applied
@@ -162,14 +162,14 @@ def randomize_params(base_params, fb_dim, n_config=2):
                         rand_params[k] = ("full",)
                         continue
                     lower = max(v - 30, 1)
-                    upper = min(v + 30, fb_dim)
+                    upper = v + 30
                     value = random.randint(lower, upper)
                     for bs in rand_params[k]:
                         if abs(value - bs) < 5:
                             value = rand_params[k][0]
                     while value in rand_params[k]:
-                        lower = max(v - 15, 1)
-                        upper = min(v + 15, fb_dim)
+                        lower = max(v - 30, 1)
+                        upper = v + 30
                         value = random.randint(lower, upper)
                         for bs in rand_params[k]:
                             if abs(value - bs) < 5:
@@ -278,7 +278,7 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
     :param fn: file name for reading a specific file for the results (if different from the default)
     :return: best models in term of MEE and standard deviation and their parameters
     """
-    file_name = ("coarse_gs_" if coarse else "fine_gs_") + "results_" + dataset + ".json"
+    file_name = ("coarse_gs_" if coarse else "fine_gs_") + "results_" + dataset + "_musca2.json"
     file_name = file_name if fn is None else fn
     with open("../results/" + file_name, 'r') as f:
         data = json.load(f)
@@ -339,7 +339,8 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
                 if std_errors[j] != value_of_best:
                     indexes.remove(j)"""
 
-        print(metrics[index_of_best], std_metrics[index_of_best])
+        # print("Average MSE loss: ", errors[index_of_best], std_errors[index_of_best])
+        # print("Average MEE metric: ", metrics[index_of_best], std_metrics[index_of_best])
         metrics = np.delete(metrics, index_of_best)
         models.append(Network(input_dim=input_dim, **data['params'][index_of_best]))
         params.append(data['params'][index_of_best])
@@ -361,7 +362,7 @@ def grid_search(dataset, params, coarse=True, baseline_es = None, n_config=1):
 
     # In case generate random combinations
     if not coarse:
-        params = randomize_params(params, dataset, n_config)
+        params = randomize_params(params, n_config)
 
     # generate list of combinations
     param_combos = list_of_combos(params)
