@@ -170,7 +170,7 @@ class Network:
             n_targets = val_y.shape[0]      # takes the dimension of validation target vector
             if n_val_examples != n_targets:
                 raise AttributeError(f"Mismatching shapes in validation set {n_val_examples} {n_targets}")
-        if batch_size == 'full':
+        if batch_size == 'full' or batch_size > len(tr_x):
             batch_size = len(tr_x)
         self._training_params = {**self._training_params, 'epochs': epochs, 'batch_size': batch_size, 'strip_es': strip_early_stopping, 'baseline_es': baseline_early_stopping}
         return self._training_alg.gradient_descent(
