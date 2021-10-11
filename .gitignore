@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # IntelliJ project settings
-.idea/
+.idea/*

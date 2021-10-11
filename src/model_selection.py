@@ -12,7 +12,6 @@ from collections import OrderedDict
 import random
 import itertools as it
 
-# TODO implement cross-validation, grid search and random search inside this class
 #TODO generate DocString documentation for all methods
 
 # split a dataset into a train and validation set
@@ -151,7 +150,7 @@ def randomize_params(base_params, fb_dim, n_config=2):
     rand_params = {}
     for k, v in base_params.items():
         # if the parameter does not have to change
-        if k in ('act_functions', 'weights_init', 'decay_rate', 'error_func', 'lr_decay', 'metr', 'reg_type',
+        if k in ('act_functions', 'weights_init', 'decay_rate', 'error_func', 'lr_decay', 'metr', 'reg_type', 'nesterov',
                  'units_per_layer', 'bounds', 'epochs'):
             rand_params[k] = (v,)
         else:
@@ -162,8 +161,8 @@ def randomize_params(base_params, fb_dim, n_config=2):
                     if v == "full":
                         rand_params[k] = ("full",)
                         continue
-                    lower = max(v - 15, 1)
-                    upper = min(v + 15, fb_dim)
+                    lower = max(v - 30, 1)
+                    upper = min(v + 30, fb_dim)
                     value = random.randint(lower, upper)
                     for bs in rand_params[k]:
                         if abs(value - bs) < 5:
@@ -185,17 +184,17 @@ def randomize_params(base_params, fb_dim, n_config=2):
                 #     else:
                 #         rand_params[k] = (None,)
 
-                elif k in ("limit_step", "decay_steps"):
-                    if base_params['lr_decay'] is not None:
-                        if v is None or (base_params['lr_decay'] == 'linear_decay' and k == 'decay_steps') or \
-                                (base_params['lr_decay'] == 'exponential_decay' and k == 'limit_step'):
-                            rand_params[k] = (None,)
-                            continue
-                        lower = max(1, v - 100)
-                        upper = v + 100
-                        rand_params[k].append(random.randint(lower, upper))
-                    else:
-                        rand_params[k] = (v,)
+                # elif k in ("limit_step", "decay_steps"):
+                #    if base_params['lr_decay'] is not None:
+                #        if v is None or (base_params['lr_decay'] == 'linear_decay' and k == 'decay_steps') or \
+                #                (base_params['lr_decay'] == 'exponential_decay' and k == 'limit_step'):
+                #            rand_params[k] = (None,)
+                #            continue
+                #        lower = max(1, v - 100)
+                #        upper = v + 100
+                #        rand_params[k].append(random.randint(lower, upper))
+                #    else:
+                #        rand_params[k] = (v,)
 
                 elif k in ("lambda_", "lr"):
                     value = max(0., np.random.normal(loc=v, scale=0.001))
@@ -289,33 +288,44 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
     models, params, errors, std_errors, metrics, std_metrics = [], [], [], [], [], []
     for result in data['results']:
         if result is not None:
-            errors.append(round(result[0], 3))
-            std_errors.append(round(result[1], 3))
-            metrics.append(round(result[2], 3))
-            std_metrics.append(round(result[3], 3))
+            errors.append(round(result[0], 5))
+            std_errors.append(round(result[1], 5))
+            metrics.append(round(result[2], 5))
+            std_metrics.append(round(result[3], 5))
 
     errors, std_errors = np.array(errors), np.array(std_errors)
     metrics, std_metrics = np.array(metrics), np.array(std_metrics)
     for i in range(n_models):
-        # find best metric model and its index
+
+        # find best metric model and its index (first index scrolling the list)
         index_of_best = np.argmin(metrics) if dataset == "cup" else np.argmax(metrics)
         value_of_best = min(metrics) if dataset == "cup" else max(metrics)
 
-        # search elements with the same value
-        if len(metrics) > index_of_best + 1:
-            indexes = [index_of_best]
-            for j in range(index_of_best + 1, len(metrics)):
-                if metrics[j] == value_of_best:
-                    indexes.append(j)
+        # TODO this is my implementation but check with some trials
+        # list of all index for the best models in terms of metric
+        indexes = np.argwhere(metrics == min(metrics)) if dataset == "cup" else np.argwhere(metrics == max(metrics))
+        indexes = indexes.flatten().tolist()
 
-            std_metr_to_check = std_metrics[indexes]
-            value_of_best = min(std_metr_to_check)
-            index_of_best = indexes[np.argmin(std_metr_to_check)]
+        # check if we have only one best model respect to metric
+        if len(indexes) != 1:
+            """# search elements with the same value
+            # check if the best error is the last element of metrics  (unique error with that value)
+            if len(metrics) > index_of_best + 1:
+                indexes = [index_of_best]
+                for j in range(index_of_best + 1, len(metrics)):
+                    if metrics[j] == value_of_best:
+                        indexes.append(j)"""
+
+            std_metr_to_check = std_metrics[indexes] # insert all std_metr values relative to all best metrics
+            value_of_best = min(std_metr_to_check) # return the minimum std_metr value from all best metrics
+            index_of_best = indexes[np.argmin(std_metr_to_check)] # index of model with best metric and best std_metr (lower)
             for j in indexes:
                 if std_metrics[j] != value_of_best:
-                    indexes.remove(j)
+                    indexes.remove(j) # removes indices for models that have best metrics but not best std_metric
 
-            err_to_check = errors[indexes]
+            # TODO if we have more than one best std_metr, check errors
+            # TODO we can remove this instructions (improbable to obtain models with same best metric and best std_metr)
+            """err_to_check = errors[indexes]
             value_of_best = min(err_to_check)
             index_of_best = indexes[np.argmin(err_to_check)]
             for j in indexes:
@@ -327,8 +337,9 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
             index_of_best = indexes[np.argmin(std_err_to_check)]
             for j in indexes:
                 if std_errors[j] != value_of_best:
-                    indexes.remove(j)
-        print(metrics[index_of_best])
+                    indexes.remove(j)"""
+
+        print(metrics[index_of_best], std_metrics[index_of_best])
         metrics = np.delete(metrics, index_of_best)
         models.append(Network(input_dim=input_dim, **data['params'][index_of_best]))
         params.append(data['params'][index_of_best])

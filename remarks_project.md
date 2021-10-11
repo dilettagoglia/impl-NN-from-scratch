@@ -84,7 +84,7 @@ eta = 0.05 -> unstable ✓
 eta = 0.001 -> very smooth curves ✓
 lambda = 0.1 overfitting pesissimon ✓
 momentum a 0.9 troppo alto (modello instabile) ✓
-more layers and no regularization -> not stable and overfitting v
+more layers and no regularization -> not stable and overfitting ✓
 seems better one layer with very few regularization ✓
 unstable model and underfitting with few units (less than 10 units) ✓
 with ReLu or leaky_relu we have to set eta <= 0.0005, otherwise OVERFLOW (very similar learning curve for both, maybe better ReLU) ✓
