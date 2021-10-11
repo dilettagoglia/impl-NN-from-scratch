@@ -1,20 +1,5 @@
-import statistics
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn import metrics
-from sklearn.preprocessing import OneHotEncoder
-import scikitplot as skplt
 import matplotlib
 matplotlib.rcParams['figure.figsize'] = (10.0, 10.0)
-from matplotlib import pyplot as plt
-import numpy as np
-from sklearn.metrics import accuracy_score
-from sklearn.utils import shuffle
-from sklearn.model_selection import train_test_split
-from tqdm import tqdm # interessante, leggere più documentazione
-from IPython import display
-
 from utility import *
 
 # Monk train dataset analysis
