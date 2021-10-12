@@ -1,8 +1,8 @@
-import statistics
 import math
 import os
 import pandas as pd
 import numpy as np
+import csv
 import matplotlib.pyplot as plt
 from sklearn import metrics
 from sklearn.preprocessing import OneHotEncoder
@@ -165,9 +165,9 @@ def sets_from_folds(x_folds, y_folds, val_fold_index):
 """ 
 Visualization 
 """
-
-def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 10.), lbltr='development',
-                lblval='internal test', *args):
+# TODO change plot_curves call in all files (we add ylim2)
+def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 10.), ylim2=(0.,10.), lbltr='Development',
+                lblval='Internal Test', *args):
     """
     Plot the curves of training loss, training metric, validation loss, validation metric
     :param tr_loss: vector with the training error values
@@ -185,7 +185,7 @@ def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 10.),
     ax[0].legend(loc='best', prop={'size': 9})
     ax[0].set_xlabel('Epochs', fontweight='bold')
     ax[0].set_ylabel('Error', fontweight='bold')
-    ax[0].set_ylim(ylim)
+    ax[0].set_ylim(ylim2)
     ax[0].grid()
     ax[1].plot(range(len(tr_metr)), tr_metr, color='b', linestyle='dashed', label=lbltr)
     ax[1].plot(range(len(val_metr)), val_metr, color='r', label=lblval)
@@ -200,6 +200,18 @@ def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 10.),
         plt.show()
     else:
         plt.savefig(path)
+
+def save_blind(net, cup_ts_data):
+
+    predictions = net.predict(cup_ts_data)
+    with open("../team_name_ML-CUP20-TS.csv", "w", newline="\n") as internal_file:
+        writer = csv.writer(internal_file, delimiter=',')
+        writer.writerow(['# Diletta Goglia\tPaolo Murgia'])
+        writer.writerow(['# Team Name'])
+        writer.writerow(['# ML-CUP20'])
+        writer.writerow(['# 13/10/2021'])
+        for i in range(len(predictions)):
+            writer.writerow([str(i+1)]+list(predictions[i]))
 
 # replace 0 values with an extremely small value
 def eta(x):
