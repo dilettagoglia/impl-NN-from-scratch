@@ -1,9 +1,11 @@
 # impl-NN-from-scratch
 Implementation of a Neural Network from scratch in Python for the Machine Learning course.
 
-<img href="https://seeklogo.com/images/U/universita-di-pisa-logo-989F4E3120-seeklogo.com.png" alt="unipi" />
+<img src="https://elearning.agr.unipi.it/pluginfile.php/4/course/section/13/marchio_unipi_pant541.png" alt="unipi" width="40%" />
 
-**Authors**:
+<br/>
+
+####Authors:
 
 - [Diletta Goglia](https://github.com/dilettagoglia) - M.Sc.  in Artificial Intelligence, University of Pisa
 
