@@ -339,8 +339,8 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
                 if std_errors[j] != value_of_best:
                     indexes.remove(j)"""
 
-        # print("Average MSE loss: ", errors[index_of_best], std_errors[index_of_best])
-        # print("Average MEE metric: ", metrics[index_of_best], std_metrics[index_of_best])
+        print("Average MSE loss: ", errors[index_of_best], std_errors[index_of_best])
+        print("Average MEE metric: ", metrics[index_of_best], std_metrics[index_of_best])
         metrics = np.delete(metrics, index_of_best)
         models.append(Network(input_dim=input_dim, **data['params'][index_of_best]))
         params.append(data['params'][index_of_best])
