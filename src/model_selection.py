@@ -278,7 +278,7 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
     :param fn: file name for reading a specific file for the results (if different from the default)
     :return: best models in term of MEE and standard deviation and their parameters
     """
-    file_name = ("coarse_gs_" if coarse else "fine_gs_") + "results_" + dataset + "_musca2.json"
+    file_name = ("coarse_gs_" if coarse else "fine_gs_") + "results_" + dataset + "_diletta.json"
     file_name = file_name if fn is None else fn
     with open("../results/" + file_name, 'r') as f:
         data = json.load(f)
@@ -339,8 +339,8 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
                 if std_errors[j] != value_of_best:
                     indexes.remove(j)"""
 
-        # print("Average MSE loss: ", errors[index_of_best], std_errors[index_of_best])
-        # print("Average MEE metric: ", metrics[index_of_best], std_metrics[index_of_best])
+        print("Average MSE loss: ", errors[index_of_best], std_errors[index_of_best])
+        print("Average MEE metric: ", metrics[index_of_best], std_metrics[index_of_best])
         metrics = np.delete(metrics, index_of_best)
         models.append(Network(input_dim=input_dim, **data['params'][index_of_best]))
         params.append(data['params'][index_of_best])
