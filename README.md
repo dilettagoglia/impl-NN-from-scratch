@@ -1,9 +1,30 @@
 # impl-NN-from-scratch
 Implementation of a Neural Network from scratch in Python for the Machine Learning course.
 
-### Bibliography
+<img href="https://seeklogo.com/images/U/universita-di-pisa-logo-989F4E3120-seeklogo.com.png" alt="unipi" />
 
-#### Useful sources used & documentation:
+**Authors**:
+
+- [Diletta Goglia](https://github.com/dilettagoglia) - M.Sc.  in Artificial Intelligence, University of Pisa
+
+- [Paolo Murgia](https://github.com/Musca23) - M.Sc.  in Artificial Intelligence, University of Pisa
+
+## Description
+<!--TODO finish description-->
+For more further info please read the [report](report.pdf).
+
+## Code implementation.
+For clarity, transparency and accessibility purposes, we decided to write our code 
+following the ”tacit and explicit conventions applied in Scikit-learn and its API”, 
+and soto follow the notation of the [glossary](https://scikit-learn.org/stable/glossary.html#glossary-parameters),
+ eg.  using standard terms for methods, attributes, etc.  
+ This well-known ”best practice” allowed us to write a good-quality code, well-commented 
+ and easy for reading, understanding and experiments reproducibility.
+
+
+## Bibliography
+
+Useful sources used & documentation:
 - [Property vs. Getters and Setters in Python - *Datacamp*](https://www.datacamp.com/community/tutorials/property-getters-setters?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=&utm_creative=229765585183&utm_targetid=aud-299261629574:dsa-429603003980&utm_loc_interest_ms=&utm_loc_physical_ms=1008645&gclid=Cj0KCQjwlMaGBhD3ARIsAPvWd6hxk3HTgP9NpO_kbD2pgOt2N0bDLH2zivo6B_y0O7xHkyT5FITRFI4aArXHEALw_wcB)
 - [Numpy documentation](https://numpy.org/doc/stable/)
 - [Implementing a Neural Network from Scratch in Python - *WildML*](http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/)
