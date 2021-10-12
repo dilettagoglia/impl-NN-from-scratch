@@ -33,5 +33,5 @@ if __name__ == '__main__':
 
     ''' FINE '''
     #grid_search(dataset="cup", params=best_params, coarse=False, n_config=3, baseline_es=baseline_es)
-    best_models, best_params = get_best_models(dataset="cup", coarse=False, n_models=5)
+    best_models, best_params = get_best_models(dataset="cup", coarse=False, n_models=5, fn='fine_gs_results_cup_diletta')
     print(best_models)

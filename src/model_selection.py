@@ -278,7 +278,7 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
     :param fn: file name for reading a specific file for the results (if different from the default)
     :return: best models in term of MEE and standard deviation and their parameters
     """
-    file_name = ("coarse_gs_" if coarse else "fine_gs_") + "results_" + dataset + "_diletta.json"
+    file_name = ("coarse_gs_" if coarse else "fine_gs_") + "results_" + dataset + ".json"
     file_name = file_name if fn is None else fn
     with open("../results/" + file_name, 'r') as f:
         data = json.load(f)
