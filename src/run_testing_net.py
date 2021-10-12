@@ -58,17 +58,17 @@ if __name__ == '__main__':
     # CUP TESTS
     else:
         # HYPERPARAMETERS
-        units_per_layer = [30,30, 2]
-        act_functions = ['relu','relu', 'identity']
-        lr = 0.1
-        lr_decay = None
+        units_per_layer = [20,2]
+        act_functions = ['tanh','identity']
+        lr = 0.001
+        lr_decay = 'linear_decay'
         decay_rate = None
         decay_steps = None
-        limit_step = None
-        momentum = 0.7
-        lambda_ = 0.0001
+        limit_step = 350
+        momentum = 0.6
+        lambda_ = 0.001
         reg_type = 'ridge_regression'
-        batch_size = 128
+        batch_size = 256
         # Create a neural network
         # input_dim must stay 10 for cup datasets
         # units_per_layer: tuple containing the number of units for each layer (except the input one)
@@ -90,10 +90,10 @@ if __name__ == '__main__':
             ylim = (0,10)
             plot_curves(tr_err, val_err, tr_metr, val_metr,ylim=ylim)
         elif VALIDATION == "kfold":
-            baseline_es = {'epoch': 10, 'threshold': 25}
+            baseline_es = {'epoch': 50, 'threshold': 25}
             result = kfold_CV(net=model, dataset=DATASET, error_func='squared_error',
                                                 metr='euclidian_error', lr=lr, momentum=momentum, nesterov=True, lambda_=lambda_,batch_size=batch_size,
-                                                            epochs=100, baseline_es=baseline_es, disable_tqdms=(False,False), verbose=True)
+                                                            epochs=350, baseline_es=baseline_es, disable_tqdms=(False,False), verbose=True, plot=True)
             print(result)
 
 
