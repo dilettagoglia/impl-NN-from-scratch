@@ -5,11 +5,9 @@ import numpy as np
 
 if __name__ == '__main__':
 
-    # create directory for plots
-    dir_name = "../images/plots"
     # read cup {development set - internal test set}
     dev_set_x, dev_set_labels, int_ts_x, int_ts_labels, _ = read_cup(int_ts=True)
-    MODE = 'int_ts_assessment'
+    MODE = 'prediction'
     # MODEL PARAMETERS
     units_per_layer = [20, 20,2]
     act_functions = ['relu', 'relu', 'identity']

@@ -204,10 +204,10 @@ def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 10.),
 def save_blind(net, cup_ts_data):
 
     predictions = net.predict(cup_ts_data)
-    with open("../team_name_ML-CUP20-TS.csv", "w", newline="\n") as internal_file:
+    with open("../amaroluciano_ML-CUP20-TS.csv", "w", newline="\n") as internal_file:
         writer = csv.writer(internal_file, delimiter=',')
         writer.writerow(['# Diletta Goglia\tPaolo Murgia'])
-        writer.writerow(['# Team Name'])
+        writer.writerow(['# AmaroLuciano'])
         writer.writerow(['# ML-CUP20'])
         writer.writerow(['# 13/10/2021'])
         for i in range(len(predictions)):

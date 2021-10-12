@@ -127,3 +127,16 @@ units_per_layer =  [(10,2), (20, 20, 20, 2)]
 act_function = [('relu', 'identity'), ('tanh', 'identity'),
                           ('relu', 'relu', 'relu', 'identity'),
                           ('tanh', 'tanh', 'tanh', 'identity')]
+
+# CLEAN-UP CODE
+- Activation function ✓
+- Weights initialization (vedere kwargs per random)
+- Metrics ✓
+- Learning rate technique ✓
+- Regularizations ✓
+- Experiments folder under src for tests TODO
+- Utility
+- Training
+- Model Selection
+- Net
+- Layer

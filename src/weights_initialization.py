@@ -2,11 +2,10 @@ import numpy as np
 
 class WeightsInitialization:
 
+    # TODO we can remove this **kwargs
     @staticmethod
     def random_initialization(n_weights, n_units, bounds=(-0.1, 0.1), **kwargs):
         lower_bnd, upper_bnd = bounds[0], bounds[1]
-        if lower_bnd >= upper_bnd:
-            raise ValueError(f"Lower bound must be <= than upper bound!")
         distr = np.random.uniform(low=lower_bnd, high=upper_bnd, size=(n_weights, n_units))
         if n_weights == 1:
             return distr[0]
