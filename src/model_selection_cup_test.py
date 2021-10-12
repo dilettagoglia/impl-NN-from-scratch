@@ -24,9 +24,11 @@ if __name__ == '__main__':
     baseline_es = {'epoch': 50, 'threshold': 25}
     # coarse to fine grid search. Results are saved on file
     # grid_search(dataset="cup", params=gs_params, coarse=True, baseline_es=baseline_es)
-    _, best_params = get_best_models(dataset="cup", coarse=True, n_models=3)
+    # _, best_params = get_best_models(dataset="cup", coarse=True, n_models=3, fn='coarse_gs_results_cup_musca2.json')
+    # best_params = best_params[0]
+    # grid_search(dataset="cup", params=best_params, coarse=False, n_config=2, baseline_es=baseline_es)
+    best_models, best_params = get_best_models(dataset="cup", coarse=False, n_models=5, fn='fine_gs_results_cup_musca.json')
+    best_models = best_models[0]
     best_params = best_params[0]
-    grid_search(dataset="cup", params=best_params, coarse=False, n_config=3, baseline_es=baseline_es)
-    best_models, best_params = get_best_models(dataset="cup", coarse=False, n_models=5)
     for p,v in best_params.items():
-        print(p,v)
+       print(p,v)

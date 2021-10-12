@@ -129,7 +129,7 @@ def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit
                                                        avg_val_metric, std_val_metric,
                                                        avg_tr_metr, std_tr_metr))
     if plot:
-        ylim, lbltr, lblval = None, None, None
+        ylim, lbltr, lblval = (0,10), None, None
         if "monk" in dataset:
             ylim, lbltr, lblval = (0., 1.1), "Training", "Validation"
         plot_curves(tr_error_values, val_error_values, tr_metric_values, val_metric_values, path, ylim=ylim,
@@ -278,7 +278,7 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
     :param fn: file name for reading a specific file for the results (if different from the default)
     :return: best models in term of MEE and standard deviation and their parameters
     """
-    file_name = ("coarse_gs_" if coarse else "fine_gs_") + "results_" + dataset + "_musca2.json"
+    file_name = ("coarse_gs_" if coarse else "fine_gs_") + "results_" + dataset + ".json"
     file_name = file_name if fn is None else fn
     with open("../results/" + file_name, 'r') as f:
         data = json.load(f)
@@ -372,7 +372,7 @@ def grid_search(dataset, params, coarse=True, baseline_es = None, n_config=1):
 
     # perform parallelized grid search
     results = Parallel(n_jobs=os.cpu_count(), verbose=50)(delayed(kfold_CV)(
-        net=models[i], dataset=dataset, k_folds=5, baseline_es = baseline_es, disable_tqdm=(False, False), plot=False, verbose=True,
+        net=models[i], dataset=dataset, k_folds=5, baseline_es = baseline_es, disable_tqdms=(True, True), plot=False, verbose=True,
         **param_combos[i]) for i in range(len(param_combos)))
 
     # do not save models with suppressed training
