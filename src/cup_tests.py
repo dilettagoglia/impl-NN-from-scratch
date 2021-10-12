@@ -9,7 +9,7 @@ if __name__ == '__main__':
     dir_name = "../images/plots"
     # read cup {development set - internal test set}
     dev_set_x, dev_set_labels, int_ts_x, int_ts_labels, _ = read_cup(int_ts=True)
-    MODE = 'blind_test_predictions'
+    MODE = 'int_ts_assessment'
     # MODEL PARAMETERS
     units_per_layer = [20, 20,2]
     act_functions = ['relu', 'relu', 'identity']
@@ -40,6 +40,7 @@ if __name__ == '__main__':
         print("----- MODEL SELECTION -----")
         model_cup = Network(**mod_par_cup)
         # model selection cup
+        # with plot=True it will plot a graph for each fold
         kfold_CV(net=model_cup, dataset='cup', **params_cup, k_folds=5, verbose=True, plot=True,
                 disable_tqdms=(False, False))
 
@@ -61,7 +62,9 @@ if __name__ == '__main__':
                 epochs=350,
                 batch_size= batch_size
             )
-            plot_curves(tr_error_values, ts_error_values, tr_acc_values, ts_acc_values, ylim2 = (0., 20.)) # keep one of the 10 trials for learning curve to insert in the report
+            # with path=None plot_curves will plot a graph for each trial. If we want only save images pass path != None to plot_curves 
+            path = None # else path = '../images/plots/model_assessment_{}'.format(trials)
+            plot_curves(tr_error_values, ts_error_values, tr_acc_values, ts_acc_values, ylim2 = (0., 20.), path=path) # keep one of the 10 trials for learning curve to insert in the report
             print(tr_acc_values[-1], ts_acc_values[-1])
             avg_tr_error.append(tr_error_values[-1])
             avg_tr_acc.append(tr_acc_values[-1])
@@ -84,7 +87,7 @@ if __name__ == '__main__':
             tr_x=tr_data,
             tr_y=tr_targets,
             disable_tqdm=False,
-            epochs=1,
+            epochs=350,
             batch_size= batch_size
         )
         save_blind(model_cup, cup_ts_data)        
