@@ -5,7 +5,7 @@ Implementation of a Neural Network from scratch in Python for the Machine Learni
 
 <br/>
 
-####Authors:
+#### Authors:
 
 - [Diletta Goglia](https://github.com/dilettagoglia) - M.Sc.  in Artificial Intelligence, University of Pisa
 
