@@ -12,10 +12,18 @@ Implementation of a Neural Network from scratch in Python for the Machine Learni
 - [Paolo Murgia](https://github.com/Musca23) - M.Sc.  in Artificial Intelligence, University of Pisa
 
 ## Description
-<!--TODO finish description-->
+Project implementation for Machine Learning exam, Master's Degree Course in Computer Science, Artificial Intelligence curriculum, University of Pisa.
+
+Professor: [Alessio Micheli](http://pages.di.unipi.it/micheli/).
+
 For more further info please read the [report](report.pdf).
 
-## Code implementation.
+### Abstract
+The project consists in the implementation of an Artificial Neural Network built from scratch using Python, without using pre-built libraries. 
+The overall validation schema consists in a preliminary screening phase to reduce the hyperparameters search space, followed by a first coarse grid-search and a second but finer one. All the explored models are validated with a 5-fold cross validation.
+The resulting model is a 2 hidden layer network with 20 units each and ReLU activation for both layers. 
+
+### Code implementation.
 For clarity, transparency and accessibility purposes, we decided to write our code 
 following the ”tacit and explicit conventions applied in Scikit-learn and its API”, 
 and soto follow the notation of the [glossary](https://scikit-learn.org/stable/glossary.html#glossary-parameters),
