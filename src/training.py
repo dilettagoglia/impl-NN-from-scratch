@@ -200,6 +200,8 @@ class Training:
                     raise Exception("Validation error at epoch {} is above threshold {}".format(epoch,baseline_early_stopping['threshold']))
             # print(val_error_values[-1])
             # print(val_metric_values[-1])
+            # print(tr_error_values[-1])
+            # print(tr_metric_values[-1])
         return tr_error_values, tr_metric_values, val_error_values, val_metric_values
 
     def print_training_parameters(self):

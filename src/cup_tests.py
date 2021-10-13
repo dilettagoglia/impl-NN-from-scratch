@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
     # read cup {development set - internal test set}
     dev_set_x, dev_set_labels, int_ts_x, int_ts_labels, _ = read_cup(int_ts=True)
-    MODE = 'validation'
+    MODE = 'prediction'
     # MODEL PARAMETERS
     units_per_layer = [20, 20, 2]
     act_functions = ['relu', 'relu', 'identity']
@@ -24,10 +24,10 @@ if __name__ == '__main__':
     lr = 0.001
     lr_decay = None # or 'linear_decay'
     limit_step = None
-    momentum = 0.43136
+    momentum = 0.6
     lambda_ = 0
     reg_type = 'ridge_regression'
-    batch_size = 128
+    batch_size = 145
 
     # training parameters dict
     params_cup = {'lr': lr, 'lr_decay': lr_decay, 'limit_step': limit_step, 'momentum': momentum, 'nesterov': True, 'epochs': 350, 'batch_size': batch_size,
@@ -61,7 +61,7 @@ if __name__ == '__main__':
                 batch_size= batch_size
             )
             # with path=None plot_curves will plot a graph for each trial. If we want only save images pass path != None to plot_curves 
-            path = None # else path = '../images/plots/model_assessment_{}'.format(trials)
+            path = None # path = '../images/int_ts_assessment/model_assessment_{}'.format(trials)
             plot_curves(tr_error_values, ts_error_values, tr_acc_values, ts_acc_values, ylim2 = (0., 20.), path=path) # keep one of the 10 trials for learning curve to insert in the report
             print(tr_acc_values[-1], ts_acc_values[-1])
             avg_tr_error.append(tr_error_values[-1])
@@ -75,7 +75,6 @@ if __name__ == '__main__':
             f"Train Acc: {np.mean(avg_tr_acc)} - Test Acc: {np.mean(avg_ts_acc)}") # keep this for our Table 3 (dev set MEE and internal test set MEE)
     
     # PREDICTION ON BLIND TEST SET
-    # TODO
     else:
         print("----- PREDICTION ON BLIND TEST SET -----")
         tr_data, tr_targets, cup_ts_data = read_cup()
