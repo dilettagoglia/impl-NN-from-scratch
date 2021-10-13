@@ -28,16 +28,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Diletta\Desktop" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Diletta\Desktop\" />
+      <recent name="C:\Users\Diletta\Desktop" />
       <recent name="C:\Users\Diletta\Documents\GitHub\impl-NN-from-scratch\src" />
       <recent name="C:\Users\Diletta\Documents\GitHub\impl-NN-from-scratch\src\run" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.model_selection_cup_test (1)">
+  <component name="RunManager" selected="Python.cup_tests">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="impl-NN-from-scratch" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -52,6 +57,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cup_tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="impl-NN-from-scratch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/cup_tests.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -79,35 +103,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="model_selection_monk_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="impl-NN-from-scratch" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model_selection_monk_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="preliminary_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="impl-NN-from-scratch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -169,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.model_selection_cup_test (1)" />
+        <item itemvalue="Python.cup_tests" />
         <item itemvalue="Python.preliminary_analysis" />
+        <item itemvalue="Python.model_selection_cup_test (1)" />
         <item itemvalue="Python.run" />
         <item itemvalue="Python.screening-phase-cup" />
-        <item itemvalue="Python.model_selection_monk_test" />
       </list>
     </recent_temporary>
   </component>
@@ -208,7 +207,7 @@
       <workItem from="1634026868914" duration="7514000" />
       <workItem from="1634052996762" duration="8924000" />
       <workItem from="1634065333268" duration="1489000" />
-      <workItem from="1634067891536" duration="5384000" />
+      <workItem from="1634067891536" duration="15267000" />
     </task>
     <servers />
   </component>
@@ -216,10 +215,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1627059304693">
+    <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1634142121201">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1627059304693" />
+    <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1634142121201" />
     <state width="1493" height="226" key="GridCell.Tab.0.bottom" timestamp="1634064067017">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
