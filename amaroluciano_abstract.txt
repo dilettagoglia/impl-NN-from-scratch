@@ -1,0 +1,3 @@
+The project consists in the implementation of an Artificial Neural Network built from scratch using Python, without using pre-built libraries. 
+The overall validation schema consists in a preliminary screening phase to reduce the hyperparameters search space, followed by a first coarse grid-search and a second but finer one. All the explored models are validated with a 5-fold cross validation.
+The resulting model is a 2 hidden layer network with 20 units each and ReLU activation for both layers.
