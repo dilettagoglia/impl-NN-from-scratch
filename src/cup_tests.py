@@ -7,9 +7,9 @@ if __name__ == '__main__':
 
     # read cup {development set - internal test set}
     dev_set_x, dev_set_labels, int_ts_x, int_ts_labels, _ = read_cup(int_ts=True)
-    MODE = 'prediction'
+    MODE = 'validation'
     # MODEL PARAMETERS
-    units_per_layer = [20, 20,2]
+    units_per_layer = [20, 20, 2]
     act_functions = ['relu', 'relu', 'identity']
 
     # model parameters
@@ -23,11 +23,11 @@ if __name__ == '__main__':
     # TRAINING PARAMETERS
     lr = 0.001
     lr_decay = None # or 'linear_decay'
-    limit_step = 350
-    momentum = 0.6
-    lambda_ = 0.001
+    limit_step = None
+    momentum = 0.43136
+    lambda_ = 0
     reg_type = 'ridge_regression'
-    batch_size = 256
+    batch_size = 128
 
     # training parameters dict
     params_cup = {'lr': lr, 'lr_decay': lr_decay, 'limit_step': limit_step, 'momentum': momentum, 'nesterov': True, 'epochs': 350, 'batch_size': batch_size,
