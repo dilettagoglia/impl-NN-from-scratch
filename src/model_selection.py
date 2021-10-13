@@ -12,14 +12,12 @@ from collections import OrderedDict
 import random
 import itertools as it
 
-#TODO generate DocString documentation for all methods
 
 # split a dataset into a train and validation set
 def holdout_validation(net,path, test_size, error_func, metr, lr, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
             momentum=0., nesterov=True, epochs=1, batch_size=1, strip=0, reg_type='ridge_regression', lambda_=0, disable_tqdm=False):
     if path == "cup":
         dataset, labels, _, _, _ = read_cup(int_ts=True)
-        # print("cup")
     else:
         rescale = True if net.params['act_functions'][-1] == 'tanh' else False
         dataset, labels = read_monk_dataset(dataset=path, rescale=rescale)
@@ -35,14 +33,13 @@ def holdout_validation(net,path, test_size, error_func, metr, lr, lr_decay=None,
 
 ''' *** K-FOLD CV *** '''
 
-#TODO DocString documentation
 
 def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None,
             momentum=0., nesterov=True, epochs=1, batch_size=1, strip=0, baseline_es = None, k_folds=5, reg_type='ridge_regression', lambda_=0,
             disable_tqdms=(True, True), plot=True, verbose=False, **kwargs):
+    """ Check compile and fit in net.py for the definition of all parameters """
     if dataset == "cup":
         dev_set_x, labels, _, _, _ = read_cup(int_ts=True)
-        # print("cup")
     else:
         rescale = True if net.params['act_functions'][-1] == 'tanh' else False
         dev_set_x, labels = read_monk_dataset(dataset=dataset, rescale=rescale)
@@ -66,7 +63,6 @@ def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit
         net.compile(error_func=error_func, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
                     decay_rate=decay_rate, decay_steps=decay_steps, momentum=momentum, nesterov=nesterov,
                     reg_type=reg_type, lambda_=lambda_)
-        # warnings.simplefilter("error")
         try:
             tr_history = net.fit(tr_x=tr_data, tr_y=tr_targets, val_x=val_data, val_y=val_targets, epochs=epochs,
                                  batch_size=batch_size, strip_early_stopping=strip, baseline_early_stopping=baseline_es, disable_tqdm=disable_tqdms[1])
@@ -129,10 +125,12 @@ def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit
                                                        avg_val_metric, std_val_metric,
                                                        avg_tr_metr, std_tr_metr))
     if plot:
-        ylim, lbltr, lblval = (0,10), None, None
+        ylim, lbltr, lblval = (0, 10), None, None
+        ylim2 = (0, 20)
         if "monk" in dataset:
             ylim, lbltr, lblval = (0., 1.1), "Training", "Validation"
-        plot_curves(tr_error_values, val_error_values, tr_metric_values, val_metric_values, path, ylim=ylim,
+            ylim2 = ylim
+        plot_curves(tr_error_values, val_error_values, tr_metric_values, val_metric_values, path, ylim=ylim, ylim2=ylim2,
                     lbltr=lbltr, lblval=lblval)
     return avg_val_err, std_val_err, avg_val_metric, std_val_metric
 
@@ -141,10 +139,13 @@ def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit
 def randomize_params(base_params, n_config=2):
     """
     Generates combination of random hyperparameters
-    :param base_params: parameters on which the random perturbation will be applied
-    :param fb_dim: full batch dimension (expressed as a number)
-    :param n_config: number of random configurations to be generated for each hyper-parameter
-    :return: combos of randomly generated hyper-parameters' values
+
+    Args:
+        base_params (dict): parameters on which the random perturbation will be applied
+        n_config (int, optional): number of random configurations to be generated for each hyper-parameter. Defaults to 2.
+
+    Returns:
+        dict: combos of randomly generated hyper-parameters' values
     """
     n_config -= 1
     rand_params = {}
@@ -155,7 +156,7 @@ def randomize_params(base_params, n_config=2):
             rand_params[k] = (v,)
         else:
             rand_params[k] = [v]
-            for i in range(n_config):
+            for _ in range(n_config):
                 # generate n_config random value centered in v
                 if k == "batch_size":
                     if v == "full":
@@ -176,26 +177,6 @@ def randomize_params(base_params, n_config=2):
                                 value = rand_params[k][0]
                     rand_params[k].append(value)
 
-                # elif k == "decay_rate":
-                #     if v is not None:
-                #         lower = max(0., v - 0.2)
-                #         upper = min(1., v + 0.2)
-                #         rand_params[k].append(random.uniform(lower, upper))
-                #     else:
-                #         rand_params[k] = (None,)
-
-                # elif k in ("limit_step", "decay_steps"):
-                #    if base_params['lr_decay'] is not None:
-                #        if v is None or (base_params['lr_decay'] == 'linear_decay' and k == 'decay_steps') or \
-                #                (base_params['lr_decay'] == 'exponential_decay' and k == 'limit_step'):
-                #            rand_params[k] = (None,)
-                #            continue
-                #        lower = max(1, v - 100)
-                #        upper = v + 100
-                #        rand_params[k].append(random.randint(lower, upper))
-                #    else:
-                #        rand_params[k] = (v,)
-
                 elif k in ("lambda_", "lr"):
                     value = max(0., np.random.normal(loc=v, scale=0.001))
                     for l in rand_params[k]:
@@ -207,16 +188,6 @@ def randomize_params(base_params, n_config=2):
                             if abs(value - l) < 0.0005:
                                 value = rand_params[k][0]
                     rand_params[k].append(value)
-
-                # elif k == "limits":
-                #     lower, upper = v[0], v[1]
-                #     lower = np.random.normal(loc=lower, scale=0.1)
-                #     upper = np.random.normal(loc=upper, scale=0.1)
-                #     if lower > upper:
-                #         aux = lower
-                #         lower = upper
-                #         upper = aux
-                #     rand_params[k].append((lower, upper))
 
                 elif k == "momentum":
                     value = max(0., np.random.normal(loc=v, scale=0.1))
@@ -237,8 +208,12 @@ def list_of_combos(param_dict):
     """
     Takes a dictionary with the combinations of params to use in the grid search and creates a list of dictionaries, one
     for each combination (so it's possible to iterate over this list in the GS, instead of having many nested loops)
-    :param param_dict: dict{kind_of_param: tuple of all the values of that param to try in the grid search)
-    :return: list of dictionaries{kind_of_param: value of that param}
+
+    Args:
+        param_dict (dict): dict{kind_of_param: tuple of all the values of that param to try in the grid search)
+
+    Returns:
+        list: list of dictionaries{kind_of_param: value of that param}
     """
     expected_keys = sorted(['units_per_layer', 'act_functions', 'weights_init', 'bounds', 'momentum', 'nesterov', 'batch_size', 'lr', 'error_func',
                             'metr', 'epochs', 'lr_decay', 'decay_rate', 'decay_steps', 'limit_step',
@@ -264,19 +239,21 @@ def list_of_combos(param_dict):
 
     final_combos = []
     for i in range(len(combos)):
-        # TODO check for CUP grid-search
-        #if combos[i] != combos[i + 1]:
         final_combos.append(combos[i])
     return final_combos
 
 def get_best_models(dataset, coarse=False, n_models=1, fn=None):
     """
     Search and select the best models based on the MEE metric and standard deviation
-    :param dataset: name of the dataset (used for reading the file containing the results)
-    :param coarse: indicates if best models result from a coarse or fine grid search (used for reading the file name)
-    :param n_models: number of best models to be returned
-    :param fn: file name for reading a specific file for the results (if different from the default)
-    :return: best models in term of MEE and standard deviation and their parameters
+
+    Args:
+        dataset (str): name of the dataset (used for reading the file containing the results)
+        coarse (bool, optional): indicates if best models result from a coarse or fine grid search (used for reading the file name). Defaults to False.
+        n_models (int, optional): number of best models to be returned. Defaults to 1.
+        fn (str, optional): file name for reading a specific file for the results (if different from the default). Defaults to None.
+
+    Returns:
+        tuple: best models in term of MEE and standard deviation and their parameters
     """
     file_name = ("coarse_gs_" if coarse else "fine_gs_") + "results_" + dataset + ".json"
     file_name = file_name if fn is None else fn
@@ -301,20 +278,12 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
         index_of_best = np.argmin(metrics) if dataset == "cup" else np.argmax(metrics)
         value_of_best = min(metrics) if dataset == "cup" else max(metrics)
 
-        # TODO this is my implementation but check with some trials
         # list of all index for the best models in terms of metric
         indexes = np.argwhere(metrics == min(metrics)) if dataset == "cup" else np.argwhere(metrics == max(metrics))
         indexes = indexes.flatten().tolist()
 
         # check if we have only one best model respect to metric
         if len(indexes) != 1:
-            """# search elements with the same value
-            # check if the best error is the last element of metrics  (unique error with that value)
-            if len(metrics) > index_of_best + 1:
-                indexes = [index_of_best]
-                for j in range(index_of_best + 1, len(metrics)):
-                    if metrics[j] == value_of_best:
-                        indexes.append(j)"""
 
             std_metr_to_check = std_metrics[indexes] # insert all std_metr values relative to all best metrics
             value_of_best = min(std_metr_to_check) # return the minimum std_metr value from all best metrics
@@ -322,22 +291,6 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
             for j in indexes:
                 if std_metrics[j] != value_of_best:
                     indexes.remove(j) # removes indices for models that have best metrics but not best std_metric
-
-            # TODO if we have more than one best std_metr, check errors
-            # TODO we can remove this instructions (improbable to obtain models with same best metric and best std_metr)
-            """err_to_check = errors[indexes]
-            value_of_best = min(err_to_check)
-            index_of_best = indexes[np.argmin(err_to_check)]
-            for j in indexes:
-                if errors[j] != value_of_best:
-                    indexes.remove(j)
-
-            std_err_to_check = std_errors[indexes]
-            value_of_best = min(std_err_to_check)
-            index_of_best = indexes[np.argmin(std_err_to_check)]
-            for j in indexes:
-                if std_errors[j] != value_of_best:
-                    indexes.remove(j)"""
 
         print("Average MSE loss: ", errors[index_of_best], std_errors[index_of_best])
         print("Average MEE metric: ", metrics[index_of_best], std_metrics[index_of_best])
@@ -352,10 +305,13 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
 def grid_search(dataset, params, coarse=True, baseline_es = None, n_config=1):
     """
     Performs a grid search over a set of parameters to find the best combination of hyperparameters
-    :param dataset: name of the dataset (monks-1, monks-2, monks-3, cup)
-    :param params: dictionary with all the values of the params to try in the grid search
-    :param coarse: (bool) if True perform a gird search only on the values of 'params'
-    :param n_config: (int) number of config to generate for each param in case of NOT coarse grid search
+
+    Args:
+        dataset (str): name of the dataset (monks-1, monks-2, monks-3, cup)
+        params (dict): dictionary with all the values of the params to try in the grid search
+        coarse (bool, optional): if True perform a gird search only on the values of 'params'. Defaults to True.
+        baseline_es (dict, optional): early stopping criteria for parameter tuning. Defaults to None.
+        n_config (int, optional): number of config to generate for each param in case of NOT coarse grid search. Defaults to 1.
     """
     models = []
     input_dim = 10 if dataset == "cup" else 17

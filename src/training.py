@@ -27,7 +27,6 @@ class Training:
         self.nesterov = nesterov
         self.lambda_ = lambda_
         self.reg = Regularizations.init_regularization(reg_type) # tuple composed by (reg_function, reg_function_der, name)
-        # self.print_training_parameters()
 
     @property
     def lr_params(self):
@@ -59,6 +58,7 @@ class Training:
             epochs (int): number of training epochs
             batch_size (int): number of patterns per single batch
             strip_early_stopping (int): maximum number of consecutive epochs in which the validation error increases (0 means no early stopping)
+            baseline_early_stopping (dict): dict with number of epoch (first element) to check if error is below a certain threshold (second element)
             disable_tqdm (bool, optional): to disable progress bar. Defaults to True.
 
         Returns:
@@ -198,10 +198,6 @@ class Training:
                     raise Exception("Validation error at epoch {} is NaN".format(epoch))
                 if epoch == baseline_early_stopping['epoch'] and (epoch_val_error > baseline_early_stopping['threshold'] or math.isnan(epoch_val_error)):
                     raise Exception("Validation error at epoch {} is above threshold {}".format(epoch,baseline_early_stopping['threshold']))
-            # print(val_error_values[-1])
-            # print(val_metric_values[-1])
-            # print(tr_error_values[-1])
-            # print(tr_metric_values[-1])
         return tr_error_values, tr_metric_values, val_error_values, val_metric_values
 
     def print_training_parameters(self):

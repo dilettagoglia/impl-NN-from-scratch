@@ -4,20 +4,14 @@ import pandas as pd
 import numpy as np
 import csv
 import matplotlib.pyplot as plt
-from sklearn import metrics
 from sklearn.preprocessing import OneHotEncoder
-# import scikitplot as skplt
 import matplotlib
 matplotlib.rcParams['figure.figsize'] = (10.0, 10.0)
 from matplotlib import pyplot as plt
 import numpy as np
-from sklearn.metrics import accuracy_score
-from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split # hold-out approach
 from tqdm import tqdm
-# from IPython import display
 
-#TODO use DocString documentation for this file
 """
 Read Dataset
 """
@@ -85,7 +79,12 @@ def read_monk_dataset(dataset, rescale=False, preliminary_analysis=None):
 def read_cup(int_ts=False):
     """
     Reads the CUP training and test set
-    :return: CUP training data, CUP training targets and CUP test data (as numpy ndarray)
+
+    Args:
+        int_ts (bool, optional): Specify if we want to generate the internal test set. Defaults to False.
+
+    Returns:
+        (tuple of np.ndarrays): CUP training data, CUP training targets and CUP test data (as numpy ndarray)
     """
     # read the dataset
     col_names = ['id', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'target_x', 'target_y']
@@ -137,7 +136,8 @@ def read_cup(int_ts=False):
     return tr_data, tr_targets, cup_ts_data
 
 def sets_from_folds(x_folds, y_folds, val_fold_index):
-    """ Takes folds from cross validation and return training and validation sets as a whole (not lists of folds)
+    """ 
+    Takes folds from cross validation and return training and validation sets as a whole (not lists of folds)
 
     Args:
         x_folds (np.ndarray): list of folds containing the data
@@ -165,33 +165,35 @@ def sets_from_folds(x_folds, y_folds, val_fold_index):
 """ 
 Visualization 
 """
-# TODO change plot_curves call in all files (we add ylim2)
 def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 10.), ylim2=(0., 10.), lbltr='Development',
                 lblval='Internal Test', *args):
     """
     Plot the curves of training loss, training metric, validation loss, validation metric
-    :param tr_loss: vector with the training error values
-    :param val_loss: vector with the validation error values
-    :param tr_metr: vector with the training metric values
-    :param val_metr: vector with the validation metric values
-    :param path: if not None, path where to save the plot (otherwise it will be displayed)
-    :param ylim: value for "set_ylim" of pyplot
-    :param lbltr: label for the training curve
-    :param lblval: label for the validation curve
+
+    Args:
+        tr_loss (list): vector with the training error values
+        val_loss (list): vector with the validation error values
+        tr_metr (list): vector with the training metric values
+        val_metr (list): vector with the validation metric values
+        path (str, optional): if not None, path where to save the plot (otherwise it will be displayed). Defaults to None.
+        ylim (tuple, optional): value for "set_ylim" for metric of pyplot. Defaults to (0., 10.).
+        ylim2 (tuple, optional): value for "set_ylim" for loss of pyplot. Defaults to (0., 10.).
+        lbltr (str, optional): label for the training curve. Defaults to 'Development'.
+        lblval (str, optional): label for the validation curve. Defaults to 'Internal Test'.
     """
     figure, ax = plt.subplots(1, 2, figsize=(12, 4))
     ax[0].plot(range(len(tr_loss)), tr_loss, color='b', linestyle='dashed', label=lbltr)
     ax[0].plot(range(len(val_loss)), val_loss, color='r', label=lblval)
     ax[0].legend(loc='best', prop={'size': 9})
     ax[0].set_xlabel('Epochs', fontweight='bold')
-    ax[0].set_ylabel('MSE', fontweight='bold')
+    ax[0].set_ylabel('Error', fontweight='bold')
     ax[0].set_ylim(ylim2)
     ax[0].grid()
     ax[1].plot(range(len(tr_metr)), tr_metr, color='b', linestyle='dashed', label=lbltr)
     ax[1].plot(range(len(val_metr)), val_metr, color='r', label=lblval)
     ax[1].legend(loc='best', prop={'size': 9})
     ax[1].set_xlabel('Epochs', fontweight='bold')
-    ax[1].set_ylabel('MEE', fontweight='bold')
+    ax[1].set_ylabel('Metric', fontweight='bold')
     ax[1].set_ylim(ylim)
     ax[1].grid()
     plt.suptitle(f'Error (TR/VL): {tr_loss[-1]} / {val_loss[-1]} | Accuracy% (TR/VL): {tr_metr[-1]} / {val_metr[-1]}')
@@ -202,6 +204,13 @@ def plot_curves(tr_loss, val_loss, tr_metr, val_metr, path=None, ylim=(0., 10.),
         plt.savefig(path)
 
 def save_blind(net, cup_ts_data):
+    """ 
+    Generate csv file for predictions on CUP dataset
+
+    Args:
+        net (obj): trained network
+        cup_ts_data (np.ndarray): blind test set
+    """
 
     predictions = net.predict(cup_ts_data)
     with open("../amaroluciano_ML-CUP20-TS.csv", "w", newline="\n") as internal_file:

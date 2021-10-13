@@ -5,7 +5,6 @@ from matplotlib import pyplot as plt
 
 """ Exploring the effects of regularization techniques on learning """
 
-# TODO change based on variations for screening phase
 
 if __name__ == '__main__':
 
@@ -35,8 +34,6 @@ if __name__ == '__main__':
 
     tr_data, tr_targets, int_ts_data, int_ts_targets, cup_ts_data = read_cup(int_ts=True) # detach internal test set
 
-    # print(int_ts_data)
-    # print(int_ts_targets)
 
     # Plot Loss
 

@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
 
     # plot the learning curves
-    plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation')
+    plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation', ylim = (0., 1.1), ylim2 = (0., 1.1))
 
     model.print_topology()
 

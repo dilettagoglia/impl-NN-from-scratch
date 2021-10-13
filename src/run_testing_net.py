@@ -34,13 +34,13 @@ if __name__ == '__main__':
             tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=train_X, tr_y=train_y, val_x=val_X, val_y=val_y, batch_size='full',
                                                             epochs=500, disable_tqdm=False)
             # # plot the learning curves
-            plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation')
+            plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation', ylim = (0., 1.1), ylim2 = (0., 1.1))
         elif VALIDATION == "holdout":
             tr_err, tr_metr, val_err, val_metr = holdout_validation(net=model, path=tr_ds_name, test_size=0.30, error_func='squared_error',
                                                 metr='binary_class_accuracy', lr=0.76, momentum=0.83, lambda_=0,batch_size='full',
                                                             epochs=500, disable_tqdm=False)
             # # plot the learning curves
-            plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation')
+            plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Validation', ylim = (0., 1.1), ylim2 = (0., 1.1))
         elif VALIDATION == "kfold":
             kfold_CV(net=model, dataset=tr_ds_name, error_func='squared_error',
                                                 metr='binary_class_accuracy', lr=0.76, momentum=0.83, lambda_=0,batch_size='full',
@@ -51,7 +51,7 @@ if __name__ == '__main__':
             model.compile(error_func='squared_error', metr='binary_class_accuracy', lr=0.8, momentum=0.8, lambda_=0, nesterov=True)
             tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=monk_train, tr_y=labels_tr, val_x=monk_test, val_y=labels_ts, batch_size='full',
                                                             epochs=500, disable_tqdm=False,)
-            plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Test')
+            plot_curves(tr_err, val_err, tr_metr, val_metr, lbltr='Training', lblval='Test', ylim = (0., 1.1), ylim2 = (0., 1.1))
             print(tr_err[-1], tr_metr[-1])
             print(model.evaluate(targets=labels_ts, metr='binary_class_accuracy', error_func='squared_error', inp=monk_test))
 

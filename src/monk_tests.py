@@ -89,8 +89,7 @@ if __name__ == '__main__':
             epochs=500,
             batch_size='full'
         )
-        # plot_curves(tr_error_values, ts_error_values, tr_acc_values, ts_acc_values, lbltr='Training', lblval='Test')
-        print(tr_acc_values[-1], ts_acc_values[-1])
+        # plot_curves(tr_error_values, ts_error_values, tr_acc_values, ts_acc_values, lbltr='Training', lblval='Test', ylim = (0., 1.1), ylim2 = (0., 1.1))
         avg_tr_error.append(tr_error_values[-1])
         avg_tr_acc.append(tr_acc_values[-1])
         avg_ts_error.append(ts_error_values[-1])

@@ -23,7 +23,6 @@ class Network:
             kwargs may contain arguments for the weights initialization
         """
 
-        self.__check_attributes(self, input_dim=input_dim, units_per_layer=units_per_layer, act_functions=act_functions)
         # a dictionary with all the main specific parameters of the network (using dict concatenation)
         self._params = {**{'input_dim': input_dim, 'units_per_layer': units_per_layer, 'act_functions': act_functions, 'weights_init': weights_init},  **kwargs}
         self._training_alg = None # training alghoritm used for optimization
@@ -35,16 +34,6 @@ class Network:
             self._layers.append(Layer(inp_dim=layer_inp_dim, n_units=units_per_layer[i], act=act_functions[i], init_w_name=weights_init, **kwargs))
             # keep the current number of neurons of this layer as number of inputs for the next layer
             layer_inp_dim = units_per_layer[i]
-        # self.print_topology()
-
-    # TODO decide whether to keep check attribute or not
-    @staticmethod
-    def __check_attributes(self, input_dim, units_per_layer, act_functions):
-        if input_dim < 1 or any(n_units < 1 for n_units in units_per_layer):
-            raise ValueError("The input dimension and the number of units for all layers must be positive")
-        if len(units_per_layer) != len(act_functions):
-            raise AttributeError(
-                f"Mismatching lengths --> len(units_per_layer)={len(units_per_layer)}; len(act_functions)={len(act_functions)}")
 
     # Syntax note: the line @property is used to get the value of a private variable without using any getter methods.
     @property
@@ -72,7 +61,6 @@ class Network:
     def training_params(self):
         return self._training_params
 
-    # TODO decide if keep this or implement in Layer class
     @property
     def weights(self):
         return [layer.weights.tolist() for layer in self._layers]
@@ -112,7 +100,6 @@ class Network:
             x = layer.forward_pass(x)
         return x
 
-    # TODO we can remove **kwargs from compile
     def compile(self, error_func='squared_error', metr='binary_class_accuracy', lr=0.01, lr_decay=None, limit_step=None, decay_rate=None, decay_steps=None, momentum=0., nesterov = True, reg_type='ridge_regression', lambda_=0, **kwargs):
         """
         Prepares the network by assigning an optimizer to it and setting its parameters
@@ -128,12 +115,7 @@ class Network:
             momentum (float, optional): momentum parameter. Defaults to 0..
             reg_type (str, optional): regularization type. Defaults to 'ridge_regression'.
             lambda_ (int, optional): regularization parameter. Defaults to 0.
-
-        Raises:
-            ValueError: momentum must be between 0 and 1
         """
-        if momentum > 1. or momentum < 0.:
-            raise ValueError(f"momentum must be a value between 0 and 1. Got: {momentum}")
         
         self._training_params = {'error_func': error_func, 'metr': metr, 'lr': lr, 'lr_decay': lr_decay,
                                   'limit_step': limit_step, 'decay_rate': decay_rate,
