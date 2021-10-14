@@ -27,7 +27,6 @@ class Training:
         self.nesterov = nesterov
         self.lambda_ = lambda_
         self.reg = Regularizations.init_regularization(reg_type) # tuple composed by (reg_function, reg_function_der, name)
-        # self.print_training_parameters()
 
     @property
     def lr_params(self):
@@ -59,19 +58,12 @@ class Training:
             epochs (int): number of training epochs
             batch_size (int): number of patterns per single batch
             strip_early_stopping (int): maximum number of consecutive epochs in which the validation error increases (0 means no early stopping)
+            baseline_early_stopping (dict): dict with number of epoch (first element) to check if error is below a certain threshold (second element)
             disable_tqdm (bool, optional): to disable progress bar. Defaults to True.
 
         Returns:
             tuple of lists: return training error (for loss), training metric error, validation error and validation error metric for each epoch
         """
-        # add one dimension to the sets if they are one-dimensional
-        # TODO decide if remove this instructions or not
-        # or use np.expand_dims(variable_name, axis=0)
-        tr_x = tr_x[np.newaxis, :] if len(tr_x.shape) < 2 else tr_x
-        tr_y = tr_y[np.newaxis, :] if len(tr_y.shape) < 2 else tr_y
-        if val_x is not None:
-            val_x = val_x[np.newaxis, :] if len(val_x.shape) < 2 else val_x
-            val_y = val_y[np.newaxis, :] if len(val_y.shape) < 2 else val_y
 
         # early stopping
         if strip_early_stopping > 0 and val_x is not None:
@@ -103,6 +95,7 @@ class Training:
                 end = start + batch_size
                 train_batch = tr_x[start: end]
                 targets_batch = tr_y[start: end]
+                # gradient is saved in a matricial form
                 grad_net = net.get_empty_struct()
 
                 # Nesterov Momentum
@@ -140,7 +133,7 @@ class Training:
                     grad_net[layer_index]['weights'] /= batch_size
                     grad_net[layer_index]['biases'] /= batch_size
                     # delta_w is equivalent to lrn_rate * local_grad * input_on_that_connection (local_grad = delta)
-                    delta_w = self.curr_lr * grad_net[layer_index]['weights']
+                    delta_w = self.curr_lr * grad_net[layer_index]['weights'] # first step
                     delta_b = self.curr_lr * grad_net[layer_index]['biases']
                     
                     if (self.nesterov == True):
@@ -158,11 +151,12 @@ class Training:
                         # momentum_net[layer_index]['weights'] is the new delta_w --> it adds the momentum
                         # Since it acts as delta_w, it multiplies itself by the momentum constant and then adds
                         # lrn_rate * local_grad * input_on_that_connection (i.e. "delta_w")
-                        momentum_net[layer_index]['weights'] *= self.momentum 
+                        momentum_net[layer_index]['weights'] *= self.momentum # second step
                         momentum_net[layer_index]['biases'] *= self.momentum
                         momentum_net[layer_index]['weights'] = np.add(momentum_net[layer_index]['weights'], delta_w)
                         momentum_net[layer_index]['biases'] = np.add(momentum_net[layer_index]['biases'], delta_b)
                         # keep separation of the 3 hyperparameters
+                        # third step
                         net.layers[layer_index].weights = np.subtract(
                             np.add(net.layers[layer_index].weights, momentum_net[layer_index]['weights']),
                             self.reg[1](w=net.layers[layer_index].weights, lambda_=self.lambda_),
@@ -198,10 +192,6 @@ class Training:
                     raise Exception("Validation error at epoch {} is NaN".format(epoch))
                 if epoch == baseline_early_stopping['epoch'] and (epoch_val_error > baseline_early_stopping['threshold'] or math.isnan(epoch_val_error)):
                     raise Exception("Validation error at epoch {} is above threshold {}".format(epoch,baseline_early_stopping['threshold']))
-            # print(val_error_values[-1])
-            # print(val_metric_values[-1])
-            # print(tr_error_values[-1])
-            # print(tr_metric_values[-1])
         return tr_error_values, tr_metric_values, val_error_values, val_metric_values
 
     def print_training_parameters(self):

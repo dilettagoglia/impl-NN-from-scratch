@@ -5,7 +5,6 @@ from matplotlib import pyplot as plt
 
 """ Exploring the effects of regularization techniques on learning """
 
-# TODO change based on variations for screening phase
 
 if __name__ == '__main__':
 
@@ -30,13 +29,8 @@ if __name__ == '__main__':
     # lambda_val = [0, 0.0001, 0.001, 0.01]
     lambda_ = 0.0001
 
-    # input dimension for cup is 10
-    # model = Network(input_dim=10, units_per_layer=units_per_layer, act_functions=act_functions, weights_init=weights_init)
-
     tr_data, tr_targets, int_ts_data, int_ts_targets, cup_ts_data = read_cup(int_ts=True) # detach internal test set
 
-    # print(int_ts_data)
-    # print(int_ts_targets)
 
     # Plot Loss
 
@@ -48,7 +42,6 @@ if __name__ == '__main__':
             model = Network(input_dim=10, units_per_layer=units_per_layer, act_functions=act_functions, weights_init=weights_init)
             model.compile(error_func=error_func, metr=metr, lr=i, lr_decay=lr_decay, decay_steps=decay_steps, decay_rate=j, limit_step=limit_step, momentum=momentum, nesterov=True, lambda_=lambda_, reg_type=reg_type)
             
-            # # training (check the method definition for more info about all the possible parameters)
             tr_err, tr_metr, val_err, val_metr = model.fit(tr_x=tr_data, tr_y=tr_targets, val_x=int_ts_data, val_y=int_ts_targets,
                                                            batch_size=batch_size,
                                                            epochs=epochs, disable_tqdm=False)
