@@ -52,8 +52,6 @@ def read_monk_dataset(dataset, rescale=False, preliminary_analysis=None):
     # Labels creation - Dropping the "class" column from the Monk dataset: this represents the target y.
 
     labels = monk_train['class']
-    if rescale:
-        labels[labels == 0] = -1 # rescale to -1 for TanH output function
 
     monk_train.drop(columns=['class'], inplace=True)
 
@@ -150,16 +148,12 @@ def sets_from_folds(x_folds, y_folds, val_fold_index):
     val_data, val_targets = x_folds[val_fold_index], y_folds[val_fold_index]
     tr_data_folds = np.concatenate((x_folds[: val_fold_index], x_folds[val_fold_index + 1:]))
     tr_targets_folds = np.concatenate((y_folds[: val_fold_index], y_folds[val_fold_index + 1:]))
-    # here tr_data_folds & tr_targets_folds are still a "list of folds", we need a single seq as a whole
+    # here we need tr_data_folds and tr_targets_folds as single seq
     tr_data = tr_data_folds[0]
     tr_targets = tr_targets_folds[0]
     for j in range(1, len(tr_data_folds)):
         tr_data = np.concatenate((tr_data, tr_data_folds[j]))
         tr_targets = np.concatenate((tr_targets, tr_targets_folds[j]))
-    tr_data = np.array(tr_data, dtype=np.float32)
-    tr_targets = np.array(tr_targets, dtype=np.float32)
-    val_data = np.array(val_data, dtype=np.float32)
-    val_targets = np.array(val_targets, dtype=np.float32)
     return tr_data, tr_targets, val_data, val_targets
 
 """ 

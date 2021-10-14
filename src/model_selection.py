@@ -1,5 +1,4 @@
 from operator import index
-from scipy.sparse import data
 from utility import *
 import numpy as np
 import tqdm
@@ -44,18 +43,16 @@ def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit
         rescale = True if net.params['act_functions'][-1] == 'tanh' else False
         dev_set_x, labels = read_monk_dataset(dataset=dataset, rescale=rescale)
 
-    # split the dataset into folds
+    # Split array into multiple sub-arrays of equal size into folds
     x_folds = np.array(np.array_split(dev_set_x, k_folds), dtype=object)
     y_folds = np.array(np.array_split(labels, k_folds), dtype=object)
 
-    # initialize vectors for plots
     tr_error_values, tr_metric_values = np.zeros(epochs), np.zeros(epochs)
     val_error_values, val_metric_values = np.zeros(epochs), np.zeros(epochs)
     val_metric_per_fold, val_error_per_fold = [], []
     tr_error_per_fold, tr_metric_per_fold = [], []
 
-    # CV cycle
-    for i in tqdm.tqdm(range(k_folds), desc='Iterating over folds', disable=disable_tqdms[0]):
+    for i in tqdm.tqdm(range(k_folds), desc='Iterating over folds', disable=disable_tqdms[0]): # disable_tqdms[0] for tqdm bar for k-fold
         # create validation set and training set using the folds (for one iteration of CV)
         tr_data, tr_targets, val_data, val_targets = sets_from_folds(x_folds, y_folds, val_fold_index=i)
 
@@ -64,38 +61,26 @@ def kfold_CV(net, dataset, error_func, metr, lr, path=None, lr_decay=None, limit
                     decay_rate=decay_rate, decay_steps=decay_steps, momentum=momentum, nesterov=nesterov,
                     reg_type=reg_type, lambda_=lambda_)
         try:
+            # disable_tqdms[1] for tqdm bar for epoch in training
             tr_history = net.fit(tr_x=tr_data, tr_y=tr_targets, val_x=val_data, val_y=val_targets, epochs=epochs,
                                  batch_size=batch_size, strip_early_stopping=strip, baseline_early_stopping=baseline_es, disable_tqdm=disable_tqdms[1])
         except Exception as e:
-            print(f"{e.__class__.__name__} occurred. Training suppressed.")
+            # used for filtering models in parameter tuning
+            print(f"{e.__class__.__name__} exception. Stop training.")
             print(e, '\n')
             return
-
-        # metrics for the graph
-        # composition of tr_history:
-        #   [0] --> training error values for each epoch
-        #   [1] --> training metric values for each epoch
-        #   [2] --> validation error values for each epoch
-        #   [3] --> validation metric values for each epoch
-        #   variables useful for plotting
 
         tr_error_values += tr_history[0]
         tr_metric_values += tr_history[1]
         val_error_values += tr_history[2]
         val_metric_values += tr_history[3]
-        # keep last error value for training and validation per fold
-        try:
-            tr_error_per_fold.append(tr_history[0][-1])
-            tr_metric_per_fold.append(tr_history[1][-1])
-            val_error_per_fold.append(tr_history[2][-1])
-            val_metric_per_fold.append(tr_history[3][-1])
-        except TypeError:
-            tr_error_per_fold.append(tr_history[0])
-            tr_metric_per_fold.append(tr_history[1])
-            val_error_per_fold.append(tr_history[2])
-            val_metric_per_fold.append(tr_history[3])
 
-        # reset net's weights for the next iteration of CV
+        # keep last error value for training and validation per fold
+        tr_error_per_fold.append(tr_history[0][-1])
+        tr_metric_per_fold.append(tr_history[1][-1])
+        val_error_per_fold.append(tr_history[2][-1])
+        val_metric_per_fold.append(tr_history[3][-1])
+
         net = Network(**net.params)
 
     # average the validation results of every fold
@@ -200,20 +185,17 @@ def randomize_params(base_params, n_config=2):
                             if abs(value - m) < 0.05:
                                 value = rand_params[k][0]
                     rand_params[k].append(value)
-
-    print(rand_params)
     return rand_params
 
 def list_of_combos(param_dict):
     """
-    Takes a dictionary with the combinations of params to use in the grid search and creates a list of dictionaries, one
-    for each combination (so it's possible to iterate over this list in the GS, instead of having many nested loops)
+    Takes a dictionary with the combinations of params to use in the grid search and creates a list of dictionaries (avoid nested loops)
 
     Args:
         param_dict (dict): dict{kind_of_param: tuple of all the values of that param to try in the grid search)
 
     Returns:
-        list: list of dictionaries{kind_of_param: value of that param}
+        list: list of dictionaries model
     """
     expected_keys = sorted(['units_per_layer', 'act_functions', 'weights_init', 'bounds', 'momentum', 'nesterov', 'batch_size', 'lr', 'error_func',
                             'metr', 'epochs', 'lr_decay', 'decay_rate', 'decay_steps', 'limit_step',
@@ -304,7 +286,6 @@ def get_best_models(dataset, coarse=False, n_models=1, fn=None):
 
 def grid_search(dataset, params, coarse=True, baseline_es = None, n_config=1):
     """
-    Performs a grid search over a set of parameters to find the best combination of hyperparameters
 
     Args:
         dataset (str): name of the dataset (monks-1, monks-2, monks-3, cup)

@@ -1,7 +1,4 @@
-import warnings
-import json
 import numpy as np
-from tqdm import tqdm
 from error_functions import ErrorFunction
 from metrics import Metric
 from layer import Layer
@@ -19,7 +16,6 @@ class Network:
             units_per_layer (list): list of integers that indicates the number of units for each layer (input excluded)
             act_functions (list): list of activation function names (one for each layer)
             weights_init (string): weights initialization type name
-            tqdm (bool, optional): usefull for showing progress bars. Defaults to True.
             kwargs may contain arguments for the weights initialization
         """
 
@@ -112,14 +108,15 @@ class Network:
             limit_step (int, optional): iteration number of weights update when we stop decaying. Defaults to None.
             decay_rate (float, optional): amount of decay at each stage (for exponential). Defaults to None.
             decay_steps (int, optional): length of each stage for decaying, composed of multiple iterations (steps). Defaults to None.
-            momentum (float, optional): momentum parameter. Defaults to 0..
+            momentum (float, optional): momentum parameter. Defaults to 0.
+            nesterov (bool, optional): Nesterov momentum accelerator. Defaulta to True.
             reg_type (str, optional): regularization type. Defaults to 'ridge_regression'.
             lambda_ (int, optional): regularization parameter. Defaults to 0.
         """
         
         self._training_params = {'error_func': error_func, 'metr': metr, 'lr': lr, 'lr_decay': lr_decay,
                                   'limit_step': limit_step, 'decay_rate': decay_rate,
-                                  'decay_steps': decay_steps, 'momentum': momentum,'reg_type': reg_type, 'lambda_': lambda_}
+                                  'decay_steps': decay_steps, 'momentum': momentum, 'nesterov': nesterov, 'reg_type': reg_type, 'lambda_': lambda_}
         self._training_alg = Training(net=self, error_func=error_func, metr=metr, lr=lr, lr_decay=lr_decay, limit_step=limit_step,
                                      decay_rate=decay_rate, decay_steps=decay_steps,
                                      momentum=momentum, nesterov=nesterov, reg_type=reg_type, lambda_=lambda_)
@@ -137,6 +134,8 @@ class Network:
             epochs (int, optional): number of epochs. Defaults to 1.
             batch_size (int, optional): the size of the batch. Defaults to 1.
             strip_early_stopping (int, optional): limit of consecutive epochs to stop training when the validation error increased. Defaults to 0 (no early stopping).
+            baseline_early_stopping (dict, optional): dict with number of epoch (first element) to check if error is below a certain threshold (second element). Defaults to None.
+            error_exp (bool, optional): useful for MSE expectation computation. The method returns the model itself if sets to True. Defaults to False.
 
         Raises:
             AttributeError: if the input set and targets dimensions do not match
@@ -167,7 +166,7 @@ class Network:
 
     def predict(self, inp):
         """
-        Computes the outputs for a batch of patterns, useful for testing w/ a blind test set
+        Performs the prediction, i.e computes the 'out' for blind test set
 
         Args:
             inp (list): batch of input patterns
@@ -192,25 +191,25 @@ class Network:
             predictions.append(self.forward(inp=pattern))
         return np.array(predictions)
 
-    def evaluate(self, targets, metr, error_func, net_outputs=None, inp=None):
+    def evaluate(self, targets, metr, error_func, inp=None):
         """
-        Performs an evaluation of the network based on the targets and either the pre-computed outputs ('net_outputs')
-        or the input data ('inp'), on which the net will first compute the output.
+        Used by SGD to compute error and metric for validation
 
         Args:
             targets: the targets for the input on which the net is evaluated
             metr (string): the metric to track for the evaluation
             error_func (string): the error function to track for the evaluation
-            net_outputs (np.ndarray): the output of the net for a certain input
             inp (list): the input on which the net has to be evaluated
+
+        Raises:
+            AttributeError: if the input is None
 
         Returns:
             tuple of np.ndarray: the error function and the metric
         """
-        if net_outputs is None:
-            if inp is None:
-                raise AttributeError("Both net_outputs and inp cannot be None")
-            net_outputs = self.predict(inp)
+        if inp is None:
+            raise AttributeError("Inp cannot be None")
+        net_outputs = self.predict(inp)
         metr_scores = np.zeros(self.layers[-1].n_units)
         error_func_scores = np.zeros(self.layers[-1].n_units)
         metric = Metric.init_metric(metr)
@@ -224,7 +223,7 @@ class Network:
         metr_scores /= len(net_outputs)
         return error_func_scores, metr_scores
 
-    def backprop(self, dErr_dOut, grad_net): # NB: mantenuto originale
+    def backprop(self, dErr_dOut, grad_net):
         """
         Propagates back the error to update each layer's gradient
 
@@ -242,7 +241,7 @@ class Network:
             grad_net[layer_index]['biases'] = np.add(grad_net[layer_index]['biases'], grad_b)
         return grad_net
 
-    def get_empty_struct(self): # NB mantenuto originale
+    def get_empty_struct(self):
         """ return a zeroed structure with the same topology of the NN to contain all the layers' gradients """
         struct = np.array([{}] * len(self._layers)) # in each {} there is a layer
         for layer_index in range(len(self._layers)):
@@ -259,9 +258,3 @@ class Network:
         for i,layer in enumerate(self._layers):
             print("---------- LAYER {} ----------".format(i+1))
             layer.print_details()
-
-    def save_model(self, filename: str):
-        """ Saves the model to filename """
-        data = {'model_params': self._params, 'training_params': self._training_params, 'weights': self.weights}
-        with open(filename, 'w') as f:
-            json.dump(data, f, indent='\t')

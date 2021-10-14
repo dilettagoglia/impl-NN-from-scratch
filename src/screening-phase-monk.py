@@ -3,7 +3,6 @@ from utility import *
 from sklearn.model_selection import train_test_split
 matplotlib.rcParams['figure.figsize'] = (10.0, 10.0)
 from matplotlib import pyplot as plt
-import numpy as np
 
 """ Exploring the effects of regularization techniques on learning """
 

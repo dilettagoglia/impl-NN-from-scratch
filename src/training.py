@@ -95,6 +95,7 @@ class Training:
                 end = start + batch_size
                 train_batch = tr_x[start: end]
                 targets_batch = tr_y[start: end]
+                # gradient is saved in a matricial form
                 grad_net = net.get_empty_struct()
 
                 # Nesterov Momentum
@@ -132,7 +133,7 @@ class Training:
                     grad_net[layer_index]['weights'] /= batch_size
                     grad_net[layer_index]['biases'] /= batch_size
                     # delta_w is equivalent to lrn_rate * local_grad * input_on_that_connection (local_grad = delta)
-                    delta_w = self.curr_lr * grad_net[layer_index]['weights']
+                    delta_w = self.curr_lr * grad_net[layer_index]['weights'] # first step
                     delta_b = self.curr_lr * grad_net[layer_index]['biases']
                     
                     if (self.nesterov == True):
@@ -150,11 +151,12 @@ class Training:
                         # momentum_net[layer_index]['weights'] is the new delta_w --> it adds the momentum
                         # Since it acts as delta_w, it multiplies itself by the momentum constant and then adds
                         # lrn_rate * local_grad * input_on_that_connection (i.e. "delta_w")
-                        momentum_net[layer_index]['weights'] *= self.momentum 
+                        momentum_net[layer_index]['weights'] *= self.momentum # second step
                         momentum_net[layer_index]['biases'] *= self.momentum
                         momentum_net[layer_index]['weights'] = np.add(momentum_net[layer_index]['weights'], delta_w)
                         momentum_net[layer_index]['biases'] = np.add(momentum_net[layer_index]['biases'], delta_b)
                         # keep separation of the 3 hyperparameters
+                        # third step
                         net.layers[layer_index].weights = np.subtract(
                             np.add(net.layers[layer_index].weights, momentum_net[layer_index]['weights']),
                             self.reg[1](w=net.layers[layer_index].weights, lambda_=self.lambda_),

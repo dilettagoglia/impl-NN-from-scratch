@@ -3,6 +3,8 @@ from net import Network
 from utility import read_monk_dataset
 import numpy as np
 
+""" Perform different trials of MONK problems """
+
 if __name__ == '__main__':
     # create directory for plots
     dir_name = "../plots/"

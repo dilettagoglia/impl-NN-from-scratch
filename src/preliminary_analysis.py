@@ -58,7 +58,7 @@ def bias_variance_decomp(estimator, X_train, y_train, X_test, y_test,
         X_boot, y_boot = _draw_bootstrap_sample(rng, X_train, y_train)
 
         pred = estimator.fit(X_boot, y_boot, **fit_params).predict(X_test)
-        all_pred[i] = pred # todo fix error
+        all_pred[i] = pred
 
     avg_expected_loss = np.apply_along_axis(
         lambda x:

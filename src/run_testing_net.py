@@ -68,7 +68,7 @@ if __name__ == '__main__':
             baseline_es = {'epoch': 50, 'threshold': 25}
             result = kfold_CV(net=model, dataset=DATASET, error_func='squared_error',
                                                 metr='euclidian_error', lr=lr, momentum=momentum, nesterov=True, lambda_=lambda_,batch_size=batch_size,
-                                                            epochs=350, baseline_es=baseline_es, disable_tqdms=(False,False), verbose=True, plot=True)
+                                                            epochs=10, baseline_es=baseline_es, disable_tqdms=(False,False), verbose=True, plot=True)
             print(result)
 
 

@@ -3,6 +3,7 @@ from net import Network
 from utility import read_cup, save_blind
 import numpy as np
 
+""" Performs single computation for CUP dataset """
 if __name__ == '__main__':
 
     # read cup {development set - internal test set}
