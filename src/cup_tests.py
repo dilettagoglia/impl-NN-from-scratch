@@ -62,7 +62,7 @@ if __name__ == '__main__':
             )
             # with path=None plot_curves will plot a graph for each trial. If we want only save images pass path != None to plot_curves 
             path = None # path = '../images/int_ts_assessment/model_assessment_{}'.format(trials)
-            plot_curves(tr_error_values, ts_error_values, tr_acc_values, ts_acc_values, ylim2 = (0., 20.), path=path) # keep one of the 10 trials for learning curve to insert in the report
+            plot_curves(tr_error_values, ts_error_values, tr_acc_values, ts_acc_values, ylim2 = (0., 20.), path=path)
             avg_tr_error.append(tr_error_values[-1])
             avg_tr_acc.append(tr_acc_values[-1])
             avg_ts_error.append(ts_error_values[-1])

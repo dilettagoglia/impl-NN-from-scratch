@@ -158,7 +158,7 @@ def sets_from_folds(x_folds, y_folds, val_fold_index):
         tr_targets = np.concatenate((tr_targets, tr_targets_folds[j]))
     tr_data = np.array(tr_data, dtype=np.float32)
     tr_targets = np.array(tr_targets, dtype=np.float32)
-    val_data = np.array(val_data, dtype=np.float32) #TODO check if we can remove this instruction
+    val_data = np.array(val_data, dtype=np.float32)
     val_targets = np.array(val_targets, dtype=np.float32)
     return tr_data, tr_targets, val_data, val_targets
 

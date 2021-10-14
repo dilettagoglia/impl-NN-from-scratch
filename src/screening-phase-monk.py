@@ -24,15 +24,8 @@ if __name__ == '__main__':
     lambda_val = [0, 0.0001, 0.0003, 0.0005, 0.0008, 0.001]
 
 
-    # MONKS DEMO
+    model = Network(input_dim=17, units_per_layer=units_per_layer, act_functions=act_functions, weights_init=weights_init)
 
-    # Create a neural network
-    # input_dim must stay 17 for monks datasets
-
-    model = Network(input_dim=17, units_per_layer=units_per_layer, act_functions=act_functions, weights_init=weights_init,
-                    tqdm=True)
-
-    # read the dataset. Change the name in the following line to use monks-2 or monks-3
     tr_ds_name = "monks-1.train"
     monk_train, labels_tr = read_monk_dataset(dataset=tr_ds_name, rescale=rescale)
 

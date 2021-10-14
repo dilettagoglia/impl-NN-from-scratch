@@ -64,14 +64,6 @@ class Training:
         Returns:
             tuple of lists: return training error (for loss), training metric error, validation error and validation error metric for each epoch
         """
-        # add one dimension to the sets if they are one-dimensional
-        # TODO decide if remove this instructions or not
-        # or use np.expand_dims(variable_name, axis=0)
-        tr_x = tr_x[np.newaxis, :] if len(tr_x.shape) < 2 else tr_x
-        tr_y = tr_y[np.newaxis, :] if len(tr_y.shape) < 2 else tr_y
-        if val_x is not None:
-            val_x = val_x[np.newaxis, :] if len(val_x.shape) < 2 else val_x
-            val_y = val_y[np.newaxis, :] if len(val_y.shape) < 2 else val_y
 
         # early stopping
         if strip_early_stopping > 0 and val_x is not None:

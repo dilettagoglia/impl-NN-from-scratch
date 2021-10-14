@@ -11,7 +11,7 @@ if __name__ == '__main__':
     # Create a neural network
     # input_dim must stay 17 for monks datasets
     # units_per_layer: tuple containing the number of units for each layer (except the input one)
-    model = Network(input_dim=17, units_per_layer=[2, 1], act_functions=['tanh', 'tanh'], weights_init='random', tqdm=True)
+    model = Network(input_dim=17, units_per_layer=[2, 1], act_functions=['tanh', 'tanh'], weights_init='random')
 
     # read the dataset. Change the name in the following lines to use monks-2 or monks-3
     tr_ds_name = "monks-1.train"

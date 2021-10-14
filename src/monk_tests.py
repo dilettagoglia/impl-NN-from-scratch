@@ -50,11 +50,6 @@ if __name__ == '__main__':
         'weights_init': 'glorot'
     }
 
-    # create model
-    # model_monk1 = Network(**mod_par_monk1)
-    # model_monk2 = Network(**mod_par_monk2)
-    # model_monk3 = Network(**mod_par_monk3)
-
     # training parameters
     params_monk1 = {'lr': 0.8, 'momentum': 0.8, 'nesterov': True, 'epochs': 500, 'batch_size': 'full',
                     'error_func': 'squared_error', 'metr': 'binary_class_accuracy'}
@@ -70,11 +65,6 @@ if __name__ == '__main__':
 
     # Average prediction results
     avg_tr_error, avg_tr_acc, avg_ts_error, avg_ts_acc = [], [], [], []
-
-    # model selection monks
-    
-    # kfold_CV(net=model_monk1, dataset='monks-1.train', **params_monk1, k_folds=5, verbose=True, plot=True,
-    #        disable_tqdms=(False, False))
 
     # test prediction - 10 trials
     for trials in range(10):
