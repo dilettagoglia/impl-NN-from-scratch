@@ -16,9 +16,7 @@ for dataset in ds_names:
     # Check dimensions
     print('\nLabels vector shape:\n', labels_tr.shape, '\n Training dataset shape: (examples, features)\n', monk_train.shape)
 
-
 # Cup train dataset analysis
-
 print('\n\n **** Analysis of ML-CUP20-TR dataset ****')
 tr_data, tr_targets, int_ts_data, int_ts_targets, cup_ts_data = read_cup(int_ts=True)
 # Check dimensions
