@@ -3,6 +3,8 @@ from net import Network
 from utility import read_monk_dataset
 import numpy as np
 
+""" Perform different trials of MONK problems """
+
 if __name__ == '__main__':
     # create directory for plots
     dir_name = "../plots/"
@@ -50,11 +52,6 @@ if __name__ == '__main__':
         'weights_init': 'glorot'
     }
 
-    # create model
-    # model_monk1 = Network(**mod_par_monk1)
-    # model_monk2 = Network(**mod_par_monk2)
-    # model_monk3 = Network(**mod_par_monk3)
-
     # training parameters
     params_monk1 = {'lr': 0.8, 'momentum': 0.8, 'nesterov': True, 'epochs': 500, 'batch_size': 'full',
                     'error_func': 'squared_error', 'metr': 'binary_class_accuracy'}
@@ -71,11 +68,6 @@ if __name__ == '__main__':
     # Average prediction results
     avg_tr_error, avg_tr_acc, avg_ts_error, avg_ts_acc = [], [], [], []
 
-    # model selection monks
-    
-    # kfold_CV(net=model_monk1, dataset='monks-1.train', **params_monk1, k_folds=5, verbose=True, plot=True,
-    #        disable_tqdms=(False, False))
-
     # test prediction - 10 trials
     for trials in range(10):
         model_monk3 = Network(**mod_par_monk3)
@@ -89,8 +81,7 @@ if __name__ == '__main__':
             epochs=500,
             batch_size='full'
         )
-        # plot_curves(tr_error_values, ts_error_values, tr_acc_values, ts_acc_values, lbltr='Training', lblval='Test')
-        print(tr_acc_values[-1], ts_acc_values[-1])
+        # plot_curves(tr_error_values, ts_error_values, tr_acc_values, ts_acc_values, lbltr='Training', lblval='Test', ylim = (0., 1.1), ylim2 = (0., 1.1))
         avg_tr_error.append(tr_error_values[-1])
         avg_tr_acc.append(tr_acc_values[-1])
         avg_ts_error.append(ts_error_values[-1])
