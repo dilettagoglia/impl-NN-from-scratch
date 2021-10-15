@@ -16,7 +16,7 @@ Project implementation for Machine Learning exam, Master's Degree Course in Comp
 
 Professor: [Alessio Micheli](http://pages.di.unipi.it/micheli/).
 
-For more further info please read the [report](report.pdf).
+For more further info please read the [report](GOGLIA_MURGIA_Report.pdf).
 
 ### Abstract
 The project consists in the implementation of an Artificial Neural Network built from scratch using Python, without using pre-built libraries. 
