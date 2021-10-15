@@ -67,3 +67,14 @@ y_pred = model.predict(int_ts_x)
 print('Avg Bias: %.3f' % bias)
 print('Avg Variance: %.3f' % var)
 print('Mean Square error by Sckit-learn lib: %.3f' % metrics.mean_squared_error(int_ts_y, y_pred))
+
+
+'''
+RESULTS
+
+(latest run: 14 oct 2021)
+
+Avg Bias: 7.353
+Avg Variance: 325.097
+Mean Square error by Sckit-learn lib: 9.317
+'''
